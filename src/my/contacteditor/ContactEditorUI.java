@@ -42,18 +42,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        rawTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        highsTable = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        lowsTable = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        meanTable = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        standardDeviationTable = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        regressionTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         fromYearBox = new javax.swing.JComboBox();
@@ -81,6 +69,18 @@ public class ContactEditorUI extends javax.swing.JFrame {
         toHourBox = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rawTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        highsTable = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lowsTable = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        meanTable = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        standardDeviationTable = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        regressionTable = new javax.swing.JTable();
         jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,96 +106,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
         );
 
         jTabbedPane3.addTab("Home", jPanel2);
-
-        rawTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(rawTable);
-
-        jTabbedPane4.addTab("Raw Data", jScrollPane1);
-
-        highsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(highsTable);
-
-        jTabbedPane4.addTab("Highs", jScrollPane2);
-
-        lowsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(lowsTable);
-
-        jTabbedPane4.addTab("Lows", jScrollPane3);
-
-        meanTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(meanTable);
-
-        jTabbedPane4.addTab("Mean", jScrollPane4);
-
-        standardDeviationTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(standardDeviationTable);
-
-        jTabbedPane4.addTab("SD", jScrollPane5);
-
-        regressionTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane6.setViewportView(regressionTable);
-
-        jTabbedPane4.addTab("Regression", jScrollPane6);
 
         //get the current year.
         int currYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -403,6 +313,96 @@ public class ContactEditorUI extends javax.swing.JFrame {
         );
 
         jTabbedPane4.addTab("Parameters", jPanel1);
+
+        rawTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(rawTable);
+
+        jTabbedPane4.addTab("Raw Data", jScrollPane1);
+
+        highsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(highsTable);
+
+        jTabbedPane4.addTab("Highs", jScrollPane2);
+
+        lowsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(lowsTable);
+
+        jTabbedPane4.addTab("Lows", jScrollPane3);
+
+        meanTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(meanTable);
+
+        jTabbedPane4.addTab("Mean", jScrollPane4);
+
+        standardDeviationTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(standardDeviationTable);
+
+        jTabbedPane4.addTab("SD", jScrollPane5);
+
+        regressionTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(regressionTable);
+
+        jTabbedPane4.addTab("Regression", jScrollPane6);
 
         jTabbedPane3.addTab("Query", jTabbedPane4);
         jTabbedPane3.addTab("Import", jFileChooser1);
