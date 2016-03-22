@@ -434,7 +434,43 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_fromYearBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int yearFrom;
+        int yearTo;
+        int monthFrom;
+        int monthTo;
+        int dayFrom;
+        int dayTo;
+        String hourTo;
+        String hourFrom;
+        
+        yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());     // TODO add your handling code here:
+        yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
+        monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
+        monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
+        dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
+        dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
+        hourFrom = (String) fromHourBox.getSelectedItem();
+        hourTo = (String) toHourBox.getSelectedItem();
+        
+        String[] split;
+        int realHourFrom;
+        int realHourTo;
+        
+        split = hourFrom.split(":");
+        realHourFrom = Integer.parseInt(split[0]);
+        
+        split = hourTo.split(":");
+        realHourTo = Integer.parseInt(split[0]);
+
+        
+        System.out.println(yearFrom);
+        System.out.println(yearTo);
+        System.out.println(monthFrom);
+        System.out.println(monthTo);
+        System.out.println(dayFrom);
+        System.out.println(dayTo);
+        System.out.println(realHourFrom);
+        System.out.println(realHourTo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
