@@ -440,8 +440,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         int monthTo;
         int dayFrom;
         int dayTo;
-        String hourTo;
-        String hourFrom;
+        String hourToString;
+        String hourFromString;
+        int hourFrom;
+        int hourTo;
         
         yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());     // TODO add your handling code here:
         yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
@@ -449,18 +451,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
         monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
         dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
         dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
-        hourFrom = (String) fromHourBox.getSelectedItem();
-        hourTo = (String) toHourBox.getSelectedItem();
+        hourFromString = (String) fromHourBox.getSelectedItem();
+        hourToString = (String) toHourBox.getSelectedItem();
         
         String[] split;
-        int realHourFrom;
-        int realHourTo;
         
-        split = hourFrom.split(":");
-        realHourFrom = Integer.parseInt(split[0]);
+        split = hourFromString.split(":");
+        hourFrom = Integer.parseInt(split[0]);
         
-        split = hourTo.split(":");
-        realHourTo = Integer.parseInt(split[0]);
+        split = hourToString.split(":");
+        hourTo = Integer.parseInt(split[0]);
 
         
         System.out.println(yearFrom);
@@ -469,8 +469,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         System.out.println(monthTo);
         System.out.println(dayFrom);
         System.out.println(dayTo);
-        System.out.println(realHourFrom);
-        System.out.println(realHourTo);
+        System.out.println(hourFrom);
+        System.out.println(hourTo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
