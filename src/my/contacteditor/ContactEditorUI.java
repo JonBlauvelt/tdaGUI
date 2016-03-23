@@ -9,8 +9,13 @@ import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
@@ -186,7 +191,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel28.setOpaque(true);
         jLabel28.setBackground(Color.decode("#78d3ed"));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("March 23rd, 2016");
+        jLabel28.setText("March 23, 2016");
 
         jLabel29.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel29.setOpaque(true);
@@ -1517,7 +1522,19 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_presetTypeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        //JOptionPane autoClose  = new JOptionPane("Calculating. Please Wait.");
+        //JDialog jd = autoClose.createDialog("Calc");
+        //jd.setAlwaysOnTop(true);
+        //jd.setModal(true);
+        //jd.setVisible(true);
+        //jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        //    jd.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(null, "Finished Calculating.");
         if (presetType.getSelectedItem().toString().contains("Select")) {
             int yearFrom;
             int yearTo;
