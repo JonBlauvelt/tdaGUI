@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package my.contacteditor;
+
 import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
@@ -17,7 +18,9 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author jon
  */
 public class ContactEditorUI extends javax.swing.JFrame {
+
     //vars
+
     String fromYear;
     String toYear;
     String fromMonth;
@@ -26,7 +29,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     String toDay;
     String fromHour;
     String toHour;
-    
+
     /**
      * Creates new form ContactEditorUI
      */
@@ -48,6 +51,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         frameTDA = new javax.swing.JTabbedPane();
         tabHome = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         tabQuery = new javax.swing.JTabbedPane();
         tabParameter = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -76,7 +83,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         toHourBox = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        buttonExecute = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         presetValueLabel = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         presetYearLabel = new javax.swing.JLabel();
@@ -121,7 +128,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jCheckBox32 = new javax.swing.JCheckBox();
         jCheckBox33 = new javax.swing.JCheckBox();
         jCheckBox34 = new javax.swing.JCheckBox();
-        jCheckBox35 = new javax.swing.JCheckBox();
+        boxALL = new javax.swing.JCheckBox();
         jCheckBox36 = new javax.swing.JCheckBox();
         jCheckBox37 = new javax.swing.JCheckBox();
         jCheckBox38 = new javax.swing.JCheckBox();
@@ -169,26 +176,64 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel20.setOpaque(true);
         jLabel20.setBackground(Color.decode("#78d3ed"));
-        jLabel20.setText("               Welcome to the Temperature Data Analyzer!     ");
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Welcome to the Temperature Data Analyzer!");
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel28.setOpaque(true);
+        jLabel28.setBackground(Color.decode("#78d3ed"));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("March 23rd, 2016");
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel29.setOpaque(true);
+        jLabel29.setBackground(Color.decode("#78d3ed"));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Created by: Jon Blauvelt, James Crisp, and Terena Chao");
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel30.setOpaque(true);
+        jLabel30.setBackground(Color.decode("#78d3ed"));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("Java Swing Prototype #1");
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel31.setOpaque(true);
+        jLabel31.setBackground(Color.decode("#78d3ed"));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText(" ");
 
         javax.swing.GroupLayout tabHomeLayout = new javax.swing.GroupLayout(tabHome);
         tabHome.setLayout(tabHomeLayout);
         tabHomeLayout.setHorizontalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabHomeLayout.createSequentialGroup()
-                .addGap(244, 244, 244)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabHomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         frameTDA.addTab("Home", tabHome);
@@ -264,10 +309,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setText("Search By Presets");
 
-        buttonExecute.setText("Execute");
-        buttonExecute.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Execute");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExecuteActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -542,10 +587,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox35.setText("ALL");
-        jCheckBox35.addActionListener(new java.awt.event.ActionListener() {
+        boxALL.setText("ALL");
+        boxALL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boxALLMouseClicked(evt);
+            }
+        });
+        boxALL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox35ActionPerformed(evt);
+                boxALLActionPerformed(evt);
             }
         });
 
@@ -626,7 +676,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                                     .addComponent(jLabel3)
                                                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
-                                        .addGap(0, 0, 0)
                                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel19)
@@ -751,7 +800,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                         .addComponent(jCheckBox8))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jCheckBox31)
-                                        .addComponent(jCheckBox35)
+                                        .addComponent(boxALL)
                                         .addComponent(jCheckBox28)
                                         .addComponent(jCheckBox20))))
                             .addGroup(tabParameterLayout.createSequentialGroup()
@@ -761,11 +810,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addGap(129, 129, 129)
                                 .addComponent(jLabel13))))
                     .addGroup(tabParameterLayout.createSequentialGroup()
-                        .addGap(470, 470, 470)
-                        .addComponent(buttonExecute, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(516, 516, 516)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(resetButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(106, 160, Short.MAX_VALUE))
         );
 
         tabParameterLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jSeparator2, jSeparator3, jSeparator4, jSeparator5});
@@ -951,13 +1000,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jCheckBox31)
                                         .addGap(7, 7, 7)
-                                        .addComponent(jCheckBox35))))))
+                                        .addComponent(boxALL))))))
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonExecute)
+                    .addComponent(jButton1)
                     .addComponent(resetButton))
                 .addGap(0, 0, 0))
         );
@@ -994,35 +1043,31 @@ public class ContactEditorUI extends javax.swing.JFrame {
         rawTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)},
+                {"MOM", "July", "1", "2002", "0:00",  new Float(3.54)}
             },
             new String [] {
                 "Site Location", "Month", "Day", "Year", "Hour", "Temperature"
@@ -1038,20 +1083,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         });
         rawTable.setShowGrid (true);
         rawTable.setGridColor(new java.awt.Color(0, 0, 0));
-        //rawTable.getColumnModel().getColumn(index).setHeaderRenderer(stringRenderer);
+        //rawTable.getColumnModel().getColumn(0).setHeaderRenderer(stringRenderer);
         jScrollPane1.setViewportView(rawTable);
-        if (rawTable.getColumnModel().getColumnCount() > 0) {
-            rawTable.getColumnModel().getColumn(0).setPreferredWidth(120);
-            rawTable.getColumnModel().getColumn(0).setMaxWidth(120);
-            rawTable.getColumnModel().getColumn(1).setPreferredWidth(120);
-            rawTable.getColumnModel().getColumn(1).setMaxWidth(120);
-            rawTable.getColumnModel().getColumn(2).setPreferredWidth(120);
-            rawTable.getColumnModel().getColumn(2).setMaxWidth(120);
-            rawTable.getColumnModel().getColumn(3).setPreferredWidth(120);
-            rawTable.getColumnModel().getColumn(3).setMaxWidth(120);
-            rawTable.getColumnModel().getColumn(4).setPreferredWidth(120);
-            rawTable.getColumnModel().getColumn(4).setMaxWidth(120);
-        }
 
         javax.swing.GroupLayout rawPanel1Layout = new javax.swing.GroupLayout(rawPanel1);
         rawPanel1.setLayout(rawPanel1Layout);
@@ -1070,15 +1103,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(jLabel26))
                     .addGroup(rawPanel1Layout.createSequentialGroup()
                         .addGap(205, 205, 205)
-                        .addComponent(jLabel21)))
+                        .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(rawPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel21))))
                 .addGap(0, 348, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(525, 525, 525))
         );
         rawPanel1Layout.setVerticalGroup(
             rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1229,7 +1261,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFileChooser fc = new JFileChooser ();
+        JFileChooser fc = new JFileChooser();
         fc.showOpenDialog(null);
         File file = fc.getSelectedFile();
         String filename = file.getAbsolutePath();
@@ -1248,9 +1280,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox36ActionPerformed
 
-    private void jCheckBox35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox35ActionPerformed
+    private void boxALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxALLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox35ActionPerformed
+    }//GEN-LAST:event_boxALLActionPerformed
 
     private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed
         // TODO add your handling code here:
@@ -1407,6 +1439,44 @@ public class ContactEditorUI extends javax.swing.JFrame {
         presetValue.setVisible(false);
         presetYearLabel.setVisible(false);
         presetYear.setVisible(false);
+
+        boolean status = false;
+        
+        jCheckBox1.setSelected(status);
+        jCheckBox5.setSelected(status);
+        jCheckBox6.setSelected(status);
+        jCheckBox7.setSelected(status);
+        jCheckBox8.setSelected(status);
+        jCheckBox9.setSelected(status);
+        jCheckBox10.setSelected(status);
+        jCheckBox11.setSelected(status);
+        jCheckBox12.setSelected(status);
+        jCheckBox13.setSelected(status);
+        jCheckBox14.setSelected(status);
+        jCheckBox15.setSelected(status);
+        jCheckBox16.setSelected(status);
+        jCheckBox17.setSelected(status);
+        jCheckBox18.setSelected(status);
+        jCheckBox19.setSelected(status);
+        jCheckBox20.setSelected(status);
+        jCheckBox21.setSelected(status);
+        jCheckBox22.setSelected(status);
+        jCheckBox23.setSelected(status);
+        jCheckBox24.setSelected(status);
+        jCheckBox25.setSelected(status);
+        jCheckBox26.setSelected(status);
+        jCheckBox27.setSelected(status);
+        jCheckBox28.setSelected(status);
+        jCheckBox29.setSelected(status);
+        jCheckBox30.setSelected(status);
+        jCheckBox31.setSelected(status);
+        jCheckBox32.setSelected(status);
+        jCheckBox33.setSelected(status);
+        jCheckBox34.setSelected(status);
+        jCheckBox36.setSelected(status);
+        jCheckBox37.setSelected(status);
+        jCheckBox38.setSelected(status);
+        boxALL.setSelected(status);
     }//GEN-LAST:event_resetButtonMouseClicked
 
     private void presetTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_presetTypePropertyChange
@@ -1425,20 +1495,20 @@ public class ContactEditorUI extends javax.swing.JFrame {
         toDayBox.setEnabled(comboBoxStatus);
         fromHourBox.setEnabled(comboBoxStatus);
         toHourBox.setEnabled(comboBoxStatus);
-        if(presetType.getSelectedItem().toString().contains("Season")){
+        if (presetType.getSelectedItem().toString().contains("Season")) {
             presetValueLabel.setVisible(true);
             presetValue.setVisible(true);
-            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Winter", "Spring", "Summer", "Fall" }));
+            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Winter", "Spring", "Summer", "Fall"}));
             presetYearLabel.setVisible(true);
             presetYear.setVisible(true);
 
-        }else if(presetType.getSelectedItem().toString().contains("Logger Year")){
+        } else if (presetType.getSelectedItem().toString().contains("Logger Year")) {
             presetValueLabel.setVisible(true);
             presetValue.setVisible(true);
-            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WinterJOKE", "Spring", "Summer", "Fall" }));
+            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"WinterJOKE", "Spring", "Summer", "Fall"}));
             presetYearLabel.setVisible(false);
             presetYear.setVisible(false);
-        }else{
+        } else {
             presetValueLabel.setVisible(false);
             presetValue.setVisible(false);
             presetYearLabel.setVisible(false);
@@ -1446,9 +1516,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_presetTypeActionPerformed
 
-    private void buttonExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExecuteActionPerformed
-   
-        if(presetType.getSelectedItem().toString().contains("Select")){
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        if (presetType.getSelectedItem().toString().contains("Select")) {
             int yearFrom;
             int yearTo;
             int monthFrom;
@@ -1486,7 +1556,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             System.out.println(hourFrom);
             System.out.println(hourTo);
         }
-    }//GEN-LAST:event_buttonExecuteActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
         // TODO add your handling code here:
@@ -1495,9 +1565,48 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
         // TODO add your handling code here:
         javax.swing.JComboBox<String> fyb;
-        fyb= (javax.swing.JComboBox<String>)evt.getSource();
-        fromYear = (String)fyb.getSelectedItem();
+        fyb = (javax.swing.JComboBox<String>) evt.getSource();
+        fromYear = (String) fyb.getSelectedItem();
     }//GEN-LAST:event_fromYearBoxActionPerformed
+
+    private void boxALLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxALLMouseClicked
+        // TODO add your handling code here:
+        boolean status = boxALL.isSelected();
+        jCheckBox1.setSelected(status);
+        jCheckBox5.setSelected(status);
+        jCheckBox6.setSelected(status);
+        jCheckBox7.setSelected(status);
+        jCheckBox8.setSelected(status);
+        jCheckBox9.setSelected(status);
+        jCheckBox10.setSelected(status);
+        jCheckBox11.setSelected(status);
+        jCheckBox12.setSelected(status);
+        jCheckBox13.setSelected(status);
+        jCheckBox14.setSelected(status);
+        jCheckBox15.setSelected(status);
+        jCheckBox16.setSelected(status);
+        jCheckBox17.setSelected(status);
+        jCheckBox18.setSelected(status);
+        jCheckBox19.setSelected(status);
+        jCheckBox20.setSelected(status);
+        jCheckBox21.setSelected(status);
+        jCheckBox22.setSelected(status);
+        jCheckBox23.setSelected(status);
+        jCheckBox24.setSelected(status);
+        jCheckBox25.setSelected(status);
+        jCheckBox26.setSelected(status);
+        jCheckBox27.setSelected(status);
+        jCheckBox28.setSelected(status);
+        jCheckBox29.setSelected(status);
+        jCheckBox30.setSelected(status);
+        jCheckBox31.setSelected(status);
+        jCheckBox32.setSelected(status);
+        jCheckBox33.setSelected(status);
+        jCheckBox34.setSelected(status);
+        jCheckBox36.setSelected(status);
+        jCheckBox37.setSelected(status);
+        jCheckBox38.setSelected(status);
+    }//GEN-LAST:event_boxALLMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1535,13 +1644,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonExecute;
+    private javax.swing.JCheckBox boxALL;
     private javax.swing.JTabbedPane frameTDA;
     private javax.swing.JComboBox fromDayBox;
     private javax.swing.JComboBox fromHourBox;
     private javax.swing.JComboBox fromMonthBox;
     private javax.swing.JComboBox fromYearBox;
     private javax.swing.JTable highsTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
@@ -1569,7 +1679,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox32;
     private javax.swing.JCheckBox jCheckBox33;
     private javax.swing.JCheckBox jCheckBox34;
-    private javax.swing.JCheckBox jCheckBox35;
     private javax.swing.JCheckBox jCheckBox36;
     private javax.swing.JCheckBox jCheckBox37;
     private javax.swing.JCheckBox jCheckBox38;
@@ -1598,7 +1707,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
