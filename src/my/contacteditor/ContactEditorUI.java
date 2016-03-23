@@ -30,6 +30,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
      */
     public ContactEditorUI() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -204,10 +205,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         toHourBox.setSelectedIndex(23);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel14.setText("Search Intervals");
+        jLabel14.setText("Search By Intervals");
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel15.setText("Quick Search Presets");
+        jLabel15.setText("Search By Presets");
 
         jButton1.setText("Execute");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +226,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         presetYearLabel.setText("Year:");
 
         presetYear.setVisible(false);
-        presetYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        presetYear.setModel(new javax.swing.DefaultComboBoxModel(years.toArray()));
+        presetYear.setSelectedIndex(0);
 
         presetValue.setVisible(false);
 
@@ -271,10 +273,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(432, 432, 432)
+                        .addGap(452, 452, 452)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(presetYearLabel)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,15 +288,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                         .addComponent(presetType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(2, 2, 2))
                                     .addComponent(presetYear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(23, 23, 23))
-                            .addComponent(jLabel15))
-                        .addGap(370, 370, 370))
+                                .addGap(393, 393, 393))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel15)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(85, 85, 85)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,8 +342,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                                     .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(166, 166, 166)))
+                                        .addGap(449, 449, 449)
+                                        .addComponent(jLabel14)))
                                 .addGap(88, 88, 88)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -362,11 +365,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(101, 101, 101))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jSeparator6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
 
@@ -375,9 +378,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel14)
-                .addGap(36, 36, 36)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,16 +430,20 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(8, 8, 8))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(17, 17, 17)
+                            .addComponent(jLabel19))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel15)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -448,7 +455,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(presetYearLabel)
                     .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(resetButton))
@@ -646,42 +653,44 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_presetTypeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int yearFrom;
-        int yearTo;
-        int monthFrom;
-        int monthTo;
-        int dayFrom;
-        int dayTo;
-        String hourToString;
-        String hourFromString;
-        int hourFrom;
-        int hourTo;
+        if(presetType.getSelectedItem().toString().contains("Select")){    
+            int yearFrom;
+            int yearTo;
+            int monthFrom;
+            int monthTo;
+            int dayFrom;
+            int dayTo;
+            String hourToString;
+            String hourFromString;
+            int hourFrom;
+            int hourTo;
 
-        yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());
-        yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
-        monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
-        monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
-        dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
-        dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
-        hourFromString = (String) fromHourBox.getSelectedItem();
-        hourToString = (String) toHourBox.getSelectedItem();
+            yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());
+            yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
+            monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
+            monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
+            dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
+            dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
+            hourFromString = (String) fromHourBox.getSelectedItem();
+            hourToString = (String) toHourBox.getSelectedItem();
 
-        String[] split;
+            String[] split;
 
-        split = hourFromString.split(":");
-        hourFrom = Integer.parseInt(split[0]);
+            split = hourFromString.split(":");
+            hourFrom = Integer.parseInt(split[0]);
 
-        split = hourToString.split(":");
-        hourTo = Integer.parseInt(split[0]);
+            split = hourToString.split(":");
+            hourTo = Integer.parseInt(split[0]);
 
-        System.out.println(yearFrom);
-        System.out.println(yearTo);
-        System.out.println(monthFrom);
-        System.out.println(monthTo);
-        System.out.println(dayFrom);
-        System.out.println(dayTo);
-        System.out.println(hourFrom);
-        System.out.println(hourTo);
+            System.out.println(yearFrom);
+            System.out.println(yearTo);
+            System.out.println(monthFrom);
+            System.out.println(monthTo);
+            System.out.println(dayFrom);
+            System.out.println(dayTo);
+            System.out.println(hourFrom);
+            System.out.println(hourTo);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
@@ -721,6 +730,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         fromHourBox.setSelectedIndex(0);
         toHourBox.setSelectedIndex(23);
         
+        presetType.setSelectedIndex(0);
         presetValueLabel.setVisible(false);
         presetValue.setVisible(false);
         presetYearLabel.setVisible(false);
