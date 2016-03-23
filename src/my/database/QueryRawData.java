@@ -199,7 +199,7 @@ public class QueryRawData {
 	}
 	
 	
-	public String byTimeInterval(List<HashMap<String, Integer>> DateList){
+	/*public String byTimeInterval(List<HashMap<String, Integer>> DateList){
 		List<String> queries = new ArrayList<String>();
 		for(int i = 0; i < DateList.size(); i++){
 			queries.add(this.timeIntervalQueryBuilder(DateList.get(i)));
@@ -207,9 +207,9 @@ public class QueryRawData {
 		}
 	
 		return null;
-	}
+	}*/
 	
-	public String timeIntervalQueryBuilder(HashMap<String, Integer> Date){
+	public String byTimeInterval(HashMap<String, Integer> Date){
 		List<Integer> months = new ArrayList<Integer>();
 		List<Integer> days = new ArrayList<Integer>();
 		List<Integer> years = new ArrayList<Integer>();
