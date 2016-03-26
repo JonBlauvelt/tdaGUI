@@ -78,7 +78,7 @@
                           <Component id="jLabel20" min="-2" pref="1134" max="-2" attributes="0"/>
                           <Component id="jLabel29" alignment="0" min="-2" pref="1134" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -95,7 +95,7 @@
                       <Component id="jLabel28" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jLabel31" min="-2" pref="101" max="-2" attributes="0"/>
-                      <EmptySpace pref="109" max="32767" attributes="0"/>
+                      <EmptySpace pref="141" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1565,7 +1565,7 @@
                                       <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="84" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1861,7 +1861,7 @@
                                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="84" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2188,7 +2188,7 @@
                                       <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="84" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2484,7 +2484,7 @@
                                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="84" max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2807,30 +2807,38 @@
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="465" max="32767" attributes="0"/>
+                      <EmptySpace min="518" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="descLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                          <Component id="latLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="filePathField" pref="299" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="latField" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="longLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="longField" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="fileNameField" max="32767" attributes="0"/>
                           <Component id="newLocDesc" alignment="0" max="32767" attributes="0"/>
                           <Component id="importLoc" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton2" pref="201" max="32767" attributes="0"/>
+                              <Component id="jButton2" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="enterCodeLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="locCodeInput" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -2849,20 +2857,23 @@
                           <Component id="importLoc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="enterCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="locCodeInput" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="descLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="newLocDesc" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="descLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="newLocDesc" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="latLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="latField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="longLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="longField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="locCodeInput" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="enterCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="filePathField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="fileNameField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2881,7 +2892,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="filePathField">
+            <Component class="javax.swing.JTextField" name="fileNameField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
@@ -2925,7 +2936,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter Code:"/>
+                <Property name="text" type="java.lang.String" value="Code:"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="enterCodeLabel.setVisible(false);"/>
@@ -2952,7 +2963,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter Description:"/>
+                <Property name="text" type="java.lang.String" value="Description:"/>
               </Properties>
               <Events>
                 <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="descLabelComponentShown"/>
@@ -2967,6 +2978,51 @@
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="newLocDesc.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="latLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Lat:"/>
+              </Properties>
+              <Events>
+                <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="latLabelComponentShown"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="latLabel.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="latField">
+              <Events>
+                <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="latFieldComponentShown"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="latFieldActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="latField.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="longLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Long:"/>
+              </Properties>
+              <Events>
+                <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="longLabelComponentShown"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="longLabel.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="longField">
+              <Events>
+                <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="longFieldComponentShown"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="longField.setVisible(false);"/>
               </AuxValues>
             </Component>
           </SubComponents>

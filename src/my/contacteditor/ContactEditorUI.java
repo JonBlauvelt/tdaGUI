@@ -213,7 +213,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         tabImport = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        filePathField = new javax.swing.JTextField();
+        fileNameField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -223,6 +223,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         locCodeInput = new javax.swing.JTextField();
         descLabel = new javax.swing.JLabel();
         newLocDesc = new javax.swing.JTextField();
+        latLabel = new javax.swing.JLabel();
+        latField = new javax.swing.JTextField();
+        longLabel = new javax.swing.JLabel();
+        longField = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -279,7 +283,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +298,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         frameTDA.addTab("Home", tabHome);
@@ -1336,7 +1340,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1508,7 +1512,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1680,7 +1684,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1852,7 +1856,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1916,7 +1920,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         enterCodeLabel.setVisible(false);
         enterCodeLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        enterCodeLabel.setText("Enter Code:");
+        enterCodeLabel.setText("Code:");
 
         jLabel67.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel67.setText("Select Site Location:");
@@ -1930,7 +1934,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         descLabel.setVisible(false);
         descLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        descLabel.setText("Enter Description:");
+        descLabel.setText("Description:");
         descLabel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 descLabelComponentShown(evt);
@@ -1941,6 +1945,43 @@ public class ContactEditorUI extends javax.swing.JFrame {
         newLocDesc.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 newLocDescComponentShown(evt);
+            }
+        });
+
+        latLabel.setVisible(false);
+        latLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        latLabel.setText("Lat:");
+        latLabel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                latLabelComponentShown(evt);
+            }
+        });
+
+        latField.setVisible(false);
+        latField.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                latFieldComponentShown(evt);
+            }
+        });
+        latField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                latFieldActionPerformed(evt);
+            }
+        });
+
+        longLabel.setVisible(false);
+        longLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        longLabel.setText("Long:");
+        longLabel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                longLabelComponentShown(evt);
+            }
+        });
+
+        longField.setVisible(false);
+        longField.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                longFieldComponentShown(evt);
             }
         });
 
@@ -1956,26 +1997,33 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(tabImportLayout.createSequentialGroup()
                         .addGap(411, 411, 411)
                         .addComponent(jLabel33)))
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(tabImportLayout.createSequentialGroup()
                 .addGap(196, 196, 196)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(descLabel)
                     .addComponent(jLabel67)
-                    .addComponent(jLabel32))
+                    .addComponent(jLabel32)
+                    .addComponent(latLabel))
                 .addGap(25, 25, 25)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(filePathField, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                    .addGroup(tabImportLayout.createSequentialGroup()
+                        .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(longLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fileNameField)
                     .addComponent(newLocDesc)
                     .addComponent(importLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabImportLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(251, 251, 251))
                     .addGroup(tabImportLayout.createSequentialGroup()
                         .addComponent(enterCodeLabel)
-                        .addGap(25, 25, 25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -1989,17 +2037,21 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jLabel67)
                     .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(enterCodeLabel)
-                        .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(descLabel)
-                        .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(descLabel)
+                    .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(latLabel)
+                    .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(longLabel)
+                    .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterCodeLabel))
                 .addGap(18, 18, 18)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(filePathField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
@@ -2032,7 +2084,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         File file = fc.getSelectedFile();
         if(file != null){
             String filename = file.getAbsolutePath();
-            filePathField.setText(filename);
+            fileNameField.setText(filename);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -2047,15 +2099,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
         if(loc.equals("New Location")){
             loc = locCodeInput.getText();
             desc = newLocDesc.getText();
+            String lat = latField.getText();
+            String lon = longField.getText();
             isNew = true;
-            if(loc.equals("") || desc.equals(""))
+            if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
                 incomplete = true;
         }else if (loc.equals(" ")){
             incomplete = true;
         }else{
             loc = loc.substring(0,3);
         }
-        String filePath = filePathField.getText();
+        String filePath = fileNameField.getText();
         if (filePath.equals(""))
             incomplete = true;
         else if (!filePath.endsWith(".csv"))
@@ -2067,13 +2121,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             message = "Please select a .csv file!";
         else
             message = "Import successful!";
-            
-        try {
-            TimeUnit.SECONDS.sleep(2);
-            //    jd.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         JOptionPane.showMessageDialog(null,message);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -2451,7 +2499,31 @@ public class ContactEditorUI extends javax.swing.JFrame {
         enterCodeLabel.setVisible(newLoc);
         descLabel.setVisible(newLoc);
         locCodeInput.setVisible(newLoc);
+        latLabel.setVisible(newLoc);
+        longLabel.setVisible(newLoc);
+        latField.setVisible(newLoc);
+        longField.setVisible(newLoc);
     }//GEN-LAST:event_importLocActionPerformed
+
+    private void latLabelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_latLabelComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_latLabelComponentShown
+
+    private void latFieldComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_latFieldComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_latFieldComponentShown
+
+    private void longLabelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_longLabelComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_longLabelComponentShown
+
+    private void longFieldComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_longFieldComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_longFieldComponentShown
+
+    private void latFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_latFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2492,7 +2564,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox boxALL;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel enterCodeLabel;
-    private javax.swing.JTextField filePathField;
+    private javax.swing.JTextField fileNameField;
     private javax.swing.JTabbedPane frameTDA;
     private javax.swing.JComboBox fromDayBox;
     private javax.swing.JComboBox fromHourBox;
@@ -2632,7 +2704,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextField latField;
+    private javax.swing.JLabel latLabel;
     private javax.swing.JTextField locCodeInput;
+    private javax.swing.JTextField longField;
+    private javax.swing.JLabel longLabel;
     private javax.swing.JTextField newLocDesc;
     private javax.swing.JComboBox presetType;
     private javax.swing.JComboBox presetValue;
