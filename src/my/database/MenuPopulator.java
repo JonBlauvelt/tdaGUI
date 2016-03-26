@@ -5,6 +5,7 @@
 
 
 
+package my.database;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -19,7 +20,7 @@ public class MenuPopulator{
   private String query;
 
   //constructor
-  MenuPopulator(String type){
+  public MenuPopulator(String type){
 
     this.type = type;
 
