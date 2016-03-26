@@ -12,7 +12,7 @@ import java.sql.*;
  * @author chao
  */
 public class QueryRawData {
-    final String DATABASE = "tda"; 
+  final String DATABASE = "tda"; 
 	private Connection conn;
 	String selectStatementPt1;
 	String selectStatementPt2;

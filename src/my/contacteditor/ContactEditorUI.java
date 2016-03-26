@@ -287,7 +287,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         frameTDA.addTab("Home", tabHome);
@@ -873,7 +873,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(resetButton)))
-                .addGap(106, 160, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabParameterLayout.setVerticalGroup(
             tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1274,7 +1274,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(288, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel48)
@@ -1446,7 +1446,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(227, Short.MAX_VALUE)
+                .addContainerGap(266, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel41)
@@ -1790,7 +1790,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(270, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel64)
@@ -1906,24 +1906,24 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addGap(251, 251, 251))
             .addGroup(tabImportLayout.createSequentialGroup()
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabImportLayout.createSequentialGroup()
-                        .addGap(485, 485, 485)
+                        .addGap(411, 411, 411)
                         .addComponent(jLabel33))
                     .addGroup(tabImportLayout.createSequentialGroup()
-                        .addGap(527, 527, 527)
+                        .addGap(545, 545, 545)
                         .addComponent(jButton4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabImportLayout.setVerticalGroup(
             tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabImportLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(86, 86, 86)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1951,111 +1951,209 @@ public class ContactEditorUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
-        // TODO add your handling code here:
-        javax.swing.JComboBox<String> fyb;
-        fyb = (javax.swing.JComboBox<String>) evt.getSource();
-        fromYear = (String) fyb.getSelectedItem();
-    }//GEN-LAST:event_fromYearBoxActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.showOpenDialog(null);
+        File file = fc.getSelectedFile();
+        if(file != null){
+            String filename = file.getAbsolutePath();
+            jTextField1.setText(filename);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_toYearBoxActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //JOptionPane autoClose  = new JOptionPane("Calculating. Please Wait.");
-        //JDialog jd = autoClose.createDialog("Calc");
-        //jd.setAlwaysOnTop(true);
-        //jd.setModal(true);
-        //jd.setVisible(true);
-        //jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         try {
             TimeUnit.SECONDS.sleep(2);
             //    jd.dispose();
         } catch (InterruptedException ex) {
             Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Finished Calculating.");
-        if (presetType.getSelectedItem().toString().contains("Select")) {
-            int yearFrom;
-            int yearTo;
-            int monthFrom;
-            int monthTo;
-            int dayFrom;
-            int dayTo;
-            String hourToString;
-            String hourFromString;
-            int hourFrom;
-            int hourTo;
+        JOptionPane.showMessageDialog(null, "Finished Importing.");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-            yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());
-            yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
-            monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
-            monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
-            dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
-            dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
-            hourFromString = (String) fromHourBox.getSelectedItem();
-            hourToString = (String) toHourBox.getSelectedItem();
-
-            String[] split;
-
-            split = hourFromString.split(":");
-            hourFrom = Integer.parseInt(split[0]);
-
-            split = hourToString.split(":");
-            hourTo = Integer.parseInt(split[0]);
-
-            System.out.println(yearFrom);
-            System.out.println(yearTo);
-            System.out.println(monthFrom);
-            System.out.println(monthTo);
-            System.out.println(dayFrom);
-            System.out.println(dayTo);
-            System.out.println(hourFrom);
-            System.out.println(hourTo);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void presetValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presetValueActionPerformed
+    private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_presetValueActionPerformed
+    }//GEN-LAST:event_jCheckBox38ActionPerformed
 
-    private void presetTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presetTypeActionPerformed
+    private void jCheckBox37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox37ActionPerformed
 
-        boolean comboBoxStatus = presetType.getSelectedItem().toString().contains("Select");
+    private void jCheckBox36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox36ActionPerformed
 
-        fromYearBox.setEnabled(comboBoxStatus);
-        toYearBox.setEnabled(comboBoxStatus);
-        fromMonthBox.setEnabled(comboBoxStatus);
-        toMonthBox.setEnabled(comboBoxStatus);
-        fromDayBox.setEnabled(comboBoxStatus);
-        toDayBox.setEnabled(comboBoxStatus);
-        fromHourBox.setEnabled(comboBoxStatus);
-        toHourBox.setEnabled(comboBoxStatus);
-        if (presetType.getSelectedItem().toString().contains("Season")) {
-            presetValueLabel.setVisible(true);
-            presetValue.setVisible(true);
-            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Winter", "Spring", "Summer", "Fall"}));
-            presetYearLabel.setVisible(true);
-            presetYear.setVisible(true);
+    private void boxALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxALLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxALLActionPerformed
 
-        } else if (presetType.getSelectedItem().toString().contains("Logger Year")) {
-            presetValueLabel.setVisible(true);
-            presetValue.setVisible(true);
-            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Logger Year 1", "Logger Year 2", "Logger Year 3", "Logger Year 4"}));
-            presetYearLabel.setVisible(false);
-            presetYear.setVisible(false);
-        } else {
-            presetValueLabel.setVisible(false);
-            presetValue.setVisible(false);
-            presetYearLabel.setVisible(false);
-            presetYear.setVisible(false);
-        }
-    }//GEN-LAST:event_presetTypeActionPerformed
+    private void boxALLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxALLMouseClicked
+        // TODO add your handling code here:
+        boolean status = boxALL.isSelected();
+        jCheckBox1.setSelected(status);
+        jCheckBox5.setSelected(status);
+        jCheckBox6.setSelected(status);
+        jCheckBox7.setSelected(status);
+        jCheckBox8.setSelected(status);
+        jCheckBox9.setSelected(status);
+        jCheckBox10.setSelected(status);
+        jCheckBox11.setSelected(status);
+        jCheckBox12.setSelected(status);
+        jCheckBox13.setSelected(status);
+        jCheckBox14.setSelected(status);
+        jCheckBox15.setSelected(status);
+        jCheckBox16.setSelected(status);
+        jCheckBox17.setSelected(status);
+        jCheckBox18.setSelected(status);
+        jCheckBox19.setSelected(status);
+        jCheckBox20.setSelected(status);
+        jCheckBox21.setSelected(status);
+        jCheckBox22.setSelected(status);
+        jCheckBox23.setSelected(status);
+        jCheckBox24.setSelected(status);
+        jCheckBox25.setSelected(status);
+        jCheckBox26.setSelected(status);
+        jCheckBox27.setSelected(status);
+        jCheckBox28.setSelected(status);
+        jCheckBox29.setSelected(status);
+        jCheckBox30.setSelected(status);
+        jCheckBox31.setSelected(status);
+        jCheckBox32.setSelected(status);
+        jCheckBox33.setSelected(status);
+        jCheckBox34.setSelected(status);
+        jCheckBox36.setSelected(status);
+        jCheckBox37.setSelected(status);
+        jCheckBox38.setSelected(status);
+    }//GEN-LAST:event_boxALLMouseClicked
 
-    private void presetTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_presetTypePropertyChange
+    private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox34ActionPerformed
 
-    }//GEN-LAST:event_presetTypePropertyChange
+    private void jCheckBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox33ActionPerformed
+
+    private void jCheckBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox32ActionPerformed
+
+    private void jCheckBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox31ActionPerformed
+
+    private void jCheckBox30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox30ActionPerformed
+
+    private void jCheckBox29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox29ActionPerformed
+
+    private void jCheckBox28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox28ActionPerformed
+
+    private void jCheckBox27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox27ActionPerformed
+
+    private void jCheckBox26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox26ActionPerformed
+
+    private void jCheckBox25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox25ActionPerformed
+
+    private void jCheckBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox24ActionPerformed
+
+    private void jCheckBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox23ActionPerformed
+
+    private void jCheckBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox22ActionPerformed
+
+    private void jCheckBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox21ActionPerformed
+
+    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox20ActionPerformed
+
+    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox19ActionPerformed
+
+    private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox18ActionPerformed
+
+    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox17ActionPerformed
+
+    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox16ActionPerformed
+
+    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox15ActionPerformed
+
+    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox14ActionPerformed
+
+    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox13ActionPerformed
+
+    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox12ActionPerformed
+
+    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox11ActionPerformed
+
+    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox10ActionPerformed
+
+    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox9ActionPerformed
+
+    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox8ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     private void resetButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetButtonMouseClicked
 
@@ -2124,209 +2222,111 @@ public class ContactEditorUI extends javax.swing.JFrame {
         boxALL.setSelected(status);
     }//GEN-LAST:event_resetButtonMouseClicked
 
-    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resetButtonActionPerformed
+    private void presetTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_presetTypePropertyChange
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_presetTypePropertyChange
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    private void presetTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presetTypeActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+        boolean comboBoxStatus = presetType.getSelectedItem().toString().contains("Select");
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+        fromYearBox.setEnabled(comboBoxStatus);
+        toYearBox.setEnabled(comboBoxStatus);
+        fromMonthBox.setEnabled(comboBoxStatus);
+        toMonthBox.setEnabled(comboBoxStatus);
+        fromDayBox.setEnabled(comboBoxStatus);
+        toDayBox.setEnabled(comboBoxStatus);
+        fromHourBox.setEnabled(comboBoxStatus);
+        toHourBox.setEnabled(comboBoxStatus);
+        if (presetType.getSelectedItem().toString().contains("Season")) {
+            presetValueLabel.setVisible(true);
+            presetValue.setVisible(true);
+            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Winter", "Spring", "Summer", "Fall"}));
+            presetYearLabel.setVisible(true);
+            presetYear.setVisible(true);
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
-
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox9ActionPerformed
-
-    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox10ActionPerformed
-
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
-
-    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox12ActionPerformed
-
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
-
-    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox14ActionPerformed
-
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
-
-    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox16ActionPerformed
-
-    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox17ActionPerformed
-
-    private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox18ActionPerformed
-
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
-
-    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox20ActionPerformed
-
-    private void jCheckBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox21ActionPerformed
-
-    private void jCheckBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox22ActionPerformed
-
-    private void jCheckBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox23ActionPerformed
-
-    private void jCheckBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox24ActionPerformed
-
-    private void jCheckBox25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox25ActionPerformed
-
-    private void jCheckBox26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox26ActionPerformed
-
-    private void jCheckBox27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox27ActionPerformed
-
-    private void jCheckBox28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox28ActionPerformed
-
-    private void jCheckBox29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox29ActionPerformed
-
-    private void jCheckBox30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox30ActionPerformed
-
-    private void jCheckBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox31ActionPerformed
-
-    private void jCheckBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox32ActionPerformed
-
-    private void jCheckBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox33ActionPerformed
-
-    private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox34ActionPerformed
-
-    private void boxALLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxALLMouseClicked
-        // TODO add your handling code here:
-        boolean status = boxALL.isSelected();
-        jCheckBox1.setSelected(status);
-        jCheckBox5.setSelected(status);
-        jCheckBox6.setSelected(status);
-        jCheckBox7.setSelected(status);
-        jCheckBox8.setSelected(status);
-        jCheckBox9.setSelected(status);
-        jCheckBox10.setSelected(status);
-        jCheckBox11.setSelected(status);
-        jCheckBox12.setSelected(status);
-        jCheckBox13.setSelected(status);
-        jCheckBox14.setSelected(status);
-        jCheckBox15.setSelected(status);
-        jCheckBox16.setSelected(status);
-        jCheckBox17.setSelected(status);
-        jCheckBox18.setSelected(status);
-        jCheckBox19.setSelected(status);
-        jCheckBox20.setSelected(status);
-        jCheckBox21.setSelected(status);
-        jCheckBox22.setSelected(status);
-        jCheckBox23.setSelected(status);
-        jCheckBox24.setSelected(status);
-        jCheckBox25.setSelected(status);
-        jCheckBox26.setSelected(status);
-        jCheckBox27.setSelected(status);
-        jCheckBox28.setSelected(status);
-        jCheckBox29.setSelected(status);
-        jCheckBox30.setSelected(status);
-        jCheckBox31.setSelected(status);
-        jCheckBox32.setSelected(status);
-        jCheckBox33.setSelected(status);
-        jCheckBox34.setSelected(status);
-        jCheckBox36.setSelected(status);
-        jCheckBox37.setSelected(status);
-        jCheckBox38.setSelected(status);
-    }//GEN-LAST:event_boxALLMouseClicked
-
-    private void boxALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxALLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boxALLActionPerformed
-
-    private void jCheckBox36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox36ActionPerformed
-
-    private void jCheckBox37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox37ActionPerformed
-
-    private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox38ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFileChooser fc = new JFileChooser();
-        fc.showOpenDialog(null);
-        File file = fc.getSelectedFile();
-        if(file != null){
-            String filename = file.getAbsolutePath();
-            jTextField1.setText(filename);
+        } else if (presetType.getSelectedItem().toString().contains("Logger Year")) {
+            presetValueLabel.setVisible(true);
+            presetValue.setVisible(true);
+            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Logger Year 1", "Logger Year 2", "Logger Year 3", "Logger Year 4"}));
+            presetYearLabel.setVisible(false);
+            presetYear.setVisible(false);
+        } else {
+            presetValueLabel.setVisible(false);
+            presetValue.setVisible(false);
+            presetYearLabel.setVisible(false);
+            presetYear.setVisible(false);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_presetTypeActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void presetValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presetValueActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_presetValueActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //JOptionPane autoClose  = new JOptionPane("Calculating. Please Wait.");
+        //JDialog jd = autoClose.createDialog("Calc");
+        //jd.setAlwaysOnTop(true);
+        //jd.setModal(true);
+        //jd.setVisible(true);
+        //jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         try {
             TimeUnit.SECONDS.sleep(2);
             //    jd.dispose();
         } catch (InterruptedException ex) {
             Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Finished Importing.");
-    }//GEN-LAST:event_jButton4ActionPerformed
+        JOptionPane.showMessageDialog(null, "Finished Calculating.");
+        if (presetType.getSelectedItem().toString().contains("Select")) {
+            int yearFrom;
+            int yearTo;
+            int monthFrom;
+            int monthTo;
+            int dayFrom;
+            int dayTo;
+            String hourToString;
+            String hourFromString;
+            int hourFrom;
+            int hourTo;
+
+            yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());
+            yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
+            monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
+            monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
+            dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
+            dayTo = Integer.parseInt((String) toDayBox.getSelectedItem());
+            hourFromString = (String) fromHourBox.getSelectedItem();
+            hourToString = (String) toHourBox.getSelectedItem();
+
+            String[] split;
+
+            split = hourFromString.split(":");
+            hourFrom = Integer.parseInt(split[0]);
+
+            split = hourToString.split(":");
+            hourTo = Integer.parseInt(split[0]);
+
+            System.out.println(yearFrom);
+            System.out.println(yearTo);
+            System.out.println(monthFrom);
+            System.out.println(monthTo);
+            System.out.println(dayFrom);
+            System.out.println(dayTo);
+            System.out.println(hourFrom);
+            System.out.println(hourTo);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toYearBoxActionPerformed
+
+    private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
+        // TODO add your handling code here:
+        javax.swing.JComboBox<String> fyb;
+        fyb = (javax.swing.JComboBox<String>) evt.getSource();
+        fromYear = (String) fyb.getSelectedItem();
+    }//GEN-LAST:event_fromYearBoxActionPerformed
 
     /**
      * @param args the command line arguments
