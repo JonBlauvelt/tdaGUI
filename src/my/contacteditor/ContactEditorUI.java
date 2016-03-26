@@ -12,10 +12,10 @@ import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import my.database.*;
 
@@ -217,8 +217,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel66 = new javax.swing.JLabel();
+        importLoc = new javax.swing.JComboBox();
+        enterCodeLabel = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        locCodeInput = new javax.swing.JTextField();
+        descLabel = new javax.swing.JLabel();
+        newLocDesc = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1887,7 +1891,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         });
 
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel32.setText("Select file to import:");
+        jLabel32.setText("Select File to Import:");
 
         jLabel33.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel33.setText("Import New Data");
@@ -1901,11 +1905,44 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         ArrayList<String> options = new MenuPopulator("loc").populate();
         options.add("New Location");
+        options.add(0," ");
         String [] opArry = new String [options.size()];
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(options.toArray(opArry)));
+        importLoc.setModel(new javax.swing.DefaultComboBoxModel(options.toArray(opArry)));
+        importLoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importLocActionPerformed(evt);
+            }
+        });
 
-        jLabel66.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel66.setText("Select site location:");
+        enterCodeLabel.setVisible(false);
+        enterCodeLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        enterCodeLabel.setText("Enter Code:");
+
+        jLabel67.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel67.setText("Select Site Location:");
+
+        locCodeInput.setVisible(false);
+        locCodeInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                locCodeInputActionPerformed(evt);
+            }
+        });
+
+        descLabel.setVisible(false);
+        descLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descLabel.setText("Enter Description:");
+        descLabel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                descLabelComponentShown(evt);
+            }
+        });
+
+        newLocDesc.setVisible(false);
+        newLocDesc.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                newLocDescComponentShown(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabImportLayout = new javax.swing.GroupLayout(tabImport);
         tabImport.setLayout(tabImportLayout);
@@ -1914,35 +1951,52 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(tabImportLayout.createSequentialGroup()
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabImportLayout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(jLabel33))
-                    .addGroup(tabImportLayout.createSequentialGroup()
                         .addGap(545, 545, 545)
-                        .addComponent(jButton4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton4))
+                    .addGroup(tabImportLayout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addComponent(jLabel33)))
+                .addContainerGap(465, Short.MAX_VALUE))
             .addGroup(tabImportLayout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel66))
-                .addGap(26, 26, 26)
+                .addGap(196, 196, 196)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(descLabel)
+                    .addComponent(jLabel67)
+                    .addComponent(jLabel32))
+                .addGap(25, 25, 25)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                .addGap(251, 251, 251))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                    .addComponent(newLocDesc)
+                    .addComponent(importLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabImportLayout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .addGap(251, 251, 251))
+                    .addGroup(tabImportLayout.createSequentialGroup()
+                        .addComponent(enterCodeLabel)
+                        .addGap(25, 25, 25)
+                        .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         tabImportLayout.setVerticalGroup(
             tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabImportLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel66))
-                .addGap(54, 54, 54)
+                    .addComponent(jLabel67)
+                    .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(enterCodeLabel)
+                        .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(descLabel)
+                        .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1971,7 +2025,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
         JFileChooser fc = new JFileChooser();
+        fc.setFileFilter(csvFilter);
         fc.showOpenDialog(null);
         File file = fc.getSelectedFile();
         if(file != null){
@@ -2347,6 +2403,26 @@ public class ContactEditorUI extends javax.swing.JFrame {
         fromYear = (String) fyb.getSelectedItem();
     }//GEN-LAST:event_fromYearBoxActionPerformed
 
+    private void newLocDescComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newLocDescComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newLocDescComponentShown
+
+    private void descLabelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_descLabelComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descLabelComponentShown
+
+    private void locCodeInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locCodeInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_locCodeInputActionPerformed
+
+    private void importLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importLocActionPerformed
+        boolean newLoc = (importLoc.getSelectedItem() == "New Location");
+        newLocDesc.setVisible(newLoc);
+        enterCodeLabel.setVisible(newLoc);
+        descLabel.setVisible(newLoc);
+        locCodeInput.setVisible(newLoc);
+    }//GEN-LAST:event_importLocActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2384,11 +2460,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxALL;
+    private javax.swing.JLabel descLabel;
+    private javax.swing.JLabel enterCodeLabel;
     private javax.swing.JTabbedPane frameTDA;
     private javax.swing.JComboBox fromDayBox;
     private javax.swing.JComboBox fromHourBox;
     private javax.swing.JComboBox fromMonthBox;
     private javax.swing.JComboBox fromYearBox;
+    private javax.swing.JComboBox importLoc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -2426,7 +2505,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2489,7 +2567,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2524,6 +2602,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField locCodeInput;
+    private javax.swing.JTextField newLocDesc;
     private javax.swing.JComboBox presetType;
     private javax.swing.JComboBox presetValue;
     private javax.swing.JLabel presetValueLabel;

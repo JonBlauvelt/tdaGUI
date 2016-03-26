@@ -13,7 +13,7 @@ public class MenuPopulator{
 
   //static vars
   private static String LOC_QUERY = "SELECT CONCAT_WS(' - ',site_code,"
-    + "site_name) from site_location;";
+    + "site_name) from site_location ORDER BY site_code;";
 
   //member vars
   private String type;
