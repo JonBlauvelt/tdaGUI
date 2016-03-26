@@ -2818,7 +2818,7 @@
                       </Group>
                       <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" pref="299" max="32767" attributes="0"/>
+                          <Component id="filePathField" pref="299" max="32767" attributes="0"/>
                           <Component id="newLocDesc" alignment="0" max="32767" attributes="0"/>
                           <Component id="importLoc" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -2862,7 +2862,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="filePathField" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2881,7 +2881,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="filePathField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>

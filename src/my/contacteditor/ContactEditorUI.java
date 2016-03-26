@@ -213,7 +213,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         tabImport = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        filePathField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -1965,7 +1965,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jLabel32))
                 .addGap(25, 25, 25)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                    .addComponent(filePathField, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                     .addComponent(newLocDesc)
                     .addComponent(importLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
@@ -1999,7 +1999,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filePathField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
@@ -2032,19 +2032,49 @@ public class ContactEditorUI extends javax.swing.JFrame {
         File file = fc.getSelectedFile();
         if(file != null){
             String filename = file.getAbsolutePath();
-            jTextField1.setText(filename);
+            filePathField.setText(filename);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        //get the vals and validate input
+        boolean isNew = false;
+        boolean wrongFile = false;
+        boolean incomplete = false;
+        String desc = "";
+        String loc = (String) importLoc.getSelectedItem();
+        if(loc.equals("New Location")){
+            loc = locCodeInput.getText();
+            desc = newLocDesc.getText();
+            isNew = true;
+            if(loc.equals("") || desc.equals(""))
+                incomplete = true;
+        }else if (loc.equals(" ")){
+            incomplete = true;
+        }else{
+            loc = loc.substring(0,3);
+        }
+        String filePath = filePathField.getText();
+        if (filePath.equals(""))
+            incomplete = true;
+        else if (!filePath.endsWith(".csv"))
+            wrongFile = true;
+        String message;
+        if(incomplete)
+            message = "Please complete all fields!";
+        else if(wrongFile)
+            message = "Please select a .csv file!";
+        else
+            message = "Import successful!";
+            
         try {
             TimeUnit.SECONDS.sleep(2);
             //    jd.dispose();
         } catch (InterruptedException ex) {
             Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Finished Importing.");
+        JOptionPane.showMessageDialog(null,message);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
@@ -2462,6 +2492,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox boxALL;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel enterCodeLabel;
+    private javax.swing.JTextField filePathField;
     private javax.swing.JTabbedPane frameTDA;
     private javax.swing.JComboBox fromDayBox;
     private javax.swing.JComboBox fromHourBox;
@@ -2601,7 +2632,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField locCodeInput;
     private javax.swing.JTextField newLocDesc;
     private javax.swing.JComboBox presetType;
