@@ -218,6 +218,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
+        jLabel66 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1898,7 +1899,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new MenuPopulator("loc").toArray()));
+        ArrayList<String> options = new MenuPopulator("loc").populate();
+        options.add("New Location");
+        String [] opArry = new String [options.size()];
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(options.toArray(opArry)));
+
+        jLabel66.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel66.setText("Select site location:");
 
         javax.swing.GroupLayout tabImportLayout = new javax.swing.GroupLayout(tabImport);
         tabImport.setLayout(tabImportLayout);
@@ -1915,7 +1922,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(tabImportLayout.createSequentialGroup()
                 .addGap(203, 203, 203)
-                .addComponent(jLabel32)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel66))
                 .addGap(26, 26, 26)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1930,7 +1939,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel66))
                 .addGap(54, 54, 54)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -2478,6 +2489,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

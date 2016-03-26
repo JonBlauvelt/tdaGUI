@@ -33,7 +33,7 @@ public class MenuPopulator{
   }//end constructor
 
   //execute query
-  private ArrayList<String> execute(){
+  public ArrayList<String> populate(){
 
     //make a dbutil
     DBUtil dbu = new DBUtil(this.query);
@@ -41,20 +41,6 @@ public class MenuPopulator{
     //execute it
     return dbu.execute(); 
   }
-
-  //toArray
-  public String[] toArray(){
-
-    //execute the query
-    ArrayList<String> results = this.execute();
-
-    //make array
-    String [] retval = new String [results.size()];
-    results.toArray(retval);
-
-    return retval;
-
-  }//end toArray 
 
 }
 
