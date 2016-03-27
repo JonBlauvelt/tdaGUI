@@ -22,6 +22,7 @@ public class DataParser {
   private String outFilename;
   private String locId;
   private String locCode;
+  private String serial;
 
   private static String LOC_QUERY = "SELECT site_id FROM "
     + "site_location WHERE site_code = '%s';";
@@ -68,6 +69,9 @@ public class DataParser {
   //performs standard initialization tasks
   private void init(String filename){
 
+    //serial
+    this.serial = null;
+
     // infile
     this.inFilename = filename;
 
@@ -102,7 +106,7 @@ public class DataParser {
 
       //parse out logger serial
       String [] headerParts = header.split(" ");
-      String serial = headerParts[7];
+      this.serial = headerParts[7];
 
       //get deviceId
       ArrayList<String> devList = 
@@ -197,5 +201,10 @@ public class DataParser {
       e.printStackTrace();
     }
   }
+  
+  public String getSerial(){
+    return this.serial;
+  }
+
 
 }//end class

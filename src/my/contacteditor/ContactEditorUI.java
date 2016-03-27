@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import my.database.*;
@@ -218,7 +219,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
         fileNameField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         importLoc = new javax.swing.JComboBox();
         enterCodeLabel = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
@@ -229,14 +229,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
         latField = new javax.swing.JTextField();
         longLabel = new javax.swing.JLabel();
         longField = new javax.swing.JTextField();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jButton4 = new javax.swing.JButton();
         importConfirmPane = new javax.swing.JPanel();
-        confTitle = new javax.swing.JLabel();
-        confSite = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         confTable = new javax.swing.JTable();
         cancel = new javax.swing.JButton();
         confirm = new javax.swing.JButton();
         confSer = new javax.swing.JLabel();
+        confSite = new javax.swing.JLabel();
+        confTitle = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1904,18 +1907,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
+        fileNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileNameFieldActionPerformed(evt);
+            }
+        });
+
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel32.setText("Select File to Import:");
 
         jLabel33.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel33.setText("Import New Data");
-
-        jButton4.setText("Import");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         ArrayList<String> options = new MenuPopulator("loc").populate();
         options.add("New Location");
@@ -1957,6 +1959,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 newLocDescComponentShown(evt);
             }
         });
+        newLocDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newLocDescActionPerformed(evt);
+            }
+        });
 
         latLabel.setVisible(false);
         latLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -1995,60 +2002,72 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
+        jProgressBar1.setVisible(false);
+        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+
+        jButton4.setText("Import");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel14Layout.createSequentialGroup()
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(descLabel)
-                                .addComponent(jLabel67)
-                                .addComponent(jLabel32)
-                                .addComponent(latLabel))
-                            .addGap(25, 25, 25)
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel14Layout.createSequentialGroup()
-                                    .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(longLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(fileNameField)
-                                .addComponent(newLocDesc)
-                                .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(25, 25, 25)
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel14Layout.createSequentialGroup()
-                                    .addComponent(enterCodeLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                            .addComponent(jLabel33)
-                            .addGap(137, 137, 137)))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(descLabel)
+                            .addComponent(jLabel67)
+                            .addComponent(jLabel32)
+                            .addComponent(latLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(longLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fileNameField)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(newLocDesc)
+                            .addComponent(importLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addComponent(enterCodeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(82, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(273, 273, 273))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel33)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jLabel33)
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel67)
                     .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descLabel)
                     .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(latLabel)
                     .addComponent(longLabel, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2057,40 +2076,36 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(enterCodeLabel)))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(fileNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tabImportLayout = new javax.swing.GroupLayout(tabImport);
         tabImport.setLayout(tabImportLayout);
         tabImportLayout.setHorizontalGroup(
             tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabImportLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabImportLayout.createSequentialGroup()
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         tabImportLayout.setVerticalGroup(
             tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabImportLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         importConfirmPane.setVisible(false);
-
-        confTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        confTitle.setText("Import New Data");
-
-        confSite.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        confSite.setText("Collection Site: ABC");
 
         confTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2119,36 +2134,41 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
-        confSer.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        confSer.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         confSer.setText("Device Serial No: 123455789");
 
-        javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
-        importConfirmPane.setLayout(importConfirmPaneLayout);
-        importConfirmPaneLayout.setHorizontalGroup(
-            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
+        confSite.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        confSite.setText("Site: ABC - somewhere");
+
+        confTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        confTitle.setText("Confirm Import");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(confirm)
-                .addGap(126, 126, 126)
-                .addComponent(cancel)
-                .addGap(473, 473, 473))
-            .addGroup(importConfirmPaneLayout.createSequentialGroup()
-                .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(importConfirmPaneLayout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                        .addComponent(confirm)
+                        .addGap(126, 126, 126)
+                        .addComponent(cancel)
+                        .addGap(95, 95, 95))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(confSite)
-                            .addComponent(confSer)))
-                    .addGroup(importConfirmPaneLayout.createSequentialGroup()
-                        .addGap(432, 432, 432)
-                        .addComponent(confTitle)))
-                .addGap(390, 390, 390))
+                            .addComponent(confSer))
+                        .addContainerGap())))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(confTitle))
         );
-        importConfirmPaneLayout.setVerticalGroup(
-            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(importConfirmPaneLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(confTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(confSite)
@@ -2157,9 +2177,26 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirm)
                     .addComponent(cancel))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
+        importConfirmPane.setLayout(importConfirmPaneLayout);
+        importConfirmPaneLayout.setHorizontalGroup(
+            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(importConfirmPaneLayout.createSequentialGroup()
+                .addGap(387, 387, 387)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(354, Short.MAX_VALUE))
+        );
+        importConfirmPaneLayout.setVerticalGroup(
+            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
 
@@ -2198,6 +2235,82 @@ public class ContactEditorUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    class ProgressInfinite extends SwingWorker<Void, Void>
+    {
+        @Override
+        public Void doInBackground() {
+
+
+                boolean isNew = false;
+                boolean wrongFile = false;
+                boolean incomplete = false;
+                String desc = "";
+                String lat = "";
+                String lon = "";
+                String [][] table;
+                String loc = (String) importLoc.getSelectedItem();
+                if(loc.equals("New Location")){
+                    loc = locCodeInput.getText();
+                    desc = newLocDesc.getText();
+                    lat = latField.getText();
+                    lon = longField.getText();
+                    isNew = true;
+                    if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
+                        incomplete = true;
+                }else if (loc.equals(" ")){
+                    incomplete = true;
+                }else{
+                    desc = loc.substring(3);
+                    loc = loc.substring(0,3);
+                    
+                }
+                String filePath = fileNameField.getText();
+                if (filePath.equals(""))
+                    incomplete = true;
+                else if (!filePath.endsWith(".csv"))
+                    wrongFile = true;
+                String message;
+                if(incomplete){
+                    message = "Please complete all fields!";
+                    JOptionPane.showMessageDialog(null,message);
+                }else if(wrongFile){
+                    message = "Please select a .csv file!";
+                    JOptionPane.showMessageDialog(null,message);
+                }else{
+                    jProgressBar1.setVisible(true);
+                    jProgressBar1.setIndeterminate(true);
+                    if(isNew){
+                        parser = new DataParser(filePath,loc,desc,lat,lon);
+                    }else
+                        parser = new DataParser(filePath,loc);
+
+                    table = parser.parse();
+
+                    confTable.setModel(new javax.swing.table.DefaultTableModel(
+                        table,
+                        new String [] {
+                            "Datetime", "Temp"
+                        }
+                    ));
+
+                    jScrollPane3.setViewportView(confTable);
+                    
+                    confSite.setText("Site : " + loc + " - " + desc);
+                    confSer.setText("Device Serial No: " + parser.getSerial());
+                    tabImport.setVisible(false);
+                    importConfirmPane.setVisible(true);
+                }
+            return null;
+        }
+
+        @Override
+        public void done()
+        {
+            jProgressBar1.setIndeterminate(false);
+            jProgressBar1.setVisible(false);
+        }
+    }
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
         JFileChooser fc = new JFileChooser();
@@ -2213,58 +2326,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         //get the vals and validate input
-        boolean isNew = false;
-        boolean wrongFile = false;
-        boolean incomplete = false;
-        String desc = "";
-        String lat = "";
-        String lon = "";
-        String [][] table;
-        String loc = (String) importLoc.getSelectedItem();
-        if(loc.equals("New Location")){
-            loc = locCodeInput.getText();
-            desc = newLocDesc.getText();
-            lat = latField.getText();
-            lon = longField.getText();
-            isNew = true;
-            if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
-                incomplete = true;
-        }else if (loc.equals(" ")){
-            incomplete = true;
-        }else{
-            loc = loc.substring(0,3);
-        }
-        String filePath = fileNameField.getText();
-        if (filePath.equals(""))
-            incomplete = true;
-        else if (!filePath.endsWith(".csv"))
-            wrongFile = true;
-        String message;
-        if(incomplete){
-            message = "Please complete all fields!";
-            JOptionPane.showMessageDialog(null,message);
-        }else if(wrongFile){
-            message = "Please select a .csv file!";
-            JOptionPane.showMessageDialog(null,message);
-        }else{
-            tabImport.setVisible(false);
-            importConfirmPane.setVisible(true);
-            if(isNew){
-                parser = new DataParser(filePath,loc,desc,lat,lon);
-            }else
-                parser = new DataParser(filePath,loc);
-            
-            table = parser.parse();
-            confTable.setModel(new javax.swing.table.DefaultTableModel(
-                table,
-                new String [] {
-                    "Datetime", "Temp"
-                }
-            ));
+        
+        taskInfinite = new ProgressInfinite();
+        taskInfinite.execute();
 
-            jScrollPane3.setViewportView(confTable);
-            confSite.setText("Site Code: " + loc);
-        }
 
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -2692,6 +2757,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Data import canceled!");
     }//GEN-LAST:event_cancelActionPerformed
 
+    private void fileNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fileNameFieldActionPerformed
+
+    private void newLocDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLocDescActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newLocDescActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -2855,6 +2929,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2863,6 +2938,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2910,4 +2986,5 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox toYearBox;
     // End of variables declaration//GEN-END:variables
     private DataParser parser;
+    private ProgressInfinite taskInfinite;
 }
