@@ -211,6 +211,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         tabImport = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         fileNameField = new javax.swing.JTextField();
@@ -227,6 +228,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
         latField = new javax.swing.JTextField();
         longLabel = new javax.swing.JLabel();
         longField = new javax.swing.JTextField();
+        importConfirmPane = new javax.swing.JPanel();
+        confTitle = new javax.swing.JLabel();
+        confSite = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        confTable = new javax.swing.JTable();
+        cancel = new javax.swing.JButton();
+        confirm = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -298,7 +306,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         frameTDA.addTab("Home", tabHome);
@@ -2019,7 +2027,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabImportLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                         .addGap(251, 251, 251))
                     .addGroup(tabImportLayout.createSequentialGroup()
                         .addComponent(enterCodeLabel)
@@ -2041,13 +2049,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(descLabel)
                     .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(latLabel)
-                    .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(longLabel)
-                    .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterCodeLabel))
+                    .addComponent(longLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(enterCodeLabel)))
                 .addGap(18, 18, 18)
                 .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -2055,10 +2064,100 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jLabel32))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addGap(240, 240, 240))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
-        frameTDA.addTab("Import", tabImport);
+        importConfirmPane.setVisible(false);
+
+        confTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        confTitle.setText("Import New Data");
+
+        confSite.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        confSite.setText("Collection Site:");
+
+        confTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(confTable);
+
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
+
+        confirm.setText("Confirm");
+        confirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
+        importConfirmPane.setLayout(importConfirmPaneLayout);
+        importConfirmPaneLayout.setHorizontalGroup(
+            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(confirm)
+                .addGap(108, 108, 108)
+                .addComponent(cancel)
+                .addGap(469, 469, 469))
+            .addGroup(importConfirmPaneLayout.createSequentialGroup()
+                .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(importConfirmPaneLayout.createSequentialGroup()
+                        .addGap(384, 384, 384)
+                        .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confSite)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(importConfirmPaneLayout.createSequentialGroup()
+                        .addGap(432, 432, 432)
+                        .addComponent(confTitle)))
+                .addGap(390, 390, 390))
+        );
+        importConfirmPaneLayout.setVerticalGroup(
+            importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(importConfirmPaneLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(confTitle)
+                .addGap(42, 42, 42)
+                .addComponent(confSite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancel)
+                    .addComponent(confirm))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabImport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(importConfirmPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabImport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(importConfirmPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jLayeredPane1.setLayer(tabImport, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(importConfirmPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        frameTDA.addTab("Import", jLayeredPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2525,6 +2624,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_latFieldActionPerformed
 
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2562,6 +2669,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxALL;
+    private javax.swing.JButton cancel;
+    private javax.swing.JLabel confSite;
+    private javax.swing.JTable confTable;
+    private javax.swing.JLabel confTitle;
+    private javax.swing.JButton confirm;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel enterCodeLabel;
     private javax.swing.JTextField fileNameField;
@@ -2570,6 +2682,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox fromHourBox;
     private javax.swing.JComboBox fromMonthBox;
     private javax.swing.JComboBox fromYearBox;
+    private javax.swing.JPanel importConfirmPane;
     private javax.swing.JComboBox importLoc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2674,6 +2787,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2689,6 +2803,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
