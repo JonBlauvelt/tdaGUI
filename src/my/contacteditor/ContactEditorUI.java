@@ -240,6 +240,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         confSer = new javax.swing.JLabel();
         confSite = new javax.swing.JLabel();
         confTitle = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2183,6 +2184,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jProgressBar2.setVisible(false);
+
         javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
         importConfirmPane.setLayout(importConfirmPaneLayout);
         importConfirmPaneLayout.setHorizontalGroup(
@@ -2191,13 +2194,18 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(387, 387, 387)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(354, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(519, 519, 519))
         );
         importConfirmPaneLayout.setVerticalGroup(
             importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(10, 10, 10)
+                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -2323,6 +2331,31 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    class LoadDataProgress extends SwingWorker<Void, Void>
+    {
+        @Override
+        public Void doInBackground() {
+
+            jProgressBar2.setVisible(true);
+            jProgressBar2.setIndeterminate(true);
+            parser.addToDb();
+            resetImport();
+            importConfirmPane.setVisible(false);
+            tabImport.setVisible(true);
+
+        JOptionPane.showMessageDialog(null,"Data imported successfully!");
+            return null;
+        }
+
+        @Override
+        public void done()
+        {
+            jProgressBar2.setIndeterminate(false);
+            jProgressBar2.setVisible(false);
+        }
+    }
+
+                                    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         //get the vals and validate input
@@ -2682,7 +2715,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toYearBoxActionPerformed
-    private void resetImport(){
+    public void resetImport(){
         importLoc.setSelectedItem(" ");
         locCodeInput.setText("");
         newLocDesc.setText("");
@@ -2742,11 +2775,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_latFieldActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        parser.addToDb();
-        tabImport.setVisible(true);
-        importConfirmPane.setVisible(false);
-        resetImport();
-        JOptionPane.showMessageDialog(null,"Data imported successfully!");
+        loadData = new LoadDataProgress();
+        loadData.execute();
+
     }//GEN-LAST:event_confirmActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -2939,6 +2970,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2987,4 +3019,5 @@ public class ContactEditorUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private DataParser parser;
     private ProgressInfinite taskInfinite;
+    private LoadDataProgress loadData;
 }
