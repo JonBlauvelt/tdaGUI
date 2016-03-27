@@ -1,6 +1,5 @@
 
 package my.database;
-
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -82,10 +81,14 @@ public class DataParser {
     this.locId = locIdAL.get(0);
   }
 
+
   //parses file and writes to easily insertable csv
-  public void parse(){
+  public String[][] parse(){
 
     try{
+
+      //make an arrayList
+      ArrayList<String[]> table = new ArrayList<String[]> ();
 
       //make a new scanner object to read from file
       Scanner s = new Scanner(new FileReader(this.inFilename));
@@ -135,6 +138,10 @@ public class DataParser {
 
         //split on commas for processing
         String [] lineArray = line.split(",");
+        String [] tableRow = line.split(",");
+
+        //add to the return table
+        table.add(tableRow);
 
         //check for a datetime in this row 
         if (!lineArray[0].equals(" ") 
@@ -161,10 +168,15 @@ public class DataParser {
       s.close();
       w.close();
 
+    String [][] tableArry = new String [table.size()][];
+    return table.toArray(tableArry);
 
     }catch(Exception e){
       e.printStackTrace(); 
-      System.out.println("it's broken");}
+      System.out.println("it's broken");
+      return null;
+    }
+
   }
 
   //load and delete the outfile
