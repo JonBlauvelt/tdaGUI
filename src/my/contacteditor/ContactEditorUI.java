@@ -213,6 +213,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         tabImport = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         fileNameField = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
@@ -235,6 +236,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         confTable = new javax.swing.JTable();
         cancel = new javax.swing.JButton();
         confirm = new javax.swing.JButton();
+        confSer = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1993,78 +1995,93 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout tabImportLayout = new javax.swing.GroupLayout(tabImport);
-        tabImport.setLayout(tabImportLayout);
-        tabImportLayout.setHorizontalGroup(
-            tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabImportLayout.createSequentialGroup()
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabImportLayout.createSequentialGroup()
-                        .addGap(545, 545, 545)
-                        .addComponent(jButton4))
-                    .addGroup(tabImportLayout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(jLabel33)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tabImportLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(descLabel)
-                    .addComponent(jLabel67)
-                    .addComponent(jLabel32)
-                    .addComponent(latLabel))
-                .addGap(25, 25, 25)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(tabImportLayout.createSequentialGroup()
-                        .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(longLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(fileNameField)
-                    .addComponent(newLocDesc)
-                    .addComponent(importLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabImportLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                        .addGap(251, 251, 251))
-                    .addGroup(tabImportLayout.createSequentialGroup()
-                        .addComponent(enterCodeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(descLabel)
+                                .addComponent(jLabel67)
+                                .addComponent(jLabel32)
+                                .addComponent(latLabel))
+                            .addGap(25, 25, 25)
+                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel14Layout.createSequentialGroup()
+                                    .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(longLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fileNameField)
+                                .addComponent(newLocDesc)
+                                .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(25, 25, 25)
+                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel14Layout.createSequentialGroup()
+                                    .addComponent(enterCodeLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                            .addComponent(jLabel33)
+                            .addGap(137, 137, 137)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(273, 273, 273))))
         );
-        tabImportLayout.setVerticalGroup(
-            tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabImportLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel33)
                 .addGap(56, 56, 56)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel67)
                     .addComponent(importLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descLabel)
                     .addComponent(newLocDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(latLabel)
                     .addComponent(longLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(latField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(longField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(locCodeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(enterCodeLabel)))
                 .addGap(18, 18, 18)
-                .addGroup(tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(fileNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout tabImportLayout = new javax.swing.GroupLayout(tabImport);
+        tabImport.setLayout(tabImportLayout);
+        tabImportLayout.setHorizontalGroup(
+            tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabImportLayout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(317, Short.MAX_VALUE))
+        );
+        tabImportLayout.setVerticalGroup(
+            tabImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabImportLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         importConfirmPane.setVisible(false);
@@ -2073,7 +2090,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         confTitle.setText("Import New Data");
 
         confSite.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        confSite.setText("Collection Site:");
+        confSite.setText("Collection Site: ABC");
 
         confTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2102,6 +2119,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             }
         });
 
+        confSer.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        confSer.setText("Device Serial No: 123455789");
+
         javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
         importConfirmPane.setLayout(importConfirmPaneLayout);
         importConfirmPaneLayout.setHorizontalGroup(
@@ -2109,16 +2129,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(confirm)
-                .addGap(108, 108, 108)
+                .addGap(126, 126, 126)
                 .addComponent(cancel)
-                .addGap(469, 469, 469))
+                .addGap(473, 473, 473))
             .addGroup(importConfirmPaneLayout.createSequentialGroup()
                 .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(importConfirmPaneLayout.createSequentialGroup()
                         .addGap(384, 384, 384)
                         .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(confSite)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(confSer)))
                     .addGroup(importConfirmPaneLayout.createSequentialGroup()
                         .addGap(432, 432, 432)
                         .addComponent(confTitle)))
@@ -2129,15 +2150,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(importConfirmPaneLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(confTitle)
-                .addGap(42, 42, 42)
-                .addComponent(confSite)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(confSite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confSer)
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(31, 31, 31)
                 .addGroup(importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancel)
-                    .addComponent(confirm))
-                .addContainerGap())
+                    .addComponent(confirm)
+                    .addComponent(cancel))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -2194,12 +2217,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         boolean wrongFile = false;
         boolean incomplete = false;
         String desc = "";
+        String lat = "";
+        String lon = "";
+        String [][] table;
         String loc = (String) importLoc.getSelectedItem();
         if(loc.equals("New Location")){
             loc = locCodeInput.getText();
             desc = newLocDesc.getText();
-            String lat = latField.getText();
-            String lon = longField.getText();
+            lat = latField.getText();
+            lon = longField.getText();
             isNew = true;
             if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
                 incomplete = true;
@@ -2214,14 +2240,33 @@ public class ContactEditorUI extends javax.swing.JFrame {
         else if (!filePath.endsWith(".csv"))
             wrongFile = true;
         String message;
-        if(incomplete)
+        if(incomplete){
             message = "Please complete all fields!";
-        else if(wrongFile)
-            message = "Please seledect a .csv file!";
-        else
-            message = "Import successful!";
+            JOptionPane.showMessageDialog(null,message);
+        }else if(wrongFile){
+            message = "Please select a .csv file!";
+            JOptionPane.showMessageDialog(null,message);
+        }else{
+            tabImport.setVisible(false);
+            importConfirmPane.setVisible(true);
+            if(isNew){
+                parser = new DataParser(filePath,loc,desc,lat,lon);
+            }else
+                parser = new DataParser(filePath,loc);
+            
+            table = parser.parse();
+            confTable.setModel(new javax.swing.table.DefaultTableModel(
+                table,
+                new String [] {
+                    "Datetime", "Temp"
+                }
+            ));
 
-        JOptionPane.showMessageDialog(null,message);
+            jScrollPane3.setViewportView(confTable);
+            confSite.setText("Site Code: " + loc);
+        }
+
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
@@ -2572,7 +2617,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toYearBoxActionPerformed
-
+    private void resetImport(){
+        importLoc.setSelectedItem(" ");
+        locCodeInput.setText("");
+        newLocDesc.setText("");
+        latField.setText("");
+        longField.setText("");
+        fileNameField.setText("");
+    }
     private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
         // TODO add your handling code here:
         javax.swing.JComboBox<String> fyb;
@@ -2625,11 +2677,19 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_latFieldActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        // TODO add your handling code here:
+        parser.addToDb();
+        tabImport.setVisible(true);
+        importConfirmPane.setVisible(false);
+        resetImport();
+        JOptionPane.showMessageDialog(null,"Data imported successfully!");
     }//GEN-LAST:event_confirmActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        // TODO add your handling code here:
+        parser.cancel();
+        tabImport.setVisible(true);
+        importConfirmPane.setVisible(false);
+        resetImport();
+        JOptionPane.showMessageDialog(null,"Data import canceled!");
     }//GEN-LAST:event_cancelActionPerformed
 
     /**
@@ -2670,6 +2730,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxALL;
     private javax.swing.JButton cancel;
+    private javax.swing.JLabel confSer;
     private javax.swing.JLabel confSite;
     private javax.swing.JTable confTable;
     private javax.swing.JLabel confTitle;
@@ -2793,6 +2854,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2847,4 +2909,5 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox toMonthBox;
     private javax.swing.JComboBox toYearBox;
     // End of variables declaration//GEN-END:variables
+    private DataParser parser;
 }
