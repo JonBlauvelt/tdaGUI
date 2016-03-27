@@ -2118,7 +2118,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         if(incomplete)
             message = "Please complete all fields!";
         else if(wrongFile)
-            message = "Please select a .csv file!";
+            message = "Please seledect a .csv file!";
         else
             message = "Import successful!";
 

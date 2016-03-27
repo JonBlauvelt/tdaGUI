@@ -11,8 +11,8 @@ public class DBUtil{
   private static String USER = "tda_usr";
   private static String PASSWORD = "La$a1mtns!!";
   private static String DRIVER = "com.mysql.jdbc.Driver";
-  private static String DATABASE = "tda";
-  private static String URL = "jdbc:mysql://52.36.196.165:3306/" + DATABASE;
+  private static String DATABASE = "sandbox";
+  private static String URL = "jdbc:mysql://mysql443-1814605848.us-west-2.elb.amazonaws.com:443/" + DATABASE;
 
 
   //member vars
@@ -61,8 +61,8 @@ public class DBUtil{
       PreparedStatement ps 
         = this.conn.prepareStatement(this.query);
 
-      //return result set
-      return ps.executeQuery();
+        ps.execute();
+        return ps.getResultSet();
 
     }catch(Exception e){
 
@@ -85,11 +85,18 @@ public class DBUtil{
       //make ArrayList
       ArrayList<String> results = new ArrayList<String> ();
 
-      //convert rs to al
-      while(rs.next()){
+      //check for null
+      if(rs != null){
 
-        results.add(rs.getString(1));
+        //convert rs to al
+        while(rs.next()){
 
+          results.add(rs.getString(1));
+
+        }
+
+      }else{
+        results.add(null);
       }
 
       //close
@@ -98,6 +105,7 @@ public class DBUtil{
       return results;
 
     }catch(Exception e){
+      System.out.println("hi");
       e.printStackTrace();
       return null;
     }
