@@ -18,6 +18,7 @@ public class MenuPopulator{
   private static String YEAR_QUERY = "SELECT DISTINCT(year) from temp_readings"
     + " order by year";
   
+  private static String SITE_QUERY = "SELECT site_code from site_location ORDER BY site_code";
   //member vars
   private String type;
   private String query;
@@ -36,6 +37,8 @@ public class MenuPopulator{
         
       this.query = YEAR_QUERY;
       
+    }else if(this.type == "sites"){
+        this.query = SITE_QUERY;
     }//endif  
 
   }//end constructor
