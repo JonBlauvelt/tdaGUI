@@ -12,7 +12,7 @@ import java.sql.*;
  * @author chao
  */
 public class QueryRawData {
-  final String DATABASE = "tda"; 
+  final static String DATABASE = "tda"; 
 	private Connection conn;
 	String selectStatementPt1;
 	String selectStatementPt2;
@@ -20,13 +20,19 @@ public class QueryRawData {
 	String strQuery;
 	String siteTable = "site_location";
 	String tempTable = "temp_readings";
-	QueryRawData(){
+	public QueryRawData(){
 		this.selectStatementPt1 = "SELECT " + siteTable + ".site_name, "+ tempTable + ".temp, " + tempTable + ".month, " + tempTable + ".day, " + tempTable + ".year, "+ tempTable + ".hour ";
 		this.selectStatementPt2 = "FROM " + tempTable + " JOIN " + siteTable + " ON " + siteTable + ".site_id = " + tempTable + ".site_id ";
 		this.selectStatementPt3 = "WHERE (";
 		this.strQuery = this.selectStatementPt1 + this.selectStatementPt2;
 	}
 	
+        public void clearQuery(){
+            	this.selectStatementPt1 = "SELECT " + siteTable + ".site_name, "+ tempTable + ".temp, " + tempTable + ".month, " + tempTable + ".day, " + tempTable + ".year, "+ tempTable + ".hour ";
+		this.selectStatementPt2 = "FROM " + tempTable + " JOIN " + siteTable + " ON " + siteTable + ".site_id = " + tempTable + ".site_id ";
+		this.selectStatementPt3 = "WHERE (";
+		this.strQuery = this.selectStatementPt1 + this.selectStatementPt2;
+        }
 	public void connectToDB(){
 		 String url = "jdbc:mysql://52.36.196.165:3306/" + DATABASE;
 		 String user = "tda_usr";
@@ -59,6 +65,8 @@ public class QueryRawData {
 	}
 
 	public List<HashMap<String, Object>> executeQuery(String query){
+                //System.out.println("IN EXECUTE");
+                this.connectToDB();
 		List<HashMap<String, Object>> resultList = new ArrayList<HashMap<String, Object>>();
 		try {
 			PreparedStatement selectStatement = conn.prepareStatement(query + ") ORDER BY " + siteTable + ".site_name," + tempTable + ".year," + tempTable + ".month," + tempTable + ".day," + tempTable + ".hour");
@@ -78,11 +86,11 @@ public class QueryRawData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+                this.disconnectFromDB();
 		return resultList;
 	}
 	
-	public String bySiteLocation(List<String> locations, boolean isAll){	
+	public String bySiteLocation(ArrayList<String> locations, boolean isAll){	
 	 	String locationStr = locations.toString();
 	 	locationStr = locationStr.replace("[", "(");
 	 	locationStr = locationStr.replace("]", ")");
@@ -176,7 +184,7 @@ public class QueryRawData {
 			String logYearPt1 = this.loggerYearQueryPartBuilder(months.get(0).toString(), fromYear);
 			String logYearPt2 = this.loggerYearQueryPartBuilder(months.get(1).toString(), toYear);
 			String logYearFinal = "(" + logYearPt1 + " OR " + logYearPt2 + ")";	
-			System.out.println(logYearFinal);
+			//System.out.println(logYearFinal);
 			queries.add(logYearFinal);
 		}
 		//Query Builder
@@ -323,6 +331,15 @@ public class QueryRawData {
 		return intArray;
 	}
 	
+        public Integer yearDeConvert(String year){
+            //System.out.println("IN YEAR DECONVERT");
+            if(year.charAt(2) == '0'){
+                return Integer.parseInt(year.substring(3));
+            }else{
+                return Integer.parseInt(year.substring(2));
+            }
+        }
+        
 	private Integer yearConvert(Integer year){
 		String yearStr = Integer.toString(year);
 		if(yearStr.length() == 2){
@@ -347,7 +364,7 @@ public class QueryRawData {
 		String logPart = "((" + tempTable + ".month IN " + part;
 		
 		logPart = logPart + ") AND (" + tempTable + ".year = " + year + "))";
-		System.out.println(logPart);
+		//System.out.println(logPart);
 		return logPart;
 	}
 	

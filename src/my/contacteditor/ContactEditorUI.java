@@ -8,7 +8,9 @@ package my.contacteditor;
 import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +18,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.JCheckBox;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import my.database.*;
@@ -63,6 +66,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         tabQuery = new javax.swing.JTabbedPane();
+        tabParameterScroll = new javax.swing.JScrollPane();
         tabParameter = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         fromYearBox = new javax.swing.JComboBox();
@@ -104,43 +108,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
-        jCheckBox23 = new javax.swing.JCheckBox();
-        jCheckBox24 = new javax.swing.JCheckBox();
-        jCheckBox25 = new javax.swing.JCheckBox();
-        jCheckBox26 = new javax.swing.JCheckBox();
-        jCheckBox27 = new javax.swing.JCheckBox();
-        jCheckBox28 = new javax.swing.JCheckBox();
-        jCheckBox29 = new javax.swing.JCheckBox();
-        jCheckBox30 = new javax.swing.JCheckBox();
-        jCheckBox31 = new javax.swing.JCheckBox();
-        jCheckBox32 = new javax.swing.JCheckBox();
-        jCheckBox33 = new javax.swing.JCheckBox();
-        jCheckBox34 = new javax.swing.JCheckBox();
-        boxALL = new javax.swing.JCheckBox();
-        jCheckBox36 = new javax.swing.JCheckBox();
-        jCheckBox37 = new javax.swing.JCheckBox();
-        jCheckBox38 = new javax.swing.JCheckBox();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jPanel16 = new javax.swing.JPanel();
         tabRawData = new javax.swing.JScrollPane();
         rawPanel1 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -319,6 +290,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.setBackground(new java.awt.Color(102, 255, 255));
 
+        tabParameter.setAutoscrolls(true);
+
         //get the current year.
         /*int currYear = Calendar.getInstance().get(Calendar.YEAR);
 
@@ -463,452 +436,149 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("Select Site Location");
 
-        jCheckBox1.setText("BMS");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox5.setText("DFM");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox6.setText("GRV");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox7.setText("LSP");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox8.setText("SBM");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox9.setText("UBB");
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox10.setText("ME2");
-        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox10ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox11.setText("HCB");
-        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox11ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox12.setText("DIN");
-        jCheckBox12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox12ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox13.setText("BOR");
-        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox13ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox14.setText("UD2");
-        jCheckBox14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox14ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox15.setText("MEL");
-        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox15ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox16.setText("HCR");
-        jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox16ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox17.setText("EDC");
-        jCheckBox17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox17ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox18.setText("BPA");
-        jCheckBox18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox18ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox19.setText("EMF");
-        jCheckBox19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox19ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox20.setText("UDC");
-        jCheckBox20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox20ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox21.setText("MEM");
-        jCheckBox21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox21ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox22.setText("BPT");
-        jCheckBox22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox22ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox23.setText("HWY");
-        jCheckBox23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox23ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox24.setText("BRR");
-        jCheckBox24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox24ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox25.setText("GBR");
-        jCheckBox25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox25ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox26.setText("MER");
-        jCheckBox26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox26ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox27.setText("LBB");
-        jCheckBox27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox27ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox28.setText("WFM");
-        jCheckBox28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox28ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox29.setText("GEF");
-        jCheckBox29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox29ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox30.setText("MOM");
-        jCheckBox30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox30ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox31.setText("WME");
-        jCheckBox31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox31ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox32.setText("CCR");
-        jCheckBox32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox32ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox33.setText("LGP");
-        jCheckBox33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox33ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox34.setText("NPE");
-        jCheckBox34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox34ActionPerformed(evt);
-            }
-        });
-
-        boxALL.setText("ALL");
-        boxALL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boxALLMouseClicked(evt);
-            }
-        });
-        boxALL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxALLActionPerformed(evt);
-            }
-        });
-
-        jCheckBox36.setText("LPJ");
-        jCheckBox36.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox36ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox37.setText("GOB");
-        jCheckBox37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox37ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox38.setText("CLK");
-        jCheckBox38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox38ActionPerformed(evt);
-            }
-        });
-
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel16.setText("Time Filters");
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel18.setText("Site Filters");
 
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel16MouseClicked(evt);
+            }
+        });
+        jPanel16.setLayout(new java.awt.GridLayout(7, 5));
+
+        ArrayList<String> siteCodes = new MenuPopulator("sites").populate();
+        siteCodes.add("ALL");
+        String[] siteStrs = {};
+        siteStrs = siteCodes.toArray(siteStrs);
+        for(int i=0; i < siteStrs.length; i++){
+            JCheckBox siteBox = new JCheckBox();
+            siteBox.setText(siteStrs[i]);
+            // System.out.println(siteStrs[i]);
+            checkBox.add(siteBox);
+            siteBox.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    checkBoxesSelected(evt);
+                }
+            });
+            jPanel16.add(checkBox.get(i));
+        }
+
+        jScrollPane7.setViewportView(jPanel16);
+
         javax.swing.GroupLayout tabParameterLayout = new javax.swing.GroupLayout(tabParameter);
         tabParameter.setLayout(tabParameterLayout);
         tabParameterLayout.setHorizontalGroup(
             tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator8)
+            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 1213, Short.MAX_VALUE)
+            .addGroup(tabParameterLayout.createSequentialGroup()
+                .addGap(516, 516, 516)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resetButton))
             .addGroup(tabParameterLayout.createSequentialGroup()
                 .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabParameterLayout.createSequentialGroup()
-                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(150, 150, 150)
+                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGap(150, 150, 150)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addComponent(jLabel17)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(presetValueLabel)
-                                            .addComponent(presetYearLabel))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(presetValue, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
-                                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel19)
-                                        .addGap(26, 26, 26))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel1)
-                                                    .addComponent(jLabel2))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jLabel9)
-                                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(tabParameterLayout.createSequentialGroup()
-                                                    .addComponent(jLabel5)
-                                                    .addGap(38, 38, 38)
-                                                    .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(tabParameterLayout.createSequentialGroup()
-                                                    .addComponent(jLabel4)
-                                                    .addGap(26, 26, 26)
-                                                    .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(54, 54, 54)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(jLabel8))
-                                                .addGap(26, 26, 26)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel11)
-                                                    .addComponent(jLabel12))
-                                                .addGap(26, 26, 26)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(tabParameterLayout.createSequentialGroup()
                                 .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(237, 237, 237)
-                                        .addComponent(jLabel14))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(248, 248, 248)
-                                        .addComponent(jLabel16))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(225, 225, 225)
-                                        .addComponent(jLabel15)))
-                                .addGap(310, 310, 310)
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jCheckBox32)
-                                                .addGroup(tabParameterLayout.createSequentialGroup()
-                                                    .addComponent(jCheckBox24)
-                                                    .addGap(2, 2, 2)))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jCheckBox22)
-                                                    .addComponent(jCheckBox38))
-                                                .addGap(4, 4, 4)))
-                                        .addGroup(tabParameterLayout.createSequentialGroup()
-                                            .addComponent(jCheckBox18)
-                                            .addGap(4, 4, 4)))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox13)
-                                            .addComponent(jCheckBox1))
-                                        .addGap(2, 2, 2)))
+                                    .addComponent(presetValueLabel)
+                                    .addComponent(presetYearLabel))
                                 .addGap(18, 18, 18)
                                 .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jCheckBox12))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCheckBox17))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jCheckBox5))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jCheckBox29)
-                                            .addComponent(jCheckBox25)))
-                                    .addComponent(jCheckBox19)
-                                    .addComponent(jCheckBox37))
-                                .addGap(4, 4, 4)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jCheckBox6))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jCheckBox11))
-                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox16, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBox33, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBox27, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBox23, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBox36, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox15, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox7)
-                                        .addComponent(jCheckBox10))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox34)
-                                            .addComponent(jCheckBox26)
-                                            .addComponent(jCheckBox30)
-                                            .addComponent(jCheckBox21))
-                                        .addGap(2, 2, 2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox14)
-                                        .addComponent(jCheckBox9)
-                                        .addComponent(jCheckBox8))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox31)
-                                        .addComponent(boxALL)
-                                        .addComponent(jCheckBox28)
-                                        .addComponent(jCheckBox20))))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(jLabel18))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(jLabel13))))
+                                    .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(presetValue, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(tabParameterLayout.createSequentialGroup()
-                        .addGap(516, 516, 516)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(resetButton)))
-                .addGap(160, 160, 160))
+                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel19)
+                                .addGap(26, 26, 26))
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(tabParameterLayout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addGap(38, 38, 38)
+                                            .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(tabParameterLayout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addGap(26, 26, 26)
+                                            .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)))
+                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                        .addGap(54, 54, 54)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel8))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabParameterLayout.createSequentialGroup()
+                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(jLabel14))
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGap(248, 248, 248)
+                                .addComponent(jLabel16))
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGap(225, 225, 225)
+                                .addComponent(jLabel15)))
+                        .addGap(310, 310, 310)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabParameterLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel18))
+                    .addGroup(tabParameterLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel13))
+                    .addGroup(tabParameterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         tabParameterLayout.setVerticalGroup(
             tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -926,174 +596,90 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addComponent(jLabel18)
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel13)))
-                        .addGap(21, 21, 21)
                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
+                                .addGap(21, 21, 21)
                                 .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox1)
-                                                .addGap(35, 35, 35))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
-                                                .addComponent(jCheckBox13)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCheckBox18)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jCheckBox22)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                        .addComponent(jCheckBox24)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox32)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jCheckBox38))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox5)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jCheckBox12))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
-                                                .addComponent(jCheckBox17)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox19)
+                                        .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckBox25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox29)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jCheckBox37))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox6)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jCheckBox11))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
-                                                .addComponent(jCheckBox16)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox23)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckBox27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox33)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jCheckBox36))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox7)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jCheckBox10))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
-                                                .addComponent(jCheckBox15)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckBox26)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox30)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jCheckBox34))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox8)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jCheckBox9))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
-                                                .addComponent(jCheckBox14)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCheckBox28)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jCheckBox31)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(boxALL))))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel2))
-                                                .addGap(29, 29, 29)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel5)
-                                                        .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel1))))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(jLabel4)
-                                                    .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
-                                                .addComponent(jLabel19)
-                                                .addGap(8, 8, 8))
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(5, 5, 5)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel7)
-                                            .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(34, 34, 34)
+                                            .addComponent(jLabel11)
+                                            .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel12)
+                                            .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
                                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(46, 46, 46)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel15)
-                                .addGap(16, 16, 16)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel17)
-                                    .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(19, 19, 19)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(presetValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(presetValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(presetYearLabel)
-                                    .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(jLabel7)
+                                                    .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(34, 34, 34)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel8)
+                                                    .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(46, 46, 46))
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jLabel2))
+                                                        .addGap(29, 29, 29)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(jLabel5)
+                                                                .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabel1))))
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addComponent(jLabel3)
+                                                        .addGap(5, 5, 5)
+                                                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(jLabel4)
+                                                            .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(31, 31, 31)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
+                                                        .addComponent(jLabel19)
+                                                        .addGap(8, 8, 8))
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addGap(5, 5, 5)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel15)
+                                        .addGap(16, 16, 16)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel17)
+                                            .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(19, 19, 19)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(presetValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(presetValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(presetYearLabel)
+                                            .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1104,7 +690,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        tabQuery.addTab("Parameters", tabParameter);
+        tabParameterScroll.setViewportView(tabParameter);
+
+        tabQuery.addTab("Parameters", tabParameterScroll);
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel21.setText("Raw Data");
@@ -1198,9 +786,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel21))))
-                .addGap(0, 348, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel21)))))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1224, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         rawPanel1Layout.setVerticalGroup(
             rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2383,185 +1970,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jCheckBox38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox38ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox38ActionPerformed
-
-    private void jCheckBox37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox37ActionPerformed
-
-    private void jCheckBox36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox36ActionPerformed
-
-    private void boxALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxALLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boxALLActionPerformed
-
-    private void boxALLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxALLMouseClicked
-        // TODO add your handling code here:
-        boolean status = boxALL.isSelected();
-        jCheckBox1.setSelected(status);
-        jCheckBox5.setSelected(status);
-        jCheckBox6.setSelected(status);
-        jCheckBox7.setSelected(status);
-        jCheckBox8.setSelected(status);
-        jCheckBox9.setSelected(status);
-        jCheckBox10.setSelected(status);
-        jCheckBox11.setSelected(status);
-        jCheckBox12.setSelected(status);
-        jCheckBox13.setSelected(status);
-        jCheckBox14.setSelected(status);
-        jCheckBox15.setSelected(status);
-        jCheckBox16.setSelected(status);
-        jCheckBox17.setSelected(status);
-        jCheckBox18.setSelected(status);
-        jCheckBox19.setSelected(status);
-        jCheckBox20.setSelected(status);
-        jCheckBox21.setSelected(status);
-        jCheckBox22.setSelected(status);
-        jCheckBox23.setSelected(status);
-        jCheckBox24.setSelected(status);
-        jCheckBox25.setSelected(status);
-        jCheckBox26.setSelected(status);
-        jCheckBox27.setSelected(status);
-        jCheckBox28.setSelected(status);
-        jCheckBox29.setSelected(status);
-        jCheckBox30.setSelected(status);
-        jCheckBox31.setSelected(status);
-        jCheckBox32.setSelected(status);
-        jCheckBox33.setSelected(status);
-        jCheckBox34.setSelected(status);
-        jCheckBox36.setSelected(status);
-        jCheckBox37.setSelected(status);
-        jCheckBox38.setSelected(status);
-    }//GEN-LAST:event_boxALLMouseClicked
-
-    private void jCheckBox34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox34ActionPerformed
-
-    private void jCheckBox33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox33ActionPerformed
-
-    private void jCheckBox32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox32ActionPerformed
-
-    private void jCheckBox31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox31ActionPerformed
-
-    private void jCheckBox30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox30ActionPerformed
-
-    private void jCheckBox29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox29ActionPerformed
-
-    private void jCheckBox28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox28ActionPerformed
-
-    private void jCheckBox27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox27ActionPerformed
-
-    private void jCheckBox26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox26ActionPerformed
-
-    private void jCheckBox25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox25ActionPerformed
-
-    private void jCheckBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox24ActionPerformed
-
-    private void jCheckBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox23ActionPerformed
-
-    private void jCheckBox22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox22ActionPerformed
-
-    private void jCheckBox21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox21ActionPerformed
-
-    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox20ActionPerformed
-
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
-
-    private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox18ActionPerformed
-
-    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox17ActionPerformed
-
-    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox16ActionPerformed
-
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
-
-    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox14ActionPerformed
-
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
-
-    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox12ActionPerformed
-
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
-
-    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox10ActionPerformed
-
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox9ActionPerformed
-
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
-
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
-
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
-
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resetButtonActionPerformed
@@ -2594,9 +2002,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
         presetYearLabel.setVisible(false);
         presetYear.setVisible(false);
 
-        boolean status = false;
 
-        jCheckBox1.setSelected(status);
+        for(int i=0; i < checkBox.size(); i++){
+            checkBox.get(i).setSelected(false);
+        }
+        /*jCheckBox1.setSelected(status);
         jCheckBox5.setSelected(status);
         jCheckBox6.setSelected(status);
         jCheckBox7.setSelected(status);
@@ -2630,7 +2040,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jCheckBox36.setSelected(status);
         jCheckBox37.setSelected(status);
         jCheckBox38.setSelected(status);
-        boxALL.setSelected(status);
+        boxALL.setSelected(status);*/
     }//GEN-LAST:event_resetButtonMouseClicked
 
     private void presetTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_presetTypePropertyChange
@@ -2683,13 +2093,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         //jd.setModal(true);
         //jd.setVisible(true);
         //jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        try {
+        /*try {
             TimeUnit.SECONDS.sleep(2);
             //    jd.dispose();
         } catch (InterruptedException ex) {
             Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Finished Calculating.");
+        JOptionPane.showMessageDialog(null, "Finished Calculating.");*/
+        String query = "";
+        QRD.clearQuery();
         if (presetType.getSelectedItem().toString().contains("Select")) {
             int yearFrom;
             int yearTo;
@@ -2701,9 +2113,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
             String hourFromString;
             int hourFrom;
             int hourTo;
-
-            yearFrom = Integer.parseInt((String) fromYearBox.getSelectedItem());
-            yearTo = Integer.parseInt((String) toYearBox.getSelectedItem());
+           
+            
+            yearFrom = QRD.yearDeConvert((String) fromYearBox.getSelectedItem());
+            yearTo = QRD.yearDeConvert((String) toYearBox.getSelectedItem());
             monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
             monthTo = Integer.parseInt((String) toMonthBox.getSelectedItem());
             dayFrom = Integer.parseInt((String) fromDayBox.getSelectedItem());
@@ -2718,7 +2131,20 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
             split = hourToString.split(":");
             hourTo = Integer.parseInt(split[0]);
-
+            
+           //HASHMAP LOADUP: timeInterval
+            HashMap<String, Integer> timeInterval = new HashMap<String, Integer>();
+            timeInterval.put("FromYear", yearFrom);
+            timeInterval.put("ToYear", yearTo);
+            timeInterval.put("FromMonth", monthFrom);
+            timeInterval.put("ToMonth", monthTo);
+            timeInterval.put("FromDay", dayFrom);
+            timeInterval.put("ToDay", dayTo);
+            timeInterval.put("FromHour", hourFrom);
+            timeInterval.put("ToHour", hourTo);
+            
+            query = QRD.byTimeInterval(timeInterval);
+                 
             System.out.println(yearFrom);
             System.out.println(yearTo);
             System.out.println(monthFrom);
@@ -2727,6 +2153,41 @@ public class ContactEditorUI extends javax.swing.JFrame {
             System.out.println(dayTo);
             System.out.println(hourFrom);
             System.out.println(hourTo);
+        }else if(presetType.getSelectedItem().equals("Season")){
+            ArrayList<Integer> year = new ArrayList<Integer>();
+            year.add(Integer.parseInt(presetYear.getSelectedItem().toString()));
+            query = QRD.bySeasons((String) presetValue.getSelectedItem());
+            query = QRD.byYear(year);
+        }else if(presetType.getSelectedItem().equals("Logger Year")){
+            ArrayList<HashMap<String,Integer>> logYearList = new ArrayList<HashMap<String,Integer>>();
+            HashMap<String, Integer> logYear = new HashMap<String, Integer>();
+            String fromLog = presetValue.getSelectedItem().toString().substring(8, 12);
+            //System.out.println(fromLog);
+            String toLog = presetValue.getSelectedItem().toString().substring(25);
+            //System.out.println(toLog);
+            logYear.put("From", QRD.yearDeConvert(fromLog));
+            logYear.put("To", QRD.yearDeConvert(toLog));
+            logYearList.add(logYear);
+            query = QRD.byLoggerYear(logYearList);     
+        }
+        int indexAll = checkBox.size()-1;
+        boolean allBoxes = false;
+        if(checkBox.get(indexAll).isSelected()){
+            System.out.println("THIS IS ALL");
+            for(int i=0; i < checkBox.size(); i++){
+                checkBox.get(i).setSelected(true);
+            }
+            allBoxes = true;
+        }
+        if(checkBoxVals.size() != 0){
+            query = QRD.bySiteLocation(checkBoxVals, allBoxes);
+            System.out.println(query);
+            QRD.executeQuery(query);
+            JOptionPane.showMessageDialog(null, "Finished Calculating!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a site location.");
+            /*System.out.println(query);
+            QRD.executeQuery(query); */ 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2813,6 +2274,38 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void newLocDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLocDescActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newLocDescActionPerformed
+
+    private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPanel16MouseClicked
+    
+    private void checkBoxesSelected(java.awt.event.MouseEvent evt){
+        checkBoxVals.clear();
+        Object[] siteObjs = {};
+        int indexAll = checkBox.size()-1;
+        if(checkBox.get(indexAll).isSelected()){
+                System.out.println("THIS IS ALL");
+                for(int i=0; i < checkBox.size(); i++){
+                    checkBox.get(i).setSelected(true);
+                }
+                selectedAll = true;
+        }
+        if((!checkBox.get(indexAll).isSelected()) && selectedAll){
+            for(int i=0; i < checkBox.size(); i++){
+                checkBox.get(i).setSelected(false);
+            }
+            selectedAll = false;
+        }
+        for(int i=0; i < checkBox.size(); i++){
+            if(checkBox.get(i).isSelected()){
+                siteObjs = checkBox.get(i).getSelectedObjects();
+                checkBoxVals.add("'"+ siteObjs[0] + "'");
+            }
+        }
+        System.out.println(checkBox.size());
+        System.out.println(checkBoxVals.size());
+    }
     
     
     /**
@@ -2851,7 +2344,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox boxALL;
     private javax.swing.JButton cancel;
     private javax.swing.JLabel confSer;
     private javax.swing.JLabel confSite;
@@ -2871,40 +2363,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
-    private javax.swing.JCheckBox jCheckBox23;
-    private javax.swing.JCheckBox jCheckBox24;
-    private javax.swing.JCheckBox jCheckBox25;
-    private javax.swing.JCheckBox jCheckBox26;
-    private javax.swing.JCheckBox jCheckBox27;
-    private javax.swing.JCheckBox jCheckBox28;
-    private javax.swing.JCheckBox jCheckBox29;
-    private javax.swing.JCheckBox jCheckBox30;
-    private javax.swing.JCheckBox jCheckBox31;
-    private javax.swing.JCheckBox jCheckBox32;
-    private javax.swing.JCheckBox jCheckBox33;
-    private javax.swing.JCheckBox jCheckBox34;
-    private javax.swing.JCheckBox jCheckBox36;
-    private javax.swing.JCheckBox jCheckBox37;
-    private javax.swing.JCheckBox jCheckBox38;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2979,6 +2437,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2995,6 +2454,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3026,6 +2486,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel tabHome;
     private javax.swing.JPanel tabImport;
     private javax.swing.JPanel tabParameter;
+    private javax.swing.JScrollPane tabParameterScroll;
     private javax.swing.JTabbedPane tabQuery;
     private javax.swing.JScrollPane tabRawData;
     private javax.swing.JScrollPane tabRegression;
@@ -3038,4 +2499,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private DataParser parser;
     private ProgressInfinite taskInfinite;
     private LoadDataProgress loadData;
+    private QueryRawData QRD = new QueryRawData();
+    private ArrayList<JCheckBox> checkBox = new ArrayList<JCheckBox>();
+    private ArrayList<String> checkBoxVals = new ArrayList<String>();
+    boolean selectedAll = false; //Checkbox value
+   //private ArrayList<Object> siteCheckBoxValues = new ArrayList<Object>();
 }
