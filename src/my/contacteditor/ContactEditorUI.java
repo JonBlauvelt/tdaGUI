@@ -320,7 +320,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabQuery.setBackground(new java.awt.Color(102, 255, 255));
 
         //get the current year.
-        int currYear = Calendar.getInstance().get(Calendar.YEAR);
+        /*int currYear = Calendar.getInstance().get(Calendar.YEAR);
 
         //make a list to populate menus
         ArrayList<String> years = new ArrayList<String>();
@@ -329,16 +329,21 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
             years.add(String.valueOf(i));
 
-        }
-        fromYearBox.setModel(new javax.swing.DefaultComboBoxModel(years.toArray()));
+        }*/
+
+        ArrayList<String> yearOptions = new MenuPopulator("years").populate();
+        String [] yearOpArry = new String [yearOptions.size()];
+        fromYearBox.setModel(new javax.swing.DefaultComboBoxModel(yearOptions.toArray(yearOpArry)));
         fromYearBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromYearBoxActionPerformed(evt);
             }
         });
 
-        toYearBox.setModel(new javax.swing.DefaultComboBoxModel(years.toArray()));
-        toYearBox.setSelectedIndex(14);
+        ArrayList<String> toyearOptions = new MenuPopulator("years").populate();
+        String [] toyearOpArry = new String [toyearOptions.size()];
+        toYearBox.setModel(new javax.swing.DefaultComboBoxModel(toyearOptions.toArray(toyearOpArry)));
+        toYearBox.setSelectedIndex(toyearOptions.size()-1);
         toYearBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toYearBoxActionPerformed(evt);
@@ -406,7 +411,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         presetYearLabel.setText("Year:");
 
         presetYear.setVisible(false);
-        presetYear.setModel(new javax.swing.DefaultComboBoxModel(years.toArray()));
+        ArrayList<String> presetyearOptions = new MenuPopulator("years").populate();
+        String [] presetyearOpArry = new String [presetyearOptions.size()];
+        presetYear.setModel(new javax.swing.DefaultComboBoxModel(presetyearOptions.toArray(presetyearOpArry)));
         presetYear.setSelectedIndex(0);
 
         presetValue.setVisible(false);
@@ -722,91 +729,97 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(tabParameterLayout.createSequentialGroup()
                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(237, 237, 237)
-                                        .addComponent(jLabel14))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(248, 248, 248)
-                                        .addComponent(jLabel16)))
-                                .addGap(314, 314, 314)
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
-                                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel19)
-                                        .addGap(26, 26, 26))
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel1)
-                                                    .addComponent(jLabel2))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jLabel9)
-                                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(tabParameterLayout.createSequentialGroup()
-                                                    .addComponent(jLabel5)
-                                                    .addGap(38, 38, 38)
-                                                    .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(tabParameterLayout.createSequentialGroup()
-                                                    .addComponent(jLabel4)
-                                                    .addGap(26, 26, 26)
-                                                    .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGap(54, 54, 54)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(jLabel8))
-                                                .addGap(26, 26, 26)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addGroup(tabParameterLayout.createSequentialGroup()
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel11)
-                                                    .addComponent(jLabel12))
-                                                .addGap(26, 26, 26)
-                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabParameterLayout.createSequentialGroup()
                                 .addGap(235, 235, 235)
-                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
                                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(presetYearLabel)
                                             .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(presetValueLabel)
                                                 .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(presetValue, 0, 200, Short.MAX_VALUE)
+                                            .addComponent(presetType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(326, 326, 326))))
+                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabParameterLayout.createSequentialGroup()
+                                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel19)
+                                                .addGap(26, 26, 26))
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addGap(11, 11, 11)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel1)
+                                                            .addComponent(jLabel2))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(fromYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(toYearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(jLabel9)
+                                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(tabParameterLayout.createSequentialGroup()
+                                                            .addComponent(jLabel5)
+                                                            .addGap(38, 38, 38)
+                                                            .addComponent(toMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(tabParameterLayout.createSequentialGroup()
+                                                            .addComponent(jLabel4)
+                                                            .addGap(26, 26, 26)
+                                                            .addComponent(fromMonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(18, 18, 18)))
                                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(presetValue, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(presetType, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(presetYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel15))))
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel6)
+                                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addGap(54, 54, 54)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel7)
+                                                            .addComponent(jLabel8))
+                                                        .addGap(26, 26, 26)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(toDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(fromDayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel10)
+                                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel11)
+                                                            .addComponent(jLabel12))
+                                                        .addGap(26, 26, 26)
+                                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(fromHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(toHourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(tabParameterLayout.createSequentialGroup()
+                                        .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addGap(237, 237, 237)
+                                                .addComponent(jLabel14))
+                                            .addGroup(tabParameterLayout.createSequentialGroup()
+                                                .addGap(248, 248, 248)
+                                                .addComponent(jLabel16)))
+                                        .addGap(310, 310, 310)
+                                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabParameterLayout.createSequentialGroup()
                                 .addGap(84, 84, 84)
@@ -898,7 +911,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(resetButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(160, 160, 160))
         );
         tabParameterLayout.setVerticalGroup(
             tabParameterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2047,7 +2060,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(82, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel33)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel14Layout.createSequentialGroup()
@@ -2641,9 +2653,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
             presetYear.setVisible(true);
 
         } else if (presetType.getSelectedItem().toString().contains("Logger Year")) {
+            ArrayList<String> logYear = new MenuPopulator().populateLoggerYear();
+            String[] logYearArr = {};
             presetValueLabel.setVisible(true);
             presetValue.setVisible(true);
-            presetValue.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Logger Year 1", "Logger Year 2", "Logger Year 3", "Logger Year 4"}));
+            presetValue.setModel(new javax.swing.DefaultComboBoxModel(logYear.toArray(logYearArr)));
             presetYearLabel.setVisible(false);
             presetYear.setVisible(false);
         } else {

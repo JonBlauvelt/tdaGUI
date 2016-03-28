@@ -11,7 +11,7 @@ public class DBUtil{
   private static String USER = "tda_usr";
   private static String PASSWORD = "La$a1mtns!!";
   private static String DRIVER = "com.mysql.jdbc.Driver";
-  private static String DATABASE = "sandbox";
+  private static String DATABASE = "tda";
   private static String URL = "jdbc:mysql://mysql443-1814605848.us-west-2.elb.amazonaws.com:443/" + DATABASE;
 
 
@@ -27,7 +27,10 @@ public class DBUtil{
 
   }
 
-
+  DBUtil(){
+     
+  }
+  
   private void connectToDB(){
 
     // Load the Connector/J driver
@@ -72,6 +75,27 @@ public class DBUtil{
 
   }//end query
 
+    private String yearConvert(Integer year){
+	String yearStr = Integer.toString(year);
+	if(yearStr.length() == 2){
+		yearStr = "20" + yearStr;
+	}
+	else if(yearStr.length() == 1){
+		yearStr = "200" + yearStr;
+	}
+	return (yearStr);
+		
+    }
+    
+  public String getQuery(){
+      return this.query;
+  }
+    
+  public void setQuery(String q){
+      this.query = q;
+  }
+    
+    
   public ArrayList<String> execute (){
 
     try{
@@ -90,8 +114,11 @@ public class DBUtil{
 
         //convert rs to al
         while(rs.next()){
-
-          results.add(rs.getString(1));
+          if(this.query.contains("DISTINCT(year)")){
+              results.add(this.yearConvert(rs.getInt(1)));
+          }else{
+              results.add(rs.getString(1));
+          }
 
         }
 
@@ -111,5 +138,7 @@ public class DBUtil{
     }
 
   }//end ex 
+ 
+          
 
 }//end class

@@ -182,105 +182,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
-                                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
-                                          <Component id="jSeparator7" min="-2" pref="13" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jSeparator6" min="-2" pref="294" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="fromYearBox" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                              <Component id="toYearBox" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jSeparator2" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jSeparator3" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                          <Group type="102" alignment="1" attributes="0">
-                                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                                              <Component id="toMonthBox" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="1" attributes="0">
-                                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                                              <Component id="fromMonthBox" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jSeparator4" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="toDayBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="fromDayBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Component id="fromHourBox" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="toHourBox" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Component id="jSeparator5" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Component id="jSeparator1" alignment="0" min="-2" pref="329" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="1" attributes="0">
                                                       <Component id="presetYearLabel" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -290,14 +193,120 @@
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="presetValue" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                                      <Component id="presetType" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Component id="presetYear" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                                      <Component id="presetValue" pref="200" max="32767" attributes="0"/>
+                                                      <Component id="presetType" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="326" pref="326" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jSeparator6" min="-2" pref="294" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="fromYearBox" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                                                      <Component id="toYearBox" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jSeparator2" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jSeparator3" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                                  <Group type="102" alignment="1" attributes="0">
+                                                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                                                      <Component id="toMonthBox" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <Group type="102" alignment="1" attributes="0">
+                                                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                                      <Component id="fromMonthBox" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jSeparator4" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="toDayBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="fromDayBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                                      <Component id="fromHourBox" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="toHourBox" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Component id="jSeparator5" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Component id="jSeparator1" alignment="0" min="-2" pref="329" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="310" max="-2" attributes="0"/>
+                                                  <Component id="jSeparator7" min="-2" pref="26" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -425,7 +434,7 @@
                                   <Component id="resetButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="106" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -678,7 +687,7 @@
                 <Component class="javax.swing.JComboBox" name="fromYearBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.DefaultComboBoxModel(years.toArray())" type="code"/>
+                      <Connection code="new javax.swing.DefaultComboBoxModel(yearOptions.toArray(yearOpArry))" type="code"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -686,13 +695,13 @@
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//get the current year.&#xa;int currYear = Calendar.getInstance().get(Calendar.YEAR);&#xa;&#xa;//make a list to populate menus&#xa;ArrayList&lt;String&gt; years = new ArrayList&lt;String&gt;();&#xa;&#xa;for (int i = 2002; i&lt;=currYear; i++){&#xa;    &#xa;    years.add(String.valueOf(i));&#xa;    &#xa;}"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//get the current year.&#xa;/*int currYear = Calendar.getInstance().get(Calendar.YEAR);&#xa;&#xa;//make a list to populate menus&#xa;ArrayList&lt;String&gt; years = new ArrayList&lt;String&gt;();&#xa;&#xa;for (int i = 2002; i&lt;=currYear; i++){&#xa;    &#xa;    years.add(String.valueOf(i));&#xa;    &#xa;}*/&#xa;&#xa;ArrayList&lt;String&gt; yearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;String [] yearOpArry = new String [yearOptions.size()];"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="toYearBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.DefaultComboBoxModel(years.toArray())" type="code"/>
+                      <Connection code="new javax.swing.DefaultComboBoxModel(toyearOptions.toArray(toyearOpArry))" type="code"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -700,7 +709,8 @@
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="toYearBox.setSelectedIndex(14);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="toYearBox.setSelectedIndex(toyearOptions.size()-1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ArrayList&lt;String&gt; toyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;String [] toyearOpArry = new String [toyearOptions.size()];"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
@@ -1006,12 +1016,12 @@
                 <Component class="javax.swing.JComboBox" name="presetYear">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.DefaultComboBoxModel(years.toArray())" type="code"/>
+                      <Connection code="new javax.swing.DefaultComboBoxModel(presetyearOptions.toArray(presetyearOpArry))" type="code"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="presetYear.setSelectedIndex(0);"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);&#xa;ArrayList&lt;String&gt; presetyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;String [] presetyearOpArry = new String [presetyearOptions.size()];"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="presetValue">
@@ -2876,7 +2886,6 @@
                                       <EmptySpace pref="82" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
