@@ -1885,9 +1885,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 }else if (loc.equals(" ")){
                     incomplete = true;
                 }else{
-                    desc = loc.substring(3);
+                    desc = loc.substring(6);
                     loc = loc.substring(0,3);
-                    
                 }
                 String filePath = fileNameField.getText();
                 if (filePath.equals(""))
