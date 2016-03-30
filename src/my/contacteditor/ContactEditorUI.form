@@ -2518,14 +2518,14 @@
                         <Component class="javax.swing.JComboBox" name="importLoc">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                              <Connection code="new javax.swing.DefaultComboBoxModel(options.toArray(opArry))" type="code"/>
+                              <Connection code="new javax.swing.DefaultComboBoxModel(locList.toArray(opArry))" type="code"/>
                             </Property>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importLocActionPerformed"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ArrayList&lt;String&gt; options = new MenuPopulator(&quot;loc&quot;).populate();&#xa;options.add(&quot;New Location&quot;);&#xa;options.add(0,&quot; &quot;);&#xa;String [] opArry = new String [options.size()];"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="locList = new MenuPopulator(&quot;loc&quot;).populate();&#xa;locList.add(&quot;New Location&quot;);&#xa;locList.add(0,&quot; &quot;);&#xa;String [] opArry = new String [locList.size()];"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="enterCodeLabel">

@@ -1526,11 +1526,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel33.setText("Import New Data");
 
-        ArrayList<String> options = new MenuPopulator("loc").populate();
-        options.add("New Location");
-        options.add(0," ");
-        String [] opArry = new String [options.size()];
-        importLoc.setModel(new javax.swing.DefaultComboBoxModel(options.toArray(opArry)));
+        locList = new MenuPopulator("loc").populate();
+        locList.add("New Location");
+        locList.add(0," ");
+        String [] opArry = new String [locList.size()];
+        importLoc.setModel(new javax.swing.DefaultComboBoxModel(locList.toArray(opArry)));
         importLoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 importLocActionPerformed(evt);
@@ -1862,6 +1862,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 boolean isNew = false;
                 boolean wrongFile = false;
                 boolean incomplete = false;
+                boolean dup = false;
                 String desc = "";
                 String lat = "";
                 String lon = "";
@@ -1875,6 +1876,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     isNew = true;
                     if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
                         incomplete = true;
+                    for(String location : locList){
+                        if(location.toUpperCase().contains(loc.toUpperCase()))
+                            dup = true;
+                        }
+                    if(loc.toLowerCase().contains("new"))
+                        dup = true;
                 }else if (loc.equals(" ")){
                     incomplete = true;
                 }else{
@@ -1893,6 +1900,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,message);
                 }else if(wrongFile){
                     message = "Please select a .csv file!";
+                    JOptionPane.showMessageDialog(null,message);
+                }else if(dup){
+                    message = "Error: the location code you entered already exists!";
                     JOptionPane.showMessageDialog(null,message);
                 }else{
                     jProgressBar1.setVisible(true);
@@ -2539,6 +2549,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private QueryRawData QRD = new QueryRawData();
     private ArrayList<JCheckBox> checkBox = new ArrayList<JCheckBox>();
     private ArrayList<String> checkBoxVals = new ArrayList<String>();
+    private ArrayList<String> locList = new ArrayList<String>();
     //private Object[] siteObjs = {};
     boolean selectedAll = false; //Checkbox value
     List<HashMap<String,Object>> queryResults = new ArrayList<HashMap<String, Object>>();
