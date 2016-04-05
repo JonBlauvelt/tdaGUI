@@ -63,7 +63,7 @@ public class DBUtil{
       //create ps
       PreparedStatement ps 
         = this.conn.prepareStatement(this.query);
-
+        System.out.println(this.query);
         ps.execute();
         return ps.getResultSet();
 

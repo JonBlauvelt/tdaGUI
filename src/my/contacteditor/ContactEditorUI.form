@@ -831,7 +831,7 @@
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="presetYear.setSelectedIndex(0);"/>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);&#xa;ArrayList&lt;String&gt; presetyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;String [] presetyearOpArry = new String [presetyearOptions.size()];"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);&#xa;ArrayList&lt;String&gt; presetyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;System.out.println(presetyearOptions);&#xa;String [] presetyearOpArry = new String [presetyearOptions.size()];"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="presetValue">
@@ -2658,11 +2658,6 @@
                               <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="554" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jProgressBar2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="519" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -2670,8 +2665,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="jProgressBar2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2705,6 +2699,10 @@
                                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="confTitle" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="jProgressBar2" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -2723,7 +2721,8 @@
                                       <Component id="confirm" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="cancel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="jProgressBar2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2790,13 +2789,13 @@
                             <Property name="text" type="java.lang.String" value="Confirm Import"/>
                           </Properties>
                         </Component>
+                        <Component class="javax.swing.JProgressBar" name="jProgressBar2">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jProgressBar2.setVisible(false);"/>
+                          </AuxValues>
+                        </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JProgressBar" name="jProgressBar2">
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jProgressBar2.setVisible(false);"/>
-                      </AuxValues>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>

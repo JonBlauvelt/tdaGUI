@@ -390,6 +390,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         presetYear.setVisible(false);
         ArrayList<String> presetyearOptions = new MenuPopulator("years").populate();
+        System.out.println(presetyearOptions);
         String [] presetyearOpArry = new String [presetyearOptions.size()];
         presetYear.setModel(new javax.swing.DefaultComboBoxModel(presetyearOptions.toArray(presetyearOpArry)));
         presetYear.setSelectedIndex(0);
@@ -1748,6 +1749,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         confTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         confTitle.setText("Confirm Import");
 
+        jProgressBar2.setVisible(false);
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1769,6 +1772,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(confTitle))
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1785,10 +1791,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirm)
                     .addComponent(cancel))
-                .addContainerGap())
+                .addGap(24, 24, 24)
+                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jProgressBar2.setVisible(false);
 
         javax.swing.GroupLayout importConfirmPaneLayout = new javax.swing.GroupLayout(importConfirmPane);
         importConfirmPane.setLayout(importConfirmPaneLayout);
@@ -1798,18 +1803,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(387, 387, 387)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(554, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(519, 519, 519))
         );
         importConfirmPaneLayout.setVerticalGroup(
             importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, importConfirmPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -2246,6 +2246,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
         latField.setText("");
         longField.setText("");
         fileNameField.setText("");
+        locList = new MenuPopulator("loc").populate();
+        locList.add("New Location");
+        locList.add(0," ");
+        String [] opArry = new String [locList.size()];
+        importLoc.setModel(new javax.swing.DefaultComboBoxModel(locList.toArray(opArry)));
     }
     private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
         // TODO add your handling code here:
