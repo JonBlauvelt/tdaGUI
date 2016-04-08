@@ -6,6 +6,7 @@
 package my.contacteditor;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +25,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartUtilities;
+
 
 /**
  *
@@ -2253,6 +2255,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 File lineChartPic = new File( "LineChart.jpeg" ); 
                 try{
                     ChartUtilities.saveChartAsJPEG(lineChartPic ,lineChart, width ,height);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+                try{
+                    File PICCY = new File("C:\\Users\\jtcwo_000\\Documents\\NetBeansProjects\\tdaGUI\\LineChart.jpeg");
+                    Desktop dt = Desktop.getDesktop();
+                    dt.open(PICCY);
+                    System.out.println("Done.");
                 }
                 catch (Exception e){
                     e.printStackTrace();
