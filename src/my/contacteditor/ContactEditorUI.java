@@ -6,7 +6,7 @@
 package my.contacteditor;
 
 import java.awt.Color;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -23,6 +23,14 @@ import javax.swing.JCheckBox;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import my.database.*;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.ui.ApplicationFrame;
+import org.jfree.ui.RefineryUtilities;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.ChartUtilities;
 
 /**
  *
@@ -2236,6 +2244,29 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 }
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
                 rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String [] {"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
+                String chartName="Raw Data";
+                String chartX="Time";
+                String chartY="Temperature";
+                DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
+                testSet.addValue( 15 , "GBR" , "1" );
+                testSet.addValue( 45 , "DDR" , "1" );
+                testSet.addValue( 20 , "GBR" , "2" );
+                testSet.addValue( 50 , "DDR" , "2" );
+                testSet.addValue( 30 , "GBR" , "3" );
+                testSet.addValue( 45 , "DDR" , "3" );
+                JFreeChart lineChart = ChartFactory.createLineChart(chartName, chartX, chartY, testSet, PlotOrientation.VERTICAL, true, true, false);
+                int width = 500; 
+                int height = 500;
+                File lineChartPic = new File( "LineChart.jpeg" ); 
+                try{
+                    ChartUtilities.saveChartAsJPEG(lineChartPic ,lineChart, width ,height);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+                /*ChartPanel chartPanel = new ChartPanel( lineChart );
+                chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+                setContentPane( chartPanel );*/
             }else{
                 JOptionPane.showMessageDialog(null, "No data found.");
             }
