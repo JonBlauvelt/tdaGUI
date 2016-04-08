@@ -60,6 +60,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
+        jLabel69 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         frameTDA = new javax.swing.JTabbedPane();
         tabHome = new javax.swing.JPanel();
@@ -215,6 +216,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         confSite = new javax.swing.JLabel();
         confTitle = new javax.swing.JLabel();
         jProgressBar2 = new javax.swing.JProgressBar();
+        confLat = new javax.swing.JLabel();
+        confLong = new javax.swing.JLabel();
+        confFile = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -226,6 +230,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jLabel69.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jLabel69.setText("Longitude:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1762,6 +1769,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         jProgressBar2.setVisible(false);
 
+        confLat.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        confLat.setText("Latitude: 1234534");
+
+        confLong.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        confLong.setText("Longitude:3435343");
+
+        confFile.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        confFile.setText("Data File: /dir/otherdir/hurdurr/file.csv");
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1781,11 +1797,22 @@ public class ContactEditorUI extends javax.swing.JFrame {
                             .addComponent(confSer))
                         .addContainerGap())))
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(confTitle))
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(confTitle))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(confLat)
+                        .addGap(48, 48, 48)
+                        .addComponent(confLong))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(confFile)))
+                .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1796,8 +1823,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addComponent(confSite)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confSer)
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confLat)
+                    .addComponent(confLong))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confFile)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirm)
@@ -1934,6 +1967,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     jScrollPane3.setViewportView(confTable);
                     
                     confSite.setText("Site : " + loc + " - " + desc);
+                    confLong.setText("Longitude : " + lon);
+                    confLat.setText("Latitude : " + lat);
+                    confFile.setText("Data File : " + fileNameField.getText());
                     confSer.setText("Device Serial No: " + parser.getSerial());
                     tabImport.setVisible(false);
                     importConfirmPane.setVisible(true);
@@ -2439,6 +2475,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
+    private javax.swing.JLabel confFile;
+    private javax.swing.JLabel confLat;
+    private javax.swing.JLabel confLong;
     private javax.swing.JLabel confSer;
     private javax.swing.JLabel confSite;
     private javax.swing.JTable confTable;
@@ -2520,6 +2559,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
