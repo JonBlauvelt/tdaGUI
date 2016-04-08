@@ -8,6 +8,8 @@ package my.contacteditor;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,14 +20,12 @@ import javax.swing.SwingWorker;
 import javax.swing.JCheckBox;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.text.NumberFormatter;
 import my.database.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartUtilities;
-
 
 /**
  *
@@ -34,7 +34,6 @@ import org.jfree.chart.ChartUtilities;
 public class ContactEditorUI extends javax.swing.JFrame {
 
     //vars
-
     String fromYear;
     String toYear;
     String fromMonth;
@@ -203,9 +202,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
         descLabel = new javax.swing.JLabel();
         newLocDesc = new javax.swing.JTextField();
         latLabel = new javax.swing.JLabel();
-        latField = new javax.swing.JFormattedTextField(new NumberFormatter());
+        DecimalFormat format = new DecimalFormat();
+        format.setGroupingUsed(false);
+        format.setRoundingMode(RoundingMode.UNNECESSARY);
+        latField = new javax.swing.JFormattedTextField(format);
         longLabel = new javax.swing.JLabel();
-        longField = new javax.swing.JFormattedTextField(new NumberFormatter());
+        longField = new javax.swing.JFormattedTextField(format);
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton4 = new javax.swing.JButton();
         importConfirmPane = new javax.swing.JPanel();
@@ -1899,89 +1901,92 @@ public class ContactEditorUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    class ProgressInfinite extends SwingWorker<Void, Void>
-    {
+    class ProgressInfinite extends SwingWorker<Void, Void> {
+
         @Override
         public Void doInBackground() {
 
-
-                boolean isNew = false;
-                boolean wrongFile = false;
-                boolean incomplete = false;
-                boolean dup = false;
-                String desc = "";
-                String lat = "";
-                String lon = "";
-                String [][] table;
-                String loc = (String) importLoc.getSelectedItem();
-                if(loc.equals("New Location")){
-                    loc = locCodeInput.getText();
-                    desc = newLocDesc.getText();
-                    lat = latField.getText();
-                    lon = longField.getText();
-                    isNew = true;
-                    if(loc.equals("") || desc.equals("") || lat.equals("") || lon.equals(""))
-                        incomplete = true;
-                    for(String location : locList){
-                        if(location.toUpperCase().contains(loc.toUpperCase()))
-                            dup = true;
-                        }
-                    if(loc.toLowerCase().contains("new"))
-                        dup = true;
-                }else if (loc.equals(" ")){
+            boolean isNew = false;
+            boolean wrongFile = false;
+            boolean incomplete = false;
+            boolean dup = false;
+            String desc = "";
+            String lat = "";
+            String lon = "";
+            String[][] table;
+            String loc = (String) importLoc.getSelectedItem();
+            if (loc.equals("New Location")) {
+                loc = locCodeInput.getText();
+                desc = newLocDesc.getText();
+                lat = latField.getText();
+                lon = longField.getText();
+                isNew = true;
+                if (loc.equals("") || desc.equals("") || lat.equals("") || lon.equals("")) {
                     incomplete = true;
-                }else{
-                    desc = loc.substring(6);
-                    loc = loc.substring(0,3);
                 }
-                String filePath = fileNameField.getText();
-                if (filePath.equals(""))
-                    incomplete = true;
-                else if (!filePath.endsWith(".csv"))
-                    wrongFile = true;
-                String message;
-                if(incomplete){
-                    message = "Please complete all fields!";
-                    JOptionPane.showMessageDialog(null,message);
-                }else if(wrongFile){
-                    message = "Please select a .csv file!";
-                    JOptionPane.showMessageDialog(null,message);
-                }else if(dup){
-                    message = "Error: the location code you entered already exists!";
-                    JOptionPane.showMessageDialog(null,message);
-                }else{
-                    jProgressBar1.setVisible(true);
-                    jProgressBar1.setIndeterminate(true);
-                    if(isNew){
-                        parser = new DataParser(filePath,loc,desc,lat,lon);
-                    }else
-                        parser = new DataParser(filePath,loc);
+                for (String location : locList) {
+                    if (location.toUpperCase().contains(loc.toUpperCase())) {
+                        dup = true;
+                    }
+                }
+                if (loc.toLowerCase().contains("new")) {
+                    dup = true;
+                }
+            } else if (loc.equals(" ")) {
+                incomplete = true;
+            } else {
+                desc = loc.substring(6);
+                loc = loc.substring(0, 3);
+            }
+            String filePath = fileNameField.getText();
+            if (filePath.equals("")) {
+                incomplete = true;
+            } else if (!filePath.endsWith(".csv")) {
+                wrongFile = true;
+            }
+            String message;
+            if (incomplete) {
+                message = "Please complete all fields!";
+                JOptionPane.showMessageDialog(null, message);
+            } else if (wrongFile) {
+                message = "Please select a .csv file!";
+                JOptionPane.showMessageDialog(null, message);
+            } else if (dup) {
+                message = "Error: the location code you entered already exists!";
+                JOptionPane.showMessageDialog(null, message);
+            } else {
+                jProgressBar1.setVisible(true);
+                jProgressBar1.setIndeterminate(true);
+                if (isNew) {
+                    parser = new DataParser(filePath, loc, desc, lat, lon);
+                } else {
+                    parser = new DataParser(filePath, loc);
+                }
 
-                    table = parser.parse();
+                table = parser.parse();
 
-                    confTable.setModel(new javax.swing.table.DefaultTableModel(
+                confTable.setModel(new javax.swing.table.DefaultTableModel(
                         table,
-                        new String [] {
+                        new String[]{
                             "Datetime", "Temp"
                         }
-                    ));
+                ));
 
-                    jScrollPane3.setViewportView(confTable);
-                    
-                    confSite.setText("Site : " + loc + " - " + desc);
-                    confLong.setText("Longitude : " + lon);
-                    confLat.setText("Latitude : " + lat);
-                    confFile.setText("Data File : " + fileNameField.getText());
-                    confSer.setText("Device Serial No: " + parser.getSerial());
-                    tabImport.setVisible(false);
-                    importConfirmPane.setVisible(true);
-                }
+                jScrollPane3.setViewportView(confTable);
+
+                confSite.setText("Site : " + loc + " - " + desc);
+                confLong.setText("Longitude : " + lon);
+                confLat.setText("Latitude : " + lat);
+                confFile.setText("Data File : " + fileNameField.getText());
+                confSer.setText("Device Serial No: " + parser.getSerial());
+                tabImport.setVisible(false);
+                importConfirmPane.setVisible(true);
+            }
             return null;
         }
 
         @Override
-        public void done()
-        {
+        public void done() {
             jProgressBar1.setIndeterminate(false);
             jProgressBar1.setVisible(false);
         }
@@ -1993,14 +1998,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
         fc.setFileFilter(csvFilter);
         fc.showOpenDialog(null);
         File file = fc.getSelectedFile();
-        if(file != null){
+        if (file != null) {
             String filename = file.getAbsolutePath();
             fileNameField.setText(filename);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    class LoadDataProgress extends SwingWorker<Void, Void>
-    {
+    class LoadDataProgress extends SwingWorker<Void, Void> {
+
         @Override
         public Void doInBackground() {
 
@@ -2011,28 +2016,26 @@ public class ContactEditorUI extends javax.swing.JFrame {
             importConfirmPane.setVisible(false);
             tabImport.setVisible(true);
 
-        JOptionPane.showMessageDialog(null,"Data imported successfully!");
+            JOptionPane.showMessageDialog(null, "Data imported successfully!");
             return null;
         }
 
         @Override
-        public void done()
-        {
+        public void done() {
             jProgressBar2.setIndeterminate(false);
             jProgressBar2.setVisible(false);
         }
     }
 
-                                    
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         //get the vals and validate input
-        
+
         taskInfinite = new ProgressInfinite();
         taskInfinite.execute();
 
 
-        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
@@ -2068,44 +2071,44 @@ public class ContactEditorUI extends javax.swing.JFrame {
         presetYear.setVisible(false);
 
         checkBoxVals.clear();
-        for(int i=0; i < checkBox.size(); i++){
+        for (int i = 0; i < checkBox.size(); i++) {
             checkBox.get(i).setSelected(false);
         }
         /*jCheckBox1.setSelected(status);
-        jCheckBox5.setSelected(status);
-        jCheckBox6.setSelected(status);
-        jCheckBox7.setSelected(status);
-        jCheckBox8.setSelected(status);
-        jCheckBox9.setSelected(status);
-        jCheckBox10.setSelected(status);
-        jCheckBox11.setSelected(status);
-        jCheckBox12.setSelected(status);
-        jCheckBox13.setSelected(status);
-        jCheckBox14.setSelected(status);
-        jCheckBox15.setSelected(status);
-        jCheckBox16.setSelected(status);
-        jCheckBox17.setSelected(status);
-        jCheckBox18.setSelected(status);
-        jCheckBox19.setSelected(status);
-        jCheckBox20.setSelected(status);
-        jCheckBox21.setSelected(status);
-        jCheckBox22.setSelected(status);
-        jCheckBox23.setSelected(status);
-        jCheckBox24.setSelected(status);
-        jCheckBox25.setSelected(status);
-        jCheckBox26.setSelected(status);
-        jCheckBox27.setSelected(status);
-        jCheckBox28.setSelected(status);
-        jCheckBox29.setSelected(status);
-        jCheckBox30.setSelected(status);
-        jCheckBox31.setSelected(status);
-        jCheckBox32.setSelected(status);
-        jCheckBox33.setSelected(status);
-        jCheckBox34.setSelected(status);
-        jCheckBox36.setSelected(status);
-        jCheckBox37.setSelected(status);
-        jCheckBox38.setSelected(status);
-        boxALL.setSelected(status);*/
+         jCheckBox5.setSelected(status);
+         jCheckBox6.setSelected(status);
+         jCheckBox7.setSelected(status);
+         jCheckBox8.setSelected(status);
+         jCheckBox9.setSelected(status);
+         jCheckBox10.setSelected(status);
+         jCheckBox11.setSelected(status);
+         jCheckBox12.setSelected(status);
+         jCheckBox13.setSelected(status);
+         jCheckBox14.setSelected(status);
+         jCheckBox15.setSelected(status);
+         jCheckBox16.setSelected(status);
+         jCheckBox17.setSelected(status);
+         jCheckBox18.setSelected(status);
+         jCheckBox19.setSelected(status);
+         jCheckBox20.setSelected(status);
+         jCheckBox21.setSelected(status);
+         jCheckBox22.setSelected(status);
+         jCheckBox23.setSelected(status);
+         jCheckBox24.setSelected(status);
+         jCheckBox25.setSelected(status);
+         jCheckBox26.setSelected(status);
+         jCheckBox27.setSelected(status);
+         jCheckBox28.setSelected(status);
+         jCheckBox29.setSelected(status);
+         jCheckBox30.setSelected(status);
+         jCheckBox31.setSelected(status);
+         jCheckBox32.setSelected(status);
+         jCheckBox33.setSelected(status);
+         jCheckBox34.setSelected(status);
+         jCheckBox36.setSelected(status);
+         jCheckBox37.setSelected(status);
+         jCheckBox38.setSelected(status);
+         boxALL.setSelected(status);*/
     }//GEN-LAST:event_resetButtonMouseClicked
 
     private void presetTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_presetTypePropertyChange
@@ -2159,12 +2162,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
         //jd.setVisible(true);
         //jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         /*try {
-            TimeUnit.SECONDS.sleep(2);
-            //    jd.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(null, "Finished Calculating.");*/
+         TimeUnit.SECONDS.sleep(2);
+         //    jd.dispose();
+         } catch (InterruptedException ex) {
+         Logger.getLogger(ContactEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         JOptionPane.showMessageDialog(null, "Finished Calculating.");*/
         String query = "";
         QRD.clearQuery();
         queryResults.clear();
@@ -2180,8 +2183,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             String hourFromString;
             int hourFrom;
             int hourTo;
-           
-            
+
             yearFrom = QRD.yearDeConvert((String) fromYearBox.getSelectedItem());
             yearTo = QRD.yearDeConvert((String) toYearBox.getSelectedItem());
             monthFrom = Integer.parseInt((String) fromMonthBox.getSelectedItem());
@@ -2198,8 +2200,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
             split = hourToString.split(":");
             hourTo = Integer.parseInt(split[0]);
-            
-           //HASHMAP LOADUP: timeInterval
+
+            //HASHMAP LOADUP: timeInterval
             HashMap<String, Integer> timeInterval = new HashMap<String, Integer>();
             timeInterval.put("FromYear", yearFrom);
             timeInterval.put("ToYear", yearTo);
@@ -2209,25 +2211,25 @@ public class ContactEditorUI extends javax.swing.JFrame {
             timeInterval.put("ToDay", dayTo);
             timeInterval.put("FromHour", hourFrom);
             timeInterval.put("ToHour", hourTo);
-            
+
             query = QRD.byTimeInterval(timeInterval);
-                 
+
             /*System.out.println(yearFrom);
-            System.out.println(yearTo);
-            System.out.println(monthFrom);
-            System.out.println(monthTo);
-            System.out.println(dayFrom);
-            System.out.println(dayTo);
-            System.out.println(hourFrom);
-            System.out.println(hourTo);*/
-        }else if(presetType.getSelectedItem().equals("Season")){
+             System.out.println(yearTo);
+             System.out.println(monthFrom);
+             System.out.println(monthTo);
+             System.out.println(dayFrom);
+             System.out.println(dayTo);
+             System.out.println(hourFrom);
+             System.out.println(hourTo);*/
+        } else if (presetType.getSelectedItem().equals("Season")) {
             ArrayList<Integer> year = new ArrayList<Integer>();
             //year.add(Integer.parseInt(presetYear.getSelectedItem().toString()));
             year.add(QRD.yearDeConvert(presetYear.getSelectedItem().toString()));
             query = QRD.bySeasons((String) presetValue.getSelectedItem());
             query = QRD.byYear(year);
-        }else if(presetType.getSelectedItem().equals("Logger Year")){
-            ArrayList<HashMap<String,Integer>> logYearList = new ArrayList<HashMap<String,Integer>>();
+        } else if (presetType.getSelectedItem().equals("Logger Year")) {
+            ArrayList<HashMap<String, Integer>> logYearList = new ArrayList<HashMap<String, Integer>>();
             HashMap<String, Integer> logYear = new HashMap<String, Integer>();
             String fromLog = presetValue.getSelectedItem().toString().substring(8, 12);
             System.out.println(fromLog);
@@ -2236,33 +2238,33 @@ public class ContactEditorUI extends javax.swing.JFrame {
             logYear.put("From", QRD.yearDeConvert(fromLog));
             logYear.put("To", QRD.yearDeConvert(toLog));
             logYearList.add(logYear);
-            query = QRD.byLoggerYear(logYearList);     
+            query = QRD.byLoggerYear(logYearList);
         }
-        int indexAll = checkBox.size()-1;
+        int indexAll = checkBox.size() - 1;
         boolean allBoxes = false;
-        if(checkBox.get(indexAll).isSelected()){
+        if (checkBox.get(indexAll).isSelected()) {
             /*System.out.println("THIS IS ALL");
-            for(int i=0; i < checkBox.size(); i++){
-                checkBox.get(i).setSelected(true);
-            }*/
+             for(int i=0; i < checkBox.size(); i++){
+             checkBox.get(i).setSelected(true);
+             }*/
             allBoxes = true;
         }
         for (JCheckBox checkBox1 : checkBox) {
             if (checkBox1.isSelected()) {
                 Object[] siteObjs = checkBox1.getSelectedObjects();
-                checkBoxVals.add("'"+ siteObjs[0] + "'");
+                checkBoxVals.add("'" + siteObjs[0] + "'");
             }
         }
         System.out.println("Checkbox Size: " + checkBox.size());
         System.out.println("Checkboxes Selected: " + checkBoxVals.size());
-        if(!checkBoxVals.isEmpty()){
+        if (!checkBoxVals.isEmpty()) {
             query = QRD.bySiteLocation(checkBoxVals, allBoxes);
             System.out.println(query);
             queryResults = QRD.executeQuery(query);
-            if(!queryResults.isEmpty()){
-                    String[][] queryRawTable = new String[queryResults.size()][6];
+            if (!queryResults.isEmpty()) {
+                String[][] queryRawTable = new String[queryResults.size()][6];
                 //List<HashMap<String, Object> Convert to 2D Array
-                for(int i=0; i<queryResults.size();i++){
+                for (int i = 0; i < queryResults.size(); i++) {
                     HashMap<String, Object> h = queryResults.get(i);
                     //System.out.println(h.toString());
                     queryRawTable[i][0] = h.get("SiteName").toString();
@@ -2271,56 +2273,54 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     queryRawTable[i][3] = h.get("Year").toString();
                     queryRawTable[i][4] = h.get("Hour").toString();
                     queryRawTable[i][5] = h.get("Temp").toString();
- 
+
                 }
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
-                rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String [] {"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
-                String chartName="Raw Data";
-                String chartX="Time";
-                String chartY="Temperature";
-                DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
-                testSet.addValue( 15 , "GBR" , "1" );
-                testSet.addValue( 45 , "DDR" , "1" );
-                testSet.addValue( 20 , "GBR" , "2" );
-                testSet.addValue( 50 , "DDR" , "2" );
-                testSet.addValue( 30 , "GBR" , "3" );
-                testSet.addValue( 45 , "DDR" , "3" );
+                rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String[]{"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
+                String chartName = "Raw Data";
+                String chartX = "Time";
+                String chartY = "Temperature";
+                DefaultCategoryDataset testSet = new DefaultCategoryDataset();
+                testSet.addValue(15, "GBR", "1");
+                testSet.addValue(45, "DDR", "1");
+                testSet.addValue(20, "GBR", "2");
+                testSet.addValue(50, "DDR", "2");
+                testSet.addValue(30, "GBR", "3");
+                testSet.addValue(45, "DDR", "3");
                 JFreeChart lineChart = ChartFactory.createLineChart(chartName, chartX, chartY, testSet, PlotOrientation.VERTICAL, true, true, false);
-                int width = 500; 
+                int width = 500;
                 int height = 500;
-                File lineChartPic = new File( "LineChart.jpeg" ); 
-                try{
-                    ChartUtilities.saveChartAsJPEG(lineChartPic ,lineChart, width ,height);
-                }
-                catch (Exception e){
+                File lineChartPic = new File("LineChart.jpeg");
+                try {
+                    ChartUtilities.saveChartAsJPEG(lineChartPic, lineChart, width, height);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-                try{
+                try {
                     File PICCY = new File("C:\\Users\\jtcwo_000\\Documents\\NetBeansProjects\\tdaGUI\\LineChart.jpeg");
                     Desktop dt = Desktop.getDesktop();
                     dt.open(PICCY);
                     System.out.println("Done.");
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 /*ChartPanel chartPanel = new ChartPanel( lineChart );
-                chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-                setContentPane( chartPanel );*/
-            }else{
+                 chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+                 setContentPane( chartPanel );*/
+            } else {
                 JOptionPane.showMessageDialog(null, "No data found.");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a site location.");
             /*System.out.println(query);
-            QRD.executeQuery(query); */ 
+             QRD.executeQuery(query); */
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toYearBoxActionPerformed
-    public void resetImport(){
+    public void resetImport() {
         importLoc.setSelectedItem(" ");
         locCodeInput.setText("");
         newLocDesc.setText("");
@@ -2329,8 +2329,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         fileNameField.setText("");
         locList = new MenuPopulator("loc").populate();
         locList.add("New Location");
-        locList.add(0," ");
-        String [] opArry = new String [locList.size()];
+        locList.add(0, " ");
+        String[] opArry = new String[locList.size()];
         importLoc.setModel(new javax.swing.DefaultComboBoxModel(locList.toArray(opArry)));
     }
     private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
@@ -2395,7 +2395,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabImport.setVisible(true);
         importConfirmPane.setVisible(false);
         resetImport();
-        JOptionPane.showMessageDialog(null,"Data import canceled!");
+        JOptionPane.showMessageDialog(null, "Data import canceled!");
     }//GEN-LAST:event_cancelActionPerformed
 
     private void fileNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileNameFieldActionPerformed
@@ -2408,47 +2408,46 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jPanel16MouseClicked
 
     private void locCodeInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_locCodeInputKeyTyped
-        if(locCodeInput.getText().length() > 2){
+        if (locCodeInput.getText().length() > 2) {
             evt.consume();
         }
     }//GEN-LAST:event_locCodeInputKeyTyped
 
     private void latFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_latFieldKeyTyped
-        
+
     }//GEN-LAST:event_latFieldKeyTyped
-    
-    private void checkBoxesSelected(java.awt.event.MouseEvent evt){
+
+    private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
-        int indexAll = checkBox.size()-1;
-        if(checkBox.get(indexAll).isSelected()){
-                System.out.println("THIS IS ALL");
-                for(int i=0; i < checkBox.size(); i++){
-                    checkBox.get(i).setSelected(true);
-                }
-                selectedAll = true;
+        int indexAll = checkBox.size() - 1;
+        if (checkBox.get(indexAll).isSelected()) {
+            System.out.println("THIS IS ALL");
+            for (int i = 0; i < checkBox.size(); i++) {
+                checkBox.get(i).setSelected(true);
+            }
+            selectedAll = true;
         }
-        if((!checkBox.get(indexAll).isSelected()) && selectedAll){
-            for(int i=0; i < checkBox.size(); i++){
+        if ((!checkBox.get(indexAll).isSelected()) && selectedAll) {
+            for (int i = 0; i < checkBox.size(); i++) {
                 checkBox.get(i).setSelected(false);
             }
             selectedAll = false;
         }
         /*for(int i=0; i < checkBox.size(); i++){
-            if(checkBox.get(i).isSelected()){
-                siteObjs = checkBox.get(i).getSelectedObjects();
-                checkBoxVals.add("'"+ siteObjs[0] + "'");
-            }
-        }
-        System.out.println("Checkbox Size: " + checkBox.size());
-        System.out.println("Checkboxes Selected: " + checkBoxVals.size());*/
+         if(checkBox.get(i).isSelected()){
+         siteObjs = checkBox.get(i).getSelectedObjects();
+         checkBoxVals.add("'"+ siteObjs[0] + "'");
+         }
+         }
+         System.out.println("Checkbox Size: " + checkBox.size());
+         System.out.println("Checkboxes Selected: " + checkBoxVals.size());*/
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -2651,6 +2650,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private ArrayList<String> locList = new ArrayList<String>();
     //private Object[] siteObjs = {};
     boolean selectedAll = false; //Checkbox value
-    List<HashMap<String,Object>> queryResults = new ArrayList<HashMap<String, Object>>();
+    List<HashMap<String, Object>> queryResults = new ArrayList<HashMap<String, Object>>();
    //private ArrayList<Object> siteCheckBoxValues = new ArrayList<Object>();
 }
