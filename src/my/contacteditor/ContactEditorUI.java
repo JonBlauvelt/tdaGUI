@@ -1551,6 +1551,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 locCodeInputActionPerformed(evt);
             }
         });
+        locCodeInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                locCodeInputKeyTyped(evt);
+            }
+        });
 
         descLabel.setVisible(false);
         descLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -1591,6 +1596,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
         latField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 latFieldActionPerformed(evt);
+            }
+        });
+        latField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                latFieldKeyTyped(evt);
             }
         });
 
@@ -2329,6 +2339,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jPanel16MouseClicked
+
+    private void locCodeInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_locCodeInputKeyTyped
+        if(locCodeInput.getText().length() > 2){
+            evt.consume();
+        }
+    }//GEN-LAST:event_locCodeInputKeyTyped
+
+    private void latFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_latFieldKeyTyped
+        //if(evt.getKeyText().isDigit())
+    }//GEN-LAST:event_latFieldKeyTyped
     
     private void checkBoxesSelected(java.awt.event.MouseEvent evt){
         //checkBoxVals.clear();
