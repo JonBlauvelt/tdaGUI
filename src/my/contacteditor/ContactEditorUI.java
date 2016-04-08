@@ -2220,6 +2220,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         System.out.println("Checkbox Size: " + checkBox.size());
         System.out.println("Checkboxes Selected: " + checkBoxVals.size());
         if(!checkBoxVals.isEmpty()){
+            DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
             query = QRD.bySiteLocation(checkBoxVals, allBoxes);
             System.out.println(query);
             queryResults = QRD.executeQuery(query);
@@ -2235,6 +2236,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     queryRawTable[i][3] = h.get("Year").toString();
                     queryRawTable[i][4] = h.get("Hour").toString();
                     queryRawTable[i][5] = h.get("Temp").toString();
+                    String hour[] = queryRawTable[i][4].split(":");
+                    Integer myHour=new Integer(hour[0]).intValue();
+                    System.out.println(myHour);
+                    double myTemp=Double.parseDouble(queryRawTable[i][5]);
+                    testSet.addValue( myTemp, queryRawTable[i][0], myHour.toString());
+                    
+          
  
                 }
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
@@ -2242,15 +2250,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 String chartName="Raw Data";
                 String chartX="Time";
                 String chartY="Temperature";
-                DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
-                testSet.addValue( 15 , "GBR" , "1" );
-                testSet.addValue( 45 , "DDR" , "1" );
-                testSet.addValue( 20 , "GBR" , "2" );
-                testSet.addValue( 50 , "DDR" , "2" );
-                testSet.addValue( 30 , "GBR" , "3" );
-                testSet.addValue( 45 , "DDR" , "3" );
+                /*testSet.addValue( 15 , "GBR" , "1" );*/
                 JFreeChart lineChart = ChartFactory.createLineChart(chartName, chartX, chartY, testSet, PlotOrientation.VERTICAL, true, true, false);
-                int width = 500; 
+                int width = 1000; 
                 int height = 500;
                 File lineChartPic = new File( "LineChart.jpeg" ); 
                 try{
@@ -2268,9 +2270,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 catch (Exception e){
                     e.printStackTrace();
                 }
-                /*ChartPanel chartPanel = new ChartPanel( lineChart );
-                chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-                setContentPane( chartPanel );*/
             }else{
                 JOptionPane.showMessageDialog(null, "No data found.");
             }
