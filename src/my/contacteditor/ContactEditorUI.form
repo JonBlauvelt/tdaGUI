@@ -2600,6 +2600,7 @@
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="latFieldKeyTyped"/>
                           </Events>
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new NumberFormatter())"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="latField.setVisible(false);"/>
                           </AuxValues>
                         </Component>
@@ -2622,6 +2623,7 @@
                             <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="longFieldComponentShown"/>
                           </Events>
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new NumberFormatter())"/>
                             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="longField.setVisible(false);"/>
                           </AuxValues>
                         </Component>

@@ -8,13 +8,8 @@ package my.contacteditor;
 import java.awt.Color;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,12 +17,10 @@ import javax.swing.SwingWorker;
 import javax.swing.JCheckBox;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.text.NumberFormatter;
 import my.database.*;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartUtilities;
@@ -207,9 +200,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         descLabel = new javax.swing.JLabel();
         newLocDesc = new javax.swing.JTextField();
         latLabel = new javax.swing.JLabel();
-        latField = new javax.swing.JTextField();
+        latField = new javax.swing.JFormattedTextField(new NumberFormatter());
         longLabel = new javax.swing.JLabel();
-        longField = new javax.swing.JTextField();
+        longField = new javax.swing.JFormattedTextField(new NumberFormatter());
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton4 = new javax.swing.JButton();
         importConfirmPane = new javax.swing.JPanel();
@@ -2378,7 +2371,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_locCodeInputKeyTyped
 
     private void latFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_latFieldKeyTyped
-        //if(evt.getKeyText().isDigit())
+        
     }//GEN-LAST:event_latFieldKeyTyped
     
     private void checkBoxesSelected(java.awt.event.MouseEvent evt){
