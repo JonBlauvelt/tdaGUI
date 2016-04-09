@@ -6,6 +6,7 @@
 package my.database;
 import java.util.*;
 import java.sql.*;
+import java.util.Date;
 
 /**
  *
@@ -18,6 +19,7 @@ public class QueryRawData {
   String selectStatementPt2;
   String selectStatementPt3;
   String strQuery;
+  String viewName;
   String siteTable = "site_location";
   String tempTable = "temp_readings";
   public QueryRawData(){
@@ -57,6 +59,7 @@ public class QueryRawData {
 
   public void disconnectFromDB(){
     try {
+      //this.destroyView();
       conn.close();
       System.out.println("DATABASE DISCONNECTED");
     } catch(SQLException e){
@@ -82,6 +85,8 @@ public class QueryRawData {
         resultMap.put("Hour", hourConvert(selectRS.getInt(tempTable + ".hour")));
         resultList.add(resultMap);
       }
+      this.generateView();
+      System.out.println("VIEW CREATED: " + this.viewName);
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -340,7 +345,7 @@ public class QueryRawData {
     }
   }
 
-  private Integer yearConvert(Integer year){
+  public Integer yearConvert(Integer year){
     String yearStr = Integer.toString(year);
     if(yearStr.length() == 2){
       yearStr = "20" + yearStr;
@@ -381,8 +386,58 @@ public class QueryRawData {
 
     return strQuery;
 
-  }
-
+   }
+   
+  
+//NEW STUFF YEA
+	
+    public Connection getConn(){
+    	return this.conn;
+    }
+	
+    public String getQuery(){
+    	return this.strQuery + ")";
+    }
+	
+    public String getViewName(){
+    	if(!this.viewName.isEmpty()){
+    		return this.viewName;
+        }else{
+		return "EMPTY";
+	}
+    }
+	
+    private String generateView(){
+	Date date = new Date();
+	System.out.println("VIEW_"+date.getTime());
+        this.viewName = "VIEW_"+date.getTime();
+	try {
+            PreparedStatement viewStatement = conn.prepareStatement("CREATE VIEW " + this.viewName + " AS " + this.getQuery());
+		System.out.println(viewStatement);
+                viewStatement.executeQuery();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
+	return this.viewName;
+    }
+	
+    public void destroyView(String view){
+	if(!this.viewName.isEmpty()){
+		try {
+			PreparedStatement viewStatement = conn.prepareStatement("DROP VIEW " + view);
+                        viewStatement.executeQuery();
+                        System.out.println("VIEW DELETED.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}else{
+		System.out.println("VIEW: " + this.viewName + " DOES NOT EXIST.");
+	}
+    }
+	
 
   //Goes along with the split BySiteLocation() implementation
   /*private String queryStringBuilder(String searchFilter, String searchName){

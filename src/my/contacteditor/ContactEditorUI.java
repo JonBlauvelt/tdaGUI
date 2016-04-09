@@ -306,6 +306,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.setBackground(new java.awt.Color(102, 255, 255));
         tabQuery.setAutoscrolls(true);
+        tabQuery.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabQueryMouseClicked(evt);
+            }
+        });
 
         tabParameter.setAutoscrolls(true);
 
@@ -2279,10 +2284,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     System.out.println(myHour);
                     double myTemp=Double.parseDouble(queryRawTable[i][5]);
                     testSet.addValue( myTemp, queryRawTable[i][0], myHour.toString());
-                    
-          
- 
                 }
+                //CALCULATE AVERAGES
+                
+                //CALCULATE STANDARD DEVIATION
+                
+                //CALCULATE HIGHS/LOWS
+                
+                
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
                 rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String [] {"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
                 String chartName="Raw Data";
@@ -2419,6 +2428,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void latFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_latFieldKeyTyped
 
     }//GEN-LAST:event_latFieldKeyTyped
+
+    private void tabQueryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabQueryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabQueryMouseClicked
 
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
