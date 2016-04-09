@@ -2531,6 +2531,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         File file = efc.getSelectedFile();
         if (file != null) {
             String filename = file.getAbsolutePath();
+            new ExportCsv(filename, queryResults).write();
         }
     }//GEN-LAST:event_rawDataExportActionPerformed
 
