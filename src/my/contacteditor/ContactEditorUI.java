@@ -2054,8 +2054,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 jScrollPane3.setViewportView(confTable);
 
                 confSite.setText("Site : " + loc + " - " + desc);
-                confLong.setText("Longitude : " + lon);
-                confLat.setText("Latitude : " + lat);
+                if(isNew){
+                    confLong.setText("Longitude : " + lon);
+                    confLat.setText("Latitude : " + lat);
+                    confLong.setVisible(true);
+                    confLat.setVisible(true);
+                }else{
+                    confLong.setVisible(false);
+                    confLat.setVisible(false);    
+                }
                 confFile.setText("Data File : " + fileNameField.getText());
                 confSer.setText("Device Serial No: " + parser.getSerial());
                 tabImport.setVisible(false);
