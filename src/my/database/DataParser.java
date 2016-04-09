@@ -23,6 +23,8 @@ public class DataParser {
   private String locId;
   private String locCode;
   private String serial;
+  private boolean newDevice;
+  private boolean newLoc;
 
   private static String LOC_QUERY = "SELECT site_id FROM "
     + "site_location WHERE site_code = '%s';";
@@ -34,8 +36,14 @@ public class DataParser {
     + "(site_name, site_code, site_lat, "
     + "site_long) VALUES ('%s','%s','%s','%s');";
 
+  private static String LOC_DELETE = "DELETE FROM site_location "
+    + "WHERE site_code = '%s';";
+
   private static String DEV_INSERT = "INSERT INTO device_info "
     + "(device_serial) VALUES ('%s');"; 
+
+  private static String DEV_DELETE = "DELETE FROM device_info "
+    + "WHERE device_serial = '%s';"; 
 
   private static String LOAD_DATA = "LOAD DATA LOCAL INFILE '%s' INTO " 
     + "TABLE temp_readings FIELDS TERMINATED "
@@ -52,7 +60,9 @@ public class DataParser {
           lon)).execute();
 
     //update loc
-    locCode = code;
+    this.locCode = code;
+
+    this.newLoc = true;
 
     init(filename);
 
@@ -63,10 +73,10 @@ public class DataParser {
 
     this.locCode = locInfo.substring(0,3);   
     init(filename);
+    this.newLoc = false;
 
   }
-
-  //performs standard initialization tasks
+//performs standard initialization tasks
   private void init(String filename){
 
     //serial
@@ -116,8 +126,10 @@ public class DataParser {
       String devId;
 
       //existing device
-      if(devList.size() != 0)
+      if(devList.size() != 0){
         devId = devList.get(0);
+        this.newDevice = false;
+      }
 
       //handle new device
       else{ 
@@ -128,6 +140,9 @@ public class DataParser {
         //get devId
         devId = 
           (new DBUtil(String.format(DEV_QUERY,serial)).execute()).get(0);
+
+        //update object
+        this.newDevice = true;
       }
 
       //process temps to the file's end
@@ -190,16 +205,28 @@ public class DataParser {
     new DBUtil(String.format(LOAD_DATA,this.outFilename)).execute();
 
     //delete outfile
-    this.cancel();
+    this.deleteOutfile();
   }
 
-  public void cancel(){
+  public void deleteOutfile(){
     try{
       //delete file 
       Files.deleteIfExists(Paths.get(this.outFilename)); 
     }catch(Exception e){
       e.printStackTrace();
     }
+  }
+  
+  public void cancel(){
+    if(newLoc)
+      //remove loc
+      new DBUtil(String.format(LOC_DELETE,this.locCode)).execute();
+
+    if(newDevice)
+      //remove loc
+      new DBUtil(String.format(DEV_DELETE,this.serial)).execute();
+
+    this.deleteOutfile();
   }
   
   public String getSerial(){
