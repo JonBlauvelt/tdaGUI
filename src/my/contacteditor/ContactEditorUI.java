@@ -136,6 +136,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         stringRenderer.setHorizontalAlignment(JLabel.CENTER);
         floatRenderer.setHorizontalAlignment(JLabel.CENTER);
         rawTable = new javax.swing.JTable();
+        jPanel17 = new javax.swing.JPanel();
+        rawDataExport = new javax.swing.JButton();
         tabAverage = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -820,47 +822,86 @@ public class ContactEditorUI extends javax.swing.JFrame {
         rawTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(rawTable);
 
+        rawDataExport.setText("Export...");
+        rawDataExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rawDataExportActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 159, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(rawDataExport, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createSequentialGroup()
+                    .addGap(37, 37, 37)
+                    .addComponent(rawDataExport)
+                    .addContainerGap(38, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout rawPanel1Layout = new javax.swing.GroupLayout(rawPanel1);
         rawPanel1.setLayout(rawPanel1Layout);
         rawPanel1Layout.setHorizontalGroup(
             rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rawPanel1Layout.createSequentialGroup()
-                .addGap(349, 349, 349)
                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rawPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22)
-                        .addGap(209, 209, 209)
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel26))
-                    .addGroup(rawPanel1Layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
+                        .addGap(349, 349, 349)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(rawPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel27)
+                                .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel21)))))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel22)
+                                .addGap(209, 209, 209)
+                                .addComponent(jLabel23)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel26))
+                            .addGroup(rawPanel1Layout.createSequentialGroup()
+                                .addGap(205, 205, 205)
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(rawPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel21))))
+                        .addGap(68, 68, 68)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
         rawPanel1Layout.setVerticalGroup(
             rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel21)
-                .addGap(9, 9, 9)
-                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jLabel27))
-                .addGap(12, 12, 12)
+                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rawPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel21)
+                        .addGap(9, 9, 9)
+                        .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                            .addComponent(jLabel27))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2470,6 +2511,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_aggregateBoxActionPerformed
 
+    private void rawDataExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rawDataExportActionPerformed
+        FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
+        JFileChooser efc = new JFileChooser();
+        efc.setFileFilter(csvFilter);
+        efc.showOpenDialog(null);
+        File file = efc.getSelectedFile();
+        if (file != null) {
+            String filename = file.getAbsolutePath();
+        }
+    }//GEN-LAST:event_rawDataExportActionPerformed
+
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
@@ -2634,6 +2686,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2676,6 +2729,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel presetValueLabel;
     private javax.swing.JComboBox presetYear;
     private javax.swing.JLabel presetYearLabel;
+    private javax.swing.JButton rawDataExport;
     private javax.swing.JPanel rawPanel1;
     private javax.swing.JTable rawTable;
     private javax.swing.JButton resetButton;
