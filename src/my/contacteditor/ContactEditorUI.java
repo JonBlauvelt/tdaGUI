@@ -1872,7 +1872,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(confirm)
                         .addGap(126, 126, 126)
                         .addComponent(cancel)
-                        .addGap(95, 95, 95))
+                        .addGap(90, 90, 90))
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1885,9 +1885,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(confTitle))
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(confLat)
                         .addGap(48, 48, 48)
@@ -1896,6 +1893,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(confFile)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
