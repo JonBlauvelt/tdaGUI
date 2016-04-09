@@ -2097,12 +2097,18 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
             jProgressBar2.setVisible(true);
             jProgressBar2.setIndeterminate(true);
-            parser.addToDb();
+            String msg;
+            if(cancelImport){
+                msg = "Data import canceled!";
+                parser.cancel();
+            }else{
+                msg = "Data imported successfully!";
+                parser.addToDb();
+            }
             resetImport();
             importConfirmPane.setVisible(false);
             tabImport.setVisible(true);
-
-            JOptionPane.showMessageDialog(null, "Data imported successfully!");
+            JOptionPane.showMessageDialog(null, msg);
             return null;
         }
 
@@ -2112,7 +2118,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             jProgressBar2.setVisible(false);
         }
     }
-
+    
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -2474,17 +2480,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_latFieldActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+        cancelImport = false;
         loadData = new LoadDataProgress();
         loadData.execute();
 
     }//GEN-LAST:event_confirmActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        parser.cancel();
-        tabImport.setVisible(true);
-        importConfirmPane.setVisible(false);
-        resetImport();
-        JOptionPane.showMessageDialog(null, "Data import canceled!");
+        cancelImport = true;
+        loadData = new LoadDataProgress();
+        loadData.execute();
     }//GEN-LAST:event_cancelActionPerformed
 
     private void fileNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileNameFieldActionPerformed
@@ -2756,6 +2761,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox toYearBox;
     // End of variables declaration//GEN-END:variables
     private DataParser parser;
+    private boolean cancelImport;
     private ProgressInfinite taskInfinite;
     private LoadDataProgress loadData;
     private QueryRawData QRD = new QueryRawData();
