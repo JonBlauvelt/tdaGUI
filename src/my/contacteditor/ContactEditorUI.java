@@ -433,7 +433,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         presetYear.setVisible(false);
         ArrayList<String> presetyearOptions = new MenuPopulator("years").populate();
-        System.out.println(presetyearOptions);
+        //System.out.println(presetyearOptions);
         String [] presetyearOpArry = new String [presetyearOptions.size()];
         presetYear.setModel(new javax.swing.DefaultComboBoxModel(presetyearOptions.toArray(presetyearOpArry)));
         presetYear.setSelectedIndex(0);
@@ -2474,9 +2474,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             ArrayList<HashMap<String, Integer>> logYearList = new ArrayList<HashMap<String, Integer>>();
             HashMap<String, Integer> logYear = new HashMap<String, Integer>();
             String fromLog = presetValue.getSelectedItem().toString().substring(8, 12);
-            System.out.println(fromLog);
+            //System.out.println(fromLog);
             String toLog = presetValue.getSelectedItem().toString().substring(25);
-            System.out.println(toLog);
+            //System.out.println(toLog);
             logYear.put("From", QRD.yearDeConvert(fromLog));
             logYear.put("To", QRD.yearDeConvert(toLog));
             logYearList.add(logYear);
@@ -2497,12 +2497,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 checkBoxVals.add("'" + siteObjs[0] + "'");
             }
         }
-        System.out.println("Checkbox Size: " + checkBox.size());
-        System.out.println("Checkboxes Selected: " + checkBoxVals.size());
+        //System.out.println("Checkbox Size: " + checkBox.size());
+        //System.out.println("Checkboxes Selected: " + checkBoxVals.size());
         if(!checkBoxVals.isEmpty()){
             DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
             query = QRD.bySiteLocation(checkBoxVals, allBoxes);
-            System.out.println(query);
+            //System.out.println(query);
             QRD.connectToDB();
             queryResults = QRD.executeQuery(query);
             if (!queryResults.isEmpty()) {
@@ -2527,6 +2527,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 
                 //START CALCULATIONS
                 String aggregate = aggregateBox.getSelectedItem().toString();
+                if(aggregate.contains("Default")){
+                    aggregate = "Default";
+                }
                 StatisticalAnalysis SA = new StatisticalAnalysis(QRD.getViewName(), aggregate, QRD.getConn());
                 String[] tableColNames = SA.getTableCols(aggregate);
                 String[] tableHiloNames = SA.getTableCols(aggregate, "hilo");
@@ -2570,9 +2573,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 ArrayList<HashMap<String, Object>> lowResults = SA.calculate("low");
                 String[][] hiloTable = new String[avgResults.size()][tableHiloNames.length];
                 //SANITY CHECK
-                if(highResults.size() == lowResults.size()){
-                    System.out.println("HILO GOOD TO GO.");
-                }
+                //if(highResults.size() == lowResults.size()){
+                    //System.out.println("HILO GOOD TO GO.");
+                //}
                 for(int i=0; i < highResults.size(); i++){
                     HashMap<String, Object> valMap = highResults.get(i);
                     HashMap<String, Object> valMap2 = lowResults.get(i);
@@ -2580,15 +2583,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         String val;
                         HashMap<String, Object> map = valMap;
                         String colName = tableHiloNames[j];
-                        System.out.println(colName);
+                        //System.out.println(colName);
                         if(tableHiloNames[j].equals("Max Temp")){
                             colName ="Temp";
                         }else if(tableHiloNames[j].equals("Min Temp")){
                             colName = "Temp";
                             map = valMap2;
                         }
-                        System.out.println("NEW: " + colName);
-                        System.out.println(map.toString());
+                        //System.out.println("NEW: " + colName);
+                        //System.out.println(map.toString());
                         if(map.get(colName).toString().isEmpty()){
                             val = "N/A";
                         }else{
@@ -2792,7 +2795,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         //Object[] siteObjs = {};
         int indexAll = checkBox.size() - 1;
         if (checkBox.get(indexAll).isSelected()) {
-            System.out.println("THIS IS ALL");
+            //System.out.println("THIS IS ALL");
             for (int i = 0; i < checkBox.size(); i++) {
                 checkBox.get(i).setSelected(true);
             }

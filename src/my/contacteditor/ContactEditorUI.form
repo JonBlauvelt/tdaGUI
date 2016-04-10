@@ -860,7 +860,7 @@
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="presetYear.setSelectedIndex(0);"/>
-                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);&#xa;ArrayList&lt;String&gt; presetyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;System.out.println(presetyearOptions);&#xa;String [] presetyearOpArry = new String [presetyearOptions.size()];"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="presetYear.setVisible(false);&#xa;ArrayList&lt;String&gt; presetyearOptions = new MenuPopulator(&quot;years&quot;).populate();&#xa;//System.out.println(presetyearOptions);&#xa;String [] presetyearOpArry = new String [presetyearOptions.size()];"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="presetValue">
