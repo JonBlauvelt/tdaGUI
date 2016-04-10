@@ -2418,6 +2418,32 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
             split = hourToString.split(":");
             hourTo = Integer.parseInt(split[0]);
+            
+            //DATE HEADER SETUP
+            qrdYears.setText(fromYearBox.getSelectedItem().toString() + " - " + toYearBox.getSelectedItem().toString());
+            qrdMonths.setText(monthFrom + " - " + monthTo);
+            qrdDays.setText(dayFrom + " - " + dayTo);
+            qrdHours.setText(hourFromString + " - " + hourToString);
+            
+            avgYears.setText(fromYearBox.getSelectedItem().toString() + " - " + toYearBox.getSelectedItem().toString());
+            avgMonths.setText(monthFrom + " - " + monthTo);
+            avgDays.setText(dayFrom + " - " + dayTo);
+            avgHours.setText(hourFromString + " - " + hourToString);            
+            
+            hiloYears.setText(fromYearBox.getSelectedItem().toString() + " - " + toYearBox.getSelectedItem().toString());
+            hiloMonths.setText(monthFrom + " - " + monthTo);
+            hiloDays.setText(dayFrom + " - " + dayTo);
+            hiloHours.setText(hourFromString + " - " + hourToString);    
+            
+            sdYears.setText(fromYearBox.getSelectedItem().toString() + " - " + toYearBox.getSelectedItem().toString());
+            sdMonths.setText(monthFrom + " - " + monthTo);
+            sdDays.setText(dayFrom + " - " + dayTo);
+            sdHours.setText(hourFromString + " - " + hourToString);
+            
+            regYears.setText(fromYearBox.getSelectedItem().toString() + " - " + toYearBox.getSelectedItem().toString());
+            regMonths.setText(monthFrom + " - " + monthTo);
+            regDays.setText(dayFrom + " - " + dayTo);
+            regHours.setText(hourFromString + " - " + hourToString);
 
             //HASHMAP LOADUP: timeInterval
             HashMap<String, Integer> timeInterval = new HashMap<String, Integer>();

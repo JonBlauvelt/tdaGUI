@@ -414,7 +414,7 @@ public class QueryRawData {
 	try {
             PreparedStatement viewStatement = conn.prepareStatement("CREATE VIEW " + this.viewName + " AS " + this.getQuery());
 		System.out.println(viewStatement);
-                viewStatement.executeQuery();
+                viewStatement.execute();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -427,7 +427,7 @@ public class QueryRawData {
 	if(!this.viewName.isEmpty()){
 		try {
 			PreparedStatement viewStatement = conn.prepareStatement("DROP VIEW " + view);
-                        viewStatement.executeQuery();
+                        viewStatement.execute();
                         System.out.println("VIEW DELETED.");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
