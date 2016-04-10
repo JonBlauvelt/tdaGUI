@@ -1985,7 +1985,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         @Override
         public Void doInBackground() {
-
+            jButton4.setEnabled(false);
+            jButton2.setEnabled(false);
             boolean isNew = false;
             boolean wrongFile = false;
             boolean incomplete = false;
@@ -2074,6 +2075,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         @Override
         public void done() {
+            jButton4.setEnabled(true);
+            jButton2.setEnabled(true);
             jProgressBar1.setIndeterminate(false);
             jProgressBar1.setVisible(false);
         }
@@ -2096,6 +2099,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         @Override
         public Void doInBackground() {
 
+            confirm.setEnabled(false);
+            cancel.setEnabled(false);
             jProgressBar2.setVisible(true);
             jProgressBar2.setIndeterminate(true);
             String msg;
@@ -2115,6 +2120,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         @Override
         public void done() {
+            confirm.setEnabled(true);
+            cancel.setEnabled(true);            
             jProgressBar2.setIndeterminate(false);
             jProgressBar2.setVisible(false);
         }
