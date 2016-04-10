@@ -2534,7 +2534,30 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     private void rawDataExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rawDataExportActionPerformed
         FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
-        JFileChooser efc = new JFileChooser();
+        JFileChooser efc = new JFileChooser(){
+
+            @Override
+            public void approveSelection(){
+                File f = getSelectedFile();
+                if(f.exists() && getDialogType() == SAVE_DIALOG){
+                    int result = JOptionPane.showConfirmDialog(this,"The file already exists, do you want to overwrite it?","Existing file",JOptionPane.YES_NO_CANCEL_OPTION);
+                    switch(result){
+                        case JOptionPane.YES_OPTION:
+                            super.approveSelection();
+                            return;
+                        case JOptionPane.NO_OPTION:
+                            return;
+                        case JOptionPane.CLOSED_OPTION:
+                            return;
+                        case JOptionPane.CANCEL_OPTION:
+                            cancelSelection();
+                            return;
+                    }
+                }
+                super.approveSelection();
+            }        
+        };
+              
         efc.setFileFilter(csvFilter);
         efc.setSelectedFile(new File("rawData.csv"));
         efc.showSaveDialog(null);
