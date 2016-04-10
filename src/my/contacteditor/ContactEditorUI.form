@@ -1301,80 +1301,34 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable2">
+                            <Component class="javax.swing.JTable" name="avgResultTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="2" rowCount="29">
-                                    <Column editable="true" title="Site Location" type="java.lang.Object">
-                                      <Data value="MOM"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
-                                    <Column editable="true" title="Average" type="java.lang.Object">
-                                      <Data value="9"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
+                                  <Table columnCount="2" rowCount="28">
+                                    <Column editable="true" title="Site Location" type="java.lang.Object"/>
+                                    <Column editable="true" title="Average" type="java.lang.Object"/>
                                   </Table>
+                                </Property>
+                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                  <TableColumnModel selectionModel="0">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                  </TableColumnModel>
                                 </Property>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable2.setShowGrid (true);&#xa;jTable2.setGridColor(new java.awt.Color(0, 0, 0));"/>
+                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="avgResultTable.setShowGrid (true);&#xa;avgResultTable.setGridColor(new java.awt.Color(0, 0, 0));"/>
                               </AuxValues>
                             </Component>
                           </SubComponents>
@@ -1600,7 +1554,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" min="-2" pref="360" max="-2" attributes="0"/>
+                                          <Component id="hiloScrollPane" min="-2" pref="360" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -1624,122 +1578,51 @@
                                           <Component id="jPanel2" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane2" alignment="0" min="-2" pref="372" max="-2" attributes="0"/>
+                                      <Component id="hiloScrollPane" alignment="0" min="-2" pref="372" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                        <Container class="javax.swing.JScrollPane" name="hiloScrollPane">
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable1">
+                            <Component class="javax.swing.JTable" name="hiloResultTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="3" rowCount="29">
-                                    <Column editable="true" title="Site Location" type="java.lang.Object">
-                                      <Data value="MOM"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
-                                    <Column editable="true" title="Highs" type="java.lang.Object">
-                                      <Data value="13"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
-                                    <Column editable="true" title="Lows" type="java.lang.Object">
-                                      <Data value="5"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
+                                  <Table columnCount="3" rowCount="28">
+                                    <Column editable="true" title="Site Location" type="java.lang.Object"/>
+                                    <Column editable="true" title="Highs" type="java.lang.Object"/>
+                                    <Column editable="true" title="Lows" type="java.lang.Object"/>
                                   </Table>
+                                </Property>
+                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                  <TableColumnModel selectionModel="0">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                  </TableColumnModel>
                                 </Property>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.setShowGrid (true);&#xa;jTable1.setGridColor(new java.awt.Color(0, 0, 0));"/>
+                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="hiloResultTable.setShowGrid (true);&#xa;hiloResultTable.setGridColor(new java.awt.Color(0, 0, 0));"/>
                               </AuxValues>
                             </Component>
                           </SubComponents>
@@ -1994,80 +1877,34 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable3">
+                            <Component class="javax.swing.JTable" name="sdResultTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="2" rowCount="29">
-                                    <Column editable="true" title="Site Location" type="java.lang.Object">
-                                      <Data value="MOM"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
-                                    <Column editable="true" title="Standard Deviation" type="java.lang.Object">
-                                      <Data value="5.4"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                      <Data value="null"/>
-                                    </Column>
+                                  <Table columnCount="2" rowCount="28">
+                                    <Column editable="true" title="Site Location" type="java.lang.Object"/>
+                                    <Column editable="true" title="Standard Deviation" type="java.lang.Object"/>
                                   </Table>
+                                </Property>
+                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                  <TableColumnModel selectionModel="0">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                  </TableColumnModel>
                                 </Property>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable3.setShowGrid (true);&#xa;jTable3.setGridColor(new java.awt.Color(0, 0, 0));"/>
+                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="sdResultTable.setShowGrid (true);&#xa;sdResultTable.setGridColor(new java.awt.Color(0, 0, 0));"/>
                               </AuxValues>
                             </Component>
                           </SubComponents>
@@ -2329,7 +2166,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable4">
+                            <Component class="javax.swing.JTable" name="regResultTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="3" rowCount="29">
@@ -2433,7 +2270,7 @@
                                 </Property>
                               </Properties>
                               <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable4.setShowGrid (true);&#xa;jTable4.setGridColor(new java.awt.Color(0, 0, 0));"/>
+                                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="regResultTable.setShowGrid (true);&#xa;regResultTable.setGridColor(new java.awt.Color(0, 0, 0));"/>
                               </AuxValues>
                             </Component>
                           </SubComponents>

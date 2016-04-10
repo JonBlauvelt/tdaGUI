@@ -69,7 +69,7 @@ public class QueryRawData {
 
   public List<HashMap<String, Object>> executeQuery(String query){
     //System.out.println("IN EXECUTE");
-    this.connectToDB();
+    //this.connectToDB();
     List<HashMap<String, Object>> resultList = new ArrayList<HashMap<String, Object>>();
     try {
       PreparedStatement selectStatement = conn.prepareStatement(query + ") ORDER BY " + siteTable + ".site_name," + tempTable + ".year," + tempTable + ".month," + tempTable + ".day," + tempTable + ".hour");
@@ -91,7 +91,7 @@ public class QueryRawData {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    this.disconnectFromDB();
+    //this.disconnectFromDB();
     return resultList;
   }
 

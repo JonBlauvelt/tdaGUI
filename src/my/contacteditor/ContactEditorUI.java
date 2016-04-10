@@ -145,7 +145,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabAverage = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        avgResultTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -162,8 +162,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         avgHours = new javax.swing.JLabel();
         tabHighsLows = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        hiloScrollPane = new javax.swing.JScrollPane();
+        hiloResultTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -181,7 +181,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabSD = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        sdResultTable = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -199,7 +199,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabRegression = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        regResultTable = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
@@ -952,9 +952,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.addTab("Raw Data", tabRawData);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        avgResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"MOM", "9"},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -988,9 +987,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 "Site Location", "Average"
             }
         ));
-        jTable2.setShowGrid (true);
-        jTable2.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane4.setViewportView(jTable2);
+        avgResultTable.setShowGrid (true);
+        avgResultTable.setGridColor(new java.awt.Color(0, 0, 0));
+        jScrollPane4.setViewportView(avgResultTable);
 
         jPanel6.setBackground(new java.awt.Color(102, 255, 255));
 
@@ -1145,9 +1144,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.addTab("Average", tabAverage);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        hiloResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"MOM", "13", "5"},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -1181,9 +1179,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 "Site Location", "Highs", "Lows"
             }
         ));
-        jTable1.setShowGrid (true);
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(jTable1);
+        hiloResultTable.setShowGrid (true);
+        hiloResultTable.setGridColor(new java.awt.Color(0, 0, 0));
+        hiloScrollPane.setViewportView(hiloResultTable);
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 255));
 
@@ -1300,7 +1298,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1318,7 +1316,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         /*try{
@@ -1335,9 +1333,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.addTab("Highs/Lows", tabHighsLows);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        sdResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"MOM", "5.4"},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -1371,9 +1368,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 "Site Location", "Standard Deviation"
             }
         ));
-        jTable3.setShowGrid (true);
-        jTable3.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane5.setViewportView(jTable3);
+        sdResultTable.setShowGrid (true);
+        sdResultTable.setGridColor(new java.awt.Color(0, 0, 0));
+        jScrollPane5.setViewportView(sdResultTable);
 
         jPanel9.setBackground(new java.awt.Color(102, 255, 255));
 
@@ -1529,7 +1526,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         tabQuery.addTab("Standard Deviation", tabSD);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        regResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"MOM", " 0.8951 ", "y = -0.0075x + 25.089"},
                 {null, null, null},
@@ -1565,9 +1562,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 "Site Location", "R²", "Slope"
             }
         ));
-        jTable4.setShowGrid (true);
-        jTable4.setGridColor(new java.awt.Color(0, 0, 0));
-        jScrollPane6.setViewportView(jTable4);
+        regResultTable.setShowGrid (true);
+        regResultTable.setGridColor(new java.awt.Color(0, 0, 0));
+        jScrollPane6.setViewportView(regResultTable);
 
         jPanel12.setBackground(new java.awt.Color(102, 255, 255));
 
@@ -2444,6 +2441,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             regMonths.setText(monthFrom + " - " + monthTo);
             regDays.setText(dayFrom + " - " + dayTo);
             regHours.setText(hourFromString + " - " + hourToString);
+            //END DATE HEADER SETUP
 
             //HASHMAP LOADUP: timeInterval
             HashMap<String, Integer> timeInterval = new HashMap<String, Integer>();
@@ -2505,6 +2503,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             DefaultCategoryDataset testSet = new DefaultCategoryDataset( );
             query = QRD.bySiteLocation(checkBoxVals, allBoxes);
             System.out.println(query);
+            QRD.connectToDB();
             queryResults = QRD.executeQuery(query);
             if (!queryResults.isEmpty()) {
                 String[][] queryRawTable = new String[queryResults.size()][6];
@@ -2524,11 +2523,86 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     double myTemp=Double.parseDouble(queryRawTable[i][5]);
                     testSet.addValue( myTemp, queryRawTable[i][0], myHour.toString());
                 }
-                //CALCULATE AVERAGES
+ 
                 
+                //START CALCULATIONS
+                String aggregate = aggregateBox.getSelectedItem().toString();
+                StatisticalAnalysis SA = new StatisticalAnalysis(QRD.getViewName(), aggregate, QRD.getConn());
+                String[] tableColNames = SA.getTableCols(aggregate);
+                String[] tableHiloNames = SA.getTableCols(aggregate, "hilo");
+                                
+                //CALCULATE AVERAGES
+                ArrayList<HashMap<String, Object>> avgResults = SA.calculate("average");
+                String[][] avgTable = new String[avgResults.size()][tableColNames.length];
+                for(int i=0; i < avgResults.size(); i++){
+                    HashMap<String, Object> valMap = avgResults.get(i);
+                    for(int j=0; j < tableColNames.length; j++){
+                        String val;
+                        if(valMap.get(tableColNames[j]).toString().isEmpty()){
+                            val = "N/A";
+                        }else{
+                            val = valMap.get(tableColNames[j]).toString();
+                        }
+                        avgTable[i][j] =  val;
+                    }
+                }
+                avgResultTable.setModel(new javax.swing.table.DefaultTableModel(avgTable, tableColNames));
+
                 //CALCULATE STANDARD DEVIATION
+                ArrayList<HashMap<String, Object>> sdResults = SA.calculate("standard");
+                String[][] sdTable = new String[sdResults.size()][tableColNames.length];
+                for(int i=0; i < sdResults.size(); i++){
+                    HashMap<String, Object> valMap = sdResults.get(i);
+                    for(int j=0; j < tableColNames.length; j++){
+                        String val;
+                        if(valMap.get(tableColNames[j]).toString().isEmpty()){
+                            val = "N/A";
+                        }else{
+                            val = valMap.get(tableColNames[j]).toString();
+                        }
+                        sdTable[i][j] =  val;
+                    }
+                }
+                sdResultTable.setModel(new javax.swing.table.DefaultTableModel(sdTable, tableColNames));
                 
                 //CALCULATE HIGHS/LOWS
+                ArrayList<HashMap<String, Object>> highResults = SA.calculate("high");
+                ArrayList<HashMap<String, Object>> lowResults = SA.calculate("low");
+                String[][] hiloTable = new String[avgResults.size()][tableHiloNames.length];
+                //SANITY CHECK
+                if(highResults.size() == lowResults.size()){
+                    System.out.println("HILO GOOD TO GO.");
+                }
+                for(int i=0; i < highResults.size(); i++){
+                    HashMap<String, Object> valMap = highResults.get(i);
+                    HashMap<String, Object> valMap2 = lowResults.get(i);
+                    for(int j=0; j < tableHiloNames.length; j++){
+                        String val;
+                        HashMap<String, Object> map = valMap;
+                        String colName = tableHiloNames[j];
+                        System.out.println(colName);
+                        if(tableHiloNames[j].equals("Max Temp")){
+                            colName ="Temp";
+                        }else if(tableHiloNames[j].equals("Min Temp")){
+                            colName = "Temp";
+                            map = valMap2;
+                        }
+                        System.out.println("NEW: " + colName);
+                        System.out.println(map.toString());
+                        if(map.get(colName).toString().isEmpty()){
+                            val = "N/A";
+                        }else{
+                            val = map.get(colName).toString();
+                        }
+                        hiloTable[i][j] =  val;
+                    }
+                }
+                hiloResultTable.setModel(new javax.swing.table.DefaultTableModel(hiloTable, tableHiloNames));        
+                
+                
+                //CALCULATE REGRESSION
+                
+                //END CALCULATIONS
                 
                 
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
@@ -2563,6 +2637,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             /*System.out.println(query);
              QRD.executeQuery(query); */
         }
+        QRD.disconnectFromDB();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void toYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toYearBoxActionPerformed
@@ -2779,6 +2854,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel avgDays;
     private javax.swing.JLabel avgHours;
     private javax.swing.JLabel avgMonths;
+    private javax.swing.JTable avgResultTable;
     private javax.swing.JLabel avgYears;
     private javax.swing.JButton cancel;
     private javax.swing.JLabel confFile;
@@ -2800,6 +2876,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel hiloDays;
     private javax.swing.JLabel hiloHours;
     private javax.swing.JLabel hiloMonths;
+    private javax.swing.JTable hiloResultTable;
+    private javax.swing.JScrollPane hiloScrollPane;
     private javax.swing.JLabel hiloYears;
     private javax.swing.JPanel importConfirmPane;
     private javax.swing.JComboBox importLoc;
@@ -2896,7 +2974,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2912,10 +2989,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField latField;
     private javax.swing.JLabel latLabel;
     private javax.swing.JTextField locCodeInput;
@@ -2937,11 +3010,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel regDays;
     private javax.swing.JLabel regHours;
     private javax.swing.JLabel regMonths;
+    private javax.swing.JTable regResultTable;
     private javax.swing.JLabel regYears;
     private javax.swing.JButton resetButton;
     private javax.swing.JLabel sdDays;
     private javax.swing.JLabel sdHours;
     private javax.swing.JLabel sdMonths;
+    private javax.swing.JTable sdResultTable;
     private javax.swing.JLabel sdYears;
     private javax.swing.JScrollPane tabAverage;
     private javax.swing.JScrollPane tabHighsLows;
