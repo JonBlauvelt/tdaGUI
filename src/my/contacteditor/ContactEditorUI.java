@@ -2529,8 +2529,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
         JFileChooser efc = new JFileChooser();
         efc.setFileFilter(csvFilter);
-        efc.setApproveButtonText("Save");
-        efc.showOpenDialog(null);
+        efc.setSelectedFile(new File("rawData.csv"));
+        efc.showSaveDialog(null);
         File file = efc.getSelectedFile();
         if (file != null) {
             String filename = file.getAbsolutePath();

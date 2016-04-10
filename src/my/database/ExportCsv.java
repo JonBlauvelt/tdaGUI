@@ -52,7 +52,7 @@ public class ExportCsv{
           data.get(count).put("Datetime", data.get(count).get("Month") 
               + "/" + data.get(count).get("Day") + "/" 
               + data.get(count).get("Year") + " " 
-              + data.get(count).get("Hour") + ":00");
+              + data.get(count).get("Hour"));
 
           //increment
           count++;
