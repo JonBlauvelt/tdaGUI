@@ -39,7 +39,7 @@ public class DBUtil{
 
       // Establish connection to MySQL
       conn = DriverManager.getConnection(URL, USER, PASSWORD);
-      System.out.println("DATABASE CONNECTED");
+      //System.out.println("DATABASE CONNECTED");
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -50,7 +50,7 @@ public class DBUtil{
   private void disconnectFromDB(){
     try {
       conn.close();
-      System.out.println("DATABASE DISCONNECTED");
+      //System.out.println("DATABASE DISCONNECTED");
     } catch(SQLException e){
       e.printStackTrace();
     }
@@ -63,7 +63,7 @@ public class DBUtil{
       //create ps
       PreparedStatement ps 
         = this.conn.prepareStatement(this.query);
-        System.out.println(this.query);
+        //System.out.println(this.query);
         ps.execute();
         return ps.getResultSet();
 

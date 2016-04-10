@@ -1549,7 +1549,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         regResultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"MOM", " 0.8951 ", "y = -0.0075x + 25.089"},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -2566,12 +2565,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     queryRawTable[i][2] = h.get("Day").toString();
                     queryRawTable[i][3] = h.get("Year").toString();
                     queryRawTable[i][4] = h.get("Hour").toString();
-                    queryRawTable[i][5] = h.get("Temp").toString();
-                    String hour[] = queryRawTable[i][4].split(":");
+                    if(!h.get("Temp").toString().equals("0.0")){
+                      queryRawTable[i][5] = h.get("Temp").toString();
+                    }else{
+                      queryRawTable[i][5] = "N/A";
+                    }
+                    /*String hour[] = queryRawTable[i][4].split(":");
                     Integer myHour=new Integer(hour[0]).intValue();
                     //System.out.println(myHour);
                     double myTemp=Double.parseDouble(queryRawTable[i][5]);
-                    testSet.addValue( myTemp, queryRawTable[i][0], myHour.toString());
+                    testSet.addValue( myTemp, queryRawTable[i][0], myHour.toString());*/
                 }
  
                 
@@ -2591,7 +2594,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     HashMap<String, Object> valMap = avgResults.get(i);
                     for(int j=0; j < tableColNames.length; j++){
                         String val;
-                        if(valMap.get(tableColNames[j]).toString().isEmpty()){
+                        if(valMap.get(tableColNames[j]).toString().equals("0.0")){
                             val = "N/A";
                         }else{
                             val = valMap.get(tableColNames[j]).toString();
@@ -2608,7 +2611,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     HashMap<String, Object> valMap = sdResults.get(i);
                     for(int j=0; j < tableColNames.length; j++){
                         String val;
-                        if(valMap.get(tableColNames[j]).toString().isEmpty()){
+                        if(valMap.get(tableColNames[j]).toString().equals("0.0")){
                             val = "N/A";
                         }else{
                             val = valMap.get(tableColNames[j]).toString();
@@ -2642,7 +2645,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         }
                         //System.out.println("NEW: " + colName);
                         //System.out.println(map.toString());
-                        if(map.get(colName).toString().isEmpty()){
+                        if(map.get(colName).toString().equals("0.0")){
                             val = "N/A";
                         }else{
                             val = map.get(colName).toString();
@@ -2661,10 +2664,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
                 rawDataExport.setVisible(true);
                 rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String [] {"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
-                String chartName="Raw Data";
+               /* String chartName="Raw Data";
                 String chartX="Time";
                 String chartY="Temperature";
-                /*testSet.addValue( 15 , "GBR" , "1" );*/
+                //testSet.addValue( 15 , "GBR" , "1" );
                 JFreeChart lineChart = ChartFactory.createLineChart(chartName, chartX, chartY, testSet, PlotOrientation.VERTICAL, true, true, false);
                 int width = 1000; 
                 int height = 500;
@@ -2681,7 +2684,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     System.out.println("Done.");
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
             }else{
                 JOptionPane.showMessageDialog(null, "No data found.");
             }

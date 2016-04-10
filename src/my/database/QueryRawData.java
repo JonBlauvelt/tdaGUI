@@ -44,7 +44,7 @@ public class QueryRawData {
       Class.forName("com.mysql.jdbc.Driver").newInstance();
       // Establish connection to MySQL
       conn = DriverManager.getConnection(url, user, password);
-      System.out.println("DATABASE CONNECTED!");
+      //System.out.println("DATABASE CONNECTED!");
     } catch (InstantiationException e) {
       e.printStackTrace();
     } catch (IllegalAccessException e) {
@@ -61,7 +61,7 @@ public class QueryRawData {
     try {
       this.destroyView(this.viewName);
       conn.close();
-      System.out.println("DATABASE DISCONNECTED");
+      //System.out.println("DATABASE DISCONNECTED");
     } catch(SQLException e){
       e.printStackTrace();
     }
@@ -86,7 +86,7 @@ public class QueryRawData {
         resultList.add(resultMap);
       }
       this.generateView();
-      System.out.println("VIEW CREATED: " + this.viewName);
+      //System.out.println("VIEW CREATED: " + this.viewName);
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -428,7 +428,7 @@ public class QueryRawData {
 		try {
 			PreparedStatement viewStatement = conn.prepareStatement("DROP VIEW " + view);
                         viewStatement.execute();
-                        System.out.println("VIEW DELETED.");
+                        //System.out.println("VIEW DELETED.");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
