@@ -151,11 +151,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        avgYears = new javax.swing.JLabel();
+        avgMonths = new javax.swing.JLabel();
+        avgDays = new javax.swing.JLabel();
+        avgHours = new javax.swing.JLabel();
         tabHighsLows = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -165,11 +169,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        hiloYears = new javax.swing.JLabel();
+        hiloMonths = new javax.swing.JLabel();
+        hiloDays = new javax.swing.JLabel();
+        hiloHours = new javax.swing.JLabel();
         tabSD = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -179,11 +187,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        sdYears = new javax.swing.JLabel();
+        sdMonths = new javax.swing.JLabel();
+        sdDays = new javax.swing.JLabel();
+        sdHours = new javax.swing.JLabel();
         tabRegression = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -193,11 +205,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        regYears = new javax.swing.JLabel();
+        regMonths = new javax.swing.JLabel();
+        regDays = new javax.swing.JLabel();
+        regHours = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         tabImport = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -872,15 +888,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(rawPanel1Layout.createSequentialGroup()
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(rawPanel1Layout.createSequentialGroup()
-                                .addGap(554, 554, 554)
-                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(rawPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel21)))
-                            .addGroup(rawPanel1Layout.createSequentialGroup()
-                                .addGap(342, 342, 342)
+                                .addGap(333, 333, 333)
                                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel25)
                                     .addComponent(qrdYears))
@@ -888,15 +896,23 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
                                     .addComponent(qrdMonths))
-                                .addGap(138, 138, 138)
+                                .addGap(147, 147, 147)
                                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(qrdDays)
                                     .addComponent(jLabel70))
                                 .addGap(74, 74, 74)
                                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel71)
-                                    .addComponent(qrdHours))))
-                        .addGap(154, 154, 154)
+                                    .addComponent(qrdHours))
+                                .addGap(154, 154, 154))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(rawPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel21))
+                                .addGap(333, 333, 333)))
                         .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
@@ -906,9 +922,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rawPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(17, 17, 17)
                         .addComponent(jLabel21)
-                        .addGap(1, 1, 1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
                             .addComponent(jLabel25)
@@ -920,11 +936,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                             .addComponent(qrdMonths)
                             .addComponent(qrdDays)
                             .addComponent(qrdHours))
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                             .addComponent(jLabel27))
-                        .addGap(12, 12, 12))
+                        .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rawPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1002,16 +1018,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel43.setText("Average");
 
         jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel44.setText("From:");
-
-        jLabel45.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel45.setText("July 1, 2002");
+        jLabel44.setText("Year(s)");
 
         jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel46.setText("To:");
-
-        jLabel47.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel47.setText("June 30, 2003");
+        jLabel46.setText("Month(s)");
 
         jLabel48.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel48.setText("Preset:");
@@ -1019,50 +1029,77 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel49.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel49.setText("None");
 
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setText("Day(s)");
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setText("Hour(s)");
+
+        avgYears.setText("N/A");
+
+        avgMonths.setText("N/A");
+
+        avgDays.setText("N/A");
+
+        avgHours.setText("N/A");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(288, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel43))
-                .addGap(224, 224, 224))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
-                    .addComponent(jLabel44)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel45)
-                    .addGap(209, 209, 209)
-                    .addComponent(jLabel46)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel47)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(205, 205, 205)
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel44)
+                                    .addComponent(avgYears))
+                                .addGap(72, 72, 72)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46)
+                                    .addComponent(avgMonths))
+                                .addGap(128, 128, 128)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(avgDays))
+                                .addGap(88, 88, 88)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(avgHours)
+                                    .addComponent(jLabel26)))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(jLabel43)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel43)
-                .addGap(93, 93, 93)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(jLabel44)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avgYears)
+                    .addComponent(avgMonths)
+                    .addComponent(avgDays)
+                    .addComponent(avgHours))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel48))
                 .addContainerGap())
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel46)
-                        .addComponent(jLabel47)
-                        .addComponent(jLabel45)
-                        .addComponent(jLabel44))
-                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1079,7 +1116,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1174,16 +1211,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel36.setText("Highs/Lows");
 
         jLabel37.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel37.setText("From:");
-
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel38.setText("July 1, 2002");
+        jLabel37.setText("Year(s)");
 
         jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel39.setText("To:");
-
-        jLabel40.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel40.setText("June 30, 2003");
+        jLabel39.setText("Month(s)");
 
         jLabel41.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel41.setText("Preset:");
@@ -1191,50 +1222,74 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel42.setText("None");
 
+        jLabel45.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel45.setText("Day(s)");
+
+        jLabel47.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel47.setText("Hour(s)");
+
+        hiloYears.setText("N/A");
+
+        hiloMonths.setText("N/A");
+
+        hiloDays.setText("N/A");
+
+        hiloHours.setText("N/A");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(266, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37)
+                    .addComponent(hiloYears))
+                .addGap(92, 92, 92)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel39)
+                    .addComponent(hiloMonths))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45)
+                    .addComponent(hiloDays))
+                .addGap(97, 97, 97)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hiloHours)
+                    .addComponent(jLabel47))
+                .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel36)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel36))
-                .addGap(224, 224, 224))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
-                    .addComponent(jLabel37)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel38)
-                    .addGap(209, 209, 209)
-                    .addComponent(jLabel39)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel40)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(238, 238, 238))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(jLabel36)
-                .addGap(93, 93, 93)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hiloYears)
+                    .addComponent(hiloMonths)
+                    .addComponent(hiloDays)
+                    .addComponent(hiloHours))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel41))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel39)
-                        .addComponent(jLabel40)
-                        .addComponent(jLabel38)
-                        .addComponent(jLabel37))
-                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1251,7 +1306,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1346,16 +1401,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel51.setText("Standard Deviation");
 
         jLabel52.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel52.setText("From:");
-
-        jLabel53.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel53.setText("July 1, 2002");
+        jLabel52.setText("Year(s)");
 
         jLabel54.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel54.setText("To:");
-
-        jLabel55.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel55.setText("June 30, 2003");
+        jLabel54.setText("Month(s)");
 
         jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel56.setText("Preset:");
@@ -1363,50 +1412,78 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel57.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel57.setText("None");
 
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel38.setText("Day(s)");
+
+        jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel40.setText("Hour(s)");
+
+        sdYears.setText("N/A");
+
+        sdMonths.setText("N/A");
+
+        sdDays.setText("N/A");
+
+        sdHours.setText("N/A");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel56)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel51))
-                .addGap(224, 224, 224))
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
-                    .addComponent(jLabel52)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel53)
-                    .addGap(209, 209, 209)
-                    .addComponent(jLabel54)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel55)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                        .addGap(0, 226, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(276, 276, 276))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel51)
+                                .addGap(222, 222, 222))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel52)
+                            .addComponent(sdYears))
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel54)
+                            .addComponent(sdMonths))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38)
+                            .addComponent(sdDays))
+                        .addGap(90, 90, 90)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sdHours)
+                            .addComponent(jLabel40))
+                        .addGap(22, 22, 22))))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel51)
-                .addGap(93, 93, 93)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(jLabel54)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sdYears)
+                    .addComponent(sdMonths)
+                    .addComponent(sdDays)
+                    .addComponent(sdHours))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel56))
                 .addContainerGap())
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel54)
-                        .addComponent(jLabel55)
-                        .addComponent(jLabel53)
-                        .addComponent(jLabel52))
-                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -1423,7 +1500,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1518,22 +1595,30 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel59.setText("Regression");
 
         jLabel60.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel60.setText("From:");
-
-        jLabel61.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel61.setText("July 1, 2002");
+        jLabel60.setText("Year(s)");
 
         jLabel62.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel62.setText("To:");
-
-        jLabel63.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel63.setText("June 30, 2003");
+        jLabel62.setText("Month(s)");
 
         jLabel64.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel64.setText("Preset:");
 
         jLabel65.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel65.setText("None");
+
+        jLabel53.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel53.setText("Day(s)");
+
+        jLabel55.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel55.setText("Hour(s)");
+
+        regYears.setText("N/A");
+
+        regMonths.setText("N/A");
+
+        regDays.setText("N/A");
+
+        regHours.setText("N/A");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1548,37 +1633,47 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel59))
                 .addGap(224, 224, 224))
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel60)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel61)
-                    .addGap(209, 209, 209)
+                    .addComponent(regYears))
+                .addGap(72, 72, 72)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel62)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel63)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                    .addComponent(regMonths))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel53)
+                    .addComponent(regDays))
+                .addGap(84, 84, 84)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(regHours)
+                    .addComponent(jLabel55))
+                .addGap(18, 18, 18))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel59)
-                .addGap(93, 93, 93)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel60)
+                    .addComponent(jLabel62)
+                    .addComponent(jLabel53)
+                    .addComponent(jLabel55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(regYears)
+                    .addComponent(regMonths)
+                    .addComponent(regDays)
+                    .addComponent(regHours))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel64))
                 .addContainerGap())
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel62)
-                        .addComponent(jLabel63)
-                        .addComponent(jLabel61)
-                        .addComponent(jLabel60))
-                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1595,7 +1690,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1998,10 +2093,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
         );
 
         pack();
@@ -2658,6 +2750,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox aggregateBox;
+    private javax.swing.JLabel avgDays;
+    private javax.swing.JLabel avgHours;
+    private javax.swing.JLabel avgMonths;
+    private javax.swing.JLabel avgYears;
     private javax.swing.JButton cancel;
     private javax.swing.JLabel confFile;
     private javax.swing.JLabel confLat;
@@ -2675,6 +2771,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox fromHourBox;
     private javax.swing.JComboBox fromMonthBox;
     private javax.swing.JComboBox fromYearBox;
+    private javax.swing.JLabel hiloDays;
+    private javax.swing.JLabel hiloHours;
+    private javax.swing.JLabel hiloMonths;
+    private javax.swing.JLabel hiloYears;
     private javax.swing.JPanel importConfirmPane;
     private javax.swing.JComboBox importLoc;
     private javax.swing.JButton jButton1;
@@ -2694,9 +2794,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -2735,9 +2837,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
@@ -2808,7 +2908,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JButton rawDataExport;
     private javax.swing.JPanel rawPanel1;
     private javax.swing.JTable rawTable;
+    private javax.swing.JLabel regDays;
+    private javax.swing.JLabel regHours;
+    private javax.swing.JLabel regMonths;
+    private javax.swing.JLabel regYears;
     private javax.swing.JButton resetButton;
+    private javax.swing.JLabel sdDays;
+    private javax.swing.JLabel sdHours;
+    private javax.swing.JLabel sdMonths;
+    private javax.swing.JLabel sdYears;
     private javax.swing.JScrollPane tabAverage;
     private javax.swing.JScrollPane tabHighsLows;
     private javax.swing.JPanel tabHome;
