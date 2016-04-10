@@ -124,11 +124,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         tabRawData = new javax.swing.JScrollPane();
         rawPanel1 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DefaultTableCellRenderer stringRenderer = new DefaultTableCellRenderer();
@@ -138,6 +136,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
         rawTable = new javax.swing.JTable();
         jPanel17 = new javax.swing.JPanel();
         rawDataExport = new javax.swing.JButton();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        qrdYears = new javax.swing.JLabel();
+        qrdMonths = new javax.swing.JLabel();
+        qrdDays = new javax.swing.JLabel();
+        qrdHours = new javax.swing.JLabel();
         tabAverage = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -755,20 +759,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel21.setText("Raw Data");
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel22.setText("July 1, 2002");
-
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel23.setText("To:");
+        jLabel23.setText("Month(s)");
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel24.setText("None");
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel25.setText("From:");
-
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel26.setText("June 30, 2003");
+        jLabel25.setText("Year(s)");
 
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel27.setText("Preset:");
@@ -851,6 +849,20 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addContainerGap(38, Short.MAX_VALUE)))
         );
 
+        jLabel70.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel70.setText("Day(s)");
+
+        jLabel71.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel71.setText("Hour(s)");
+
+        qrdYears.setText("N/A");
+
+        qrdMonths.setText("N/A");
+
+        qrdDays.setText("N/A");
+
+        qrdHours.setText("N/A");
+
         javax.swing.GroupLayout rawPanel1Layout = new javax.swing.GroupLayout(rawPanel1);
         rawPanel1.setLayout(rawPanel1Layout);
         rawPanel1Layout.setHorizontalGroup(
@@ -858,25 +870,33 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(rawPanel1Layout.createSequentialGroup()
                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rawPanel1Layout.createSequentialGroup()
-                        .addGap(349, 349, 349)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(rawPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel22)
-                                .addGap(209, 209, 209)
-                                .addComponent(jLabel23)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel26))
-                            .addGroup(rawPanel1Layout.createSequentialGroup()
-                                .addGap(205, 205, 205)
+                                .addGap(554, 554, 554)
                                 .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(rawPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel27)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel21))))
-                        .addGap(68, 68, 68)
+                                    .addComponent(jLabel21)))
+                            .addGroup(rawPanel1Layout.createSequentialGroup()
+                                .addGap(342, 342, 342)
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25)
+                                    .addComponent(qrdYears))
+                                .addGap(82, 82, 82)
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(qrdMonths))
+                                .addGap(138, 138, 138)
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(qrdDays)
+                                    .addComponent(jLabel70))
+                                .addGap(74, 74, 74)
+                                .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel71)
+                                    .addComponent(qrdHours))))
+                        .addGap(154, 154, 154)
                         .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
@@ -888,13 +908,19 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addGroup(rawPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel21)
-                        .addGap(9, 9, 9)
+                        .addGap(1, 1, 1)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel25))
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel70)
+                            .addComponent(jLabel71))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(qrdYears)
+                            .addComponent(qrdMonths)
+                            .addComponent(qrdDays)
+                            .addComponent(qrdHours))
+                        .addGap(5, 5, 5)
                         .addGroup(rawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                             .addComponent(jLabel27))
@@ -2668,11 +2694,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -2721,6 +2745,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -2775,6 +2801,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel presetValueLabel;
     private javax.swing.JComboBox presetYear;
     private javax.swing.JLabel presetYearLabel;
+    private javax.swing.JLabel qrdDays;
+    private javax.swing.JLabel qrdHours;
+    private javax.swing.JLabel qrdMonths;
+    private javax.swing.JLabel qrdYears;
     private javax.swing.JButton rawDataExport;
     private javax.swing.JPanel rawPanel1;
     private javax.swing.JTable rawTable;
