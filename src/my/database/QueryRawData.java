@@ -73,7 +73,7 @@ public class QueryRawData {
     List<HashMap<String, Object>> resultList = new ArrayList<HashMap<String, Object>>();
     try {
       PreparedStatement selectStatement = conn.prepareStatement(query + ") ORDER BY " + siteTable + ".site_name," + tempTable + ".year," + tempTable + ".month," + tempTable + ".day," + tempTable + ".hour");
-      System.out.println(selectStatement);
+      //System.out.println(selectStatement);
       ResultSet selectRS = selectStatement.executeQuery();
       while (selectRS.next()){
         HashMap<String, Object> resultMap = new HashMap<String, Object>();
@@ -409,11 +409,11 @@ public class QueryRawData {
 	
     private String generateView(){
 	Date date = new Date();
-	System.out.println("VIEW_"+date.getTime());
+	//System.out.println("VIEW_"+date.getTime());
         this.viewName = "VIEW_"+date.getTime();
 	try {
             PreparedStatement viewStatement = conn.prepareStatement("CREATE VIEW " + this.viewName + " AS " + this.getQuery());
-		System.out.println(viewStatement);
+		//System.out.println(viewStatement);
                 viewStatement.execute();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

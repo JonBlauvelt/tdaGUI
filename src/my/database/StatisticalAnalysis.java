@@ -72,11 +72,11 @@ public class StatisticalAnalysis {
         private String getGroupBy(String av){
             String colVals = "";
 		switch(av){
-			case "Year": colVals = "Year";
+			case "Year": colVals = "Year,";
 				break;
-			case "Month": colVals = "Month, Year";
+			case "Month": colVals = "Month, Year,";
 				break;  
-			case "Day": colVals = "Day, Month, Year";
+			case "Day": colVals = "Day, Month, Year,";
 				break;
 			//case "hour": colVals = "hour, day, month, year";
 			//	break;
@@ -88,11 +88,11 @@ public class StatisticalAnalysis {
 	private String getColumns(String av){
 		String colVals = "";
 		switch(av){
-			case "Year": colVals = "year as Year";
+			case "Year": colVals = ", year as Year";
 				break;
-			case "Month": colVals = "month as Month, year as Year";
+			case "Month": colVals = ", month as Month, year as Year";
 				break;  
-			case "Day": colVals = "day as Day, month as Month, year as Year";
+			case "Day": colVals = ", day as Day, month as Month, year as Year";
 				break;
 			//case "hour": colVals = "hour, day, month, year";
 			//	break;
@@ -120,16 +120,16 @@ public class StatisticalAnalysis {
 	public String getQuery(String calculation){
 		String query = "";
 		switch(calculation){
-			case "average": query = "SELECT site_name, AVG(temp) as temp, " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + ", site_name "
+			case "average": query = "SELECT site_name, AVG(temp) as temp " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + " site_name "
 					+ "ORDER BY site_name, year, month, day";
 				break;
-			case "standard": query = "SELECT site_name, STD(temp) as temp, " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + ", site_name "
+			case "standard": query = "SELECT site_name, STD(temp) as temp " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + " site_name "
 					+ "ORDER BY site_name, year, month, day";
 				break;
-			case "high": query = "SELECT site_name, MAX(temp) as temp, " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + ", site_name "
+			case "high": query = "SELECT site_name, MAX(temp) as temp " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + " site_name "
 					+ "ORDER BY site_name, year, month, day";
 				break;
-			case "low": query = "SELECT site_name, MIN(temp) as temp, " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + ", site_name "
+			case "low": query = "SELECT site_name, MIN(temp) as temp " + this.getColumns(this.aggregateVal)+ " from " + this.viewName + " GROUP BY " + this.getGroupBy(this.aggregateVal) + " site_name "
 					+ "ORDER BY site_name, year, month, day";
 				break;
 			default: System.out.println("NOT A VALID CALCULATION"); 
@@ -142,7 +142,7 @@ public class StatisticalAnalysis {
 		ArrayList<String> colList = this.getColumnVals(this.aggregateVal);
 		ArrayList<HashMap<String, Object>> calcList = new ArrayList<HashMap<String,Object>>();
 		String query = this.getQuery(calculation);
-		System.out.println(query);
+		//System.out.println(query);
 		try {
 			calcStatement = conn.prepareStatement(query);
 			calcRS = calcStatement.executeQuery();
@@ -161,7 +161,7 @@ public class StatisticalAnalysis {
 						calcMap.put(calcArr[i],calcRS.getInt(colList.get(i)));
 					}
 				}
-				System.out.println(calcMap.toString());
+				//System.out.println(calcMap.toString());
 				calcList.add(calcMap);
 			}
 		} catch (SQLException e) {
