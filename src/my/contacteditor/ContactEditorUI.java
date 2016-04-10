@@ -822,6 +822,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         rawTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(rawTable);
 
+        rawDataExport.setVisible(false);
         rawDataExport.setText("Export...");
         rawDataExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1929,7 +1930,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(importConfirmPaneLayout.createSequentialGroup()
                 .addGap(387, 387, 387)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(812, Short.MAX_VALUE))
+                .addContainerGap(860, Short.MAX_VALUE))
         );
         importConfirmPaneLayout.setVerticalGroup(
             importConfirmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2380,6 +2381,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 
                 
                 JOptionPane.showMessageDialog(null, "Finished Calculating!");
+                rawDataExport.setVisible(true);
                 rawTable.setModel(new javax.swing.table.DefaultTableModel(queryRawTable, new String [] {"Site Location", "Month", "Day", "Year", "Hour", "Temperature"}));
                 String chartName="Raw Data";
                 String chartX="Time";
@@ -2527,6 +2529,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
         JFileChooser efc = new JFileChooser();
         efc.setFileFilter(csvFilter);
+        efc.setApproveButtonText("Save");
         efc.showOpenDialog(null);
         File file = efc.getSelectedFile();
         if (file != null) {

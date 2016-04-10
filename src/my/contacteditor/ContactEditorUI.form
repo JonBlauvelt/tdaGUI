@@ -1201,6 +1201,9 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rawDataExportActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="rawDataExport.setVisible(false);"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
