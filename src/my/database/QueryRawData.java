@@ -59,7 +59,7 @@ public class QueryRawData {
 
   public void disconnectFromDB(){
     try {
-      //this.destroyView();
+      this.destroyView(this.viewName);
       conn.close();
       System.out.println("DATABASE DISCONNECTED");
     } catch(SQLException e){
