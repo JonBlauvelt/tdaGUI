@@ -127,7 +127,7 @@ public class ExportCsv{
 
       //write column headers to file 
       w.println(cols);
-      if(hiloLine.length>0)
+      if(hiloLine.length() > 0)
         w.println(hiloLine);
 
       //keep going until the current index for the last loc
