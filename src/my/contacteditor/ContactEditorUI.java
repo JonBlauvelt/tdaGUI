@@ -199,6 +199,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         sdMonths = new javax.swing.JLabel();
         sdDays = new javax.swing.JLabel();
         sdHours = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        sdExport = new javax.swing.JButton();
         tabRegression = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -1534,6 +1536,31 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        rawDataExport.setVisible(false);
+        sdExport.setText("Export...");
+        sdExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sdExportActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sdExport)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sdExport)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1541,8 +1568,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(194, 194, 194)
+                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(93, 93, 93)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1556,11 +1588,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(330, 330, 330))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         /*try{
@@ -2634,7 +2670,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 avgResultTable.setModel(new javax.swing.table.DefaultTableModel(avgTable, tableColNames));
 
                 //CALCULATE STANDARD DEVIATION
-                ArrayList<HashMap<String, Object>> sdResults = SA.calculate("standard");
+                sdResults = SA.calculate("standard");
                 String[][] sdTable = new String[sdResults.size()][tableColNames.length];
                 for(int i=0; i < sdResults.size(); i++){
                     HashMap<String, Object> valMap = sdResults.get(i);
@@ -2909,6 +2945,42 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_avgExportActionPerformed
 
+    private void sdExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sdExportActionPerformed
+        FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
+        JFileChooser efc = new JFileChooser(){
+
+            @Override
+            public void approveSelection(){
+                File f = getSelectedFile();
+                if(f.exists() && getDialogType() == SAVE_DIALOG){
+                    int result = JOptionPane.showConfirmDialog(this,"The file already exists, do you want to overwrite it?","Existing file",JOptionPane.YES_NO_CANCEL_OPTION);
+                    switch(result){
+                        case JOptionPane.YES_OPTION:
+                            super.approveSelection();
+                            return;
+                        case JOptionPane.NO_OPTION:
+                            return;
+                        case JOptionPane.CLOSED_OPTION:
+                            return;
+                        case JOptionPane.CANCEL_OPTION:
+                            cancelSelection();
+                            return;
+                    }
+                }
+                super.approveSelection();
+            }        
+        };
+              
+        efc.setFileFilter(csvFilter);
+        efc.setSelectedFile(new File("standardDev.csv"));
+        efc.showSaveDialog(null);
+        File file = efc.getSelectedFile();
+        if (file != null) {
+            String filename = file.getAbsolutePath();
+            new ExportCsv(filename, sdResults,"Standard Deviation").write();
+        }
+    }//GEN-LAST:event_sdExportActionPerformed
+
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
@@ -3123,6 +3195,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3176,6 +3249,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel regYears;
     private javax.swing.JButton resetButton;
     private javax.swing.JLabel sdDays;
+    private javax.swing.JButton sdExport;
     private javax.swing.JLabel sdHours;
     private javax.swing.JLabel sdMonths;
     private javax.swing.JLabel sdPreset;
@@ -3208,6 +3282,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     boolean selectedAll = false; //Checkbox value
     List<HashMap<String, Object>> queryResults = new ArrayList<HashMap<String, Object>>();
     List<HashMap<String, Object>> avgResults = new ArrayList<HashMap<String, Object>>();
+    ArrayList<HashMap<String, Object>> sdResults = new ArrayList<HashMap<String, Object>> (); 
         
    //private ArrayList<Object> siteCheckBoxValues = new ArrayList<Object>();
 }
