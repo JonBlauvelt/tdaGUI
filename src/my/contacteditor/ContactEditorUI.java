@@ -181,6 +181,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         hiloMonths = new javax.swing.JLabel();
         hiloDays = new javax.swing.JLabel();
         hiloHours = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        hiloExport = new javax.swing.JButton();
         tabSD = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -1341,6 +1343,31 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        rawDataExport.setVisible(false);
+        hiloExport.setText("Export...");
+        hiloExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hiloExportActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(hiloExport)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(hiloExport)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1348,8 +1375,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(194, 194, 194)
+                                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(93, 93, 93)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1363,11 +1395,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         /*try{
@@ -2687,8 +2721,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 sdResultTable.setModel(new javax.swing.table.DefaultTableModel(sdTable, tableColNames));
                 
                 //CALCULATE HIGHS/LOWS
-                ArrayList<HashMap<String, Object>> highResults = SA.calculate("high");
-                ArrayList<HashMap<String, Object>> lowResults = SA.calculate("low");
+                highResults = SA.calculate("high");
+                lowResults = SA.calculate("low");
                 String[][] hiloTable = new String[avgResults.size()][tableHiloNames.length];
                 //SANITY CHECK
                 //if(highResults.size() == lowResults.size()){
@@ -2981,6 +3015,42 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_sdExportActionPerformed
 
+    private void hiloExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiloExportActionPerformed
+        FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
+        JFileChooser efc = new JFileChooser(){
+
+            @Override
+            public void approveSelection(){
+                File f = getSelectedFile();
+                if(f.exists() && getDialogType() == SAVE_DIALOG){
+                    int result = JOptionPane.showConfirmDialog(this,"The file already exists, do you want to overwrite it?","Existing file",JOptionPane.YES_NO_CANCEL_OPTION);
+                    switch(result){
+                        case JOptionPane.YES_OPTION:
+                            super.approveSelection();
+                            return;
+                        case JOptionPane.NO_OPTION:
+                            return;
+                        case JOptionPane.CLOSED_OPTION:
+                            return;
+                        case JOptionPane.CANCEL_OPTION:
+                            cancelSelection();
+                            return;
+                    }
+                }
+                super.approveSelection();
+            }        
+        };
+              
+        efc.setFileFilter(csvFilter);
+        efc.setSelectedFile(new File("highLow.csv"));
+        efc.showSaveDialog(null);
+        File file = efc.getSelectedFile();
+        if (file != null) {
+            String filename = file.getAbsolutePath();
+            new ExportCsv(filename, highResults,lowResults,"High/Low").write();
+        }       
+    }//GEN-LAST:event_hiloExportActionPerformed
+
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
@@ -3109,6 +3179,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox fromMonthBox;
     private javax.swing.JComboBox fromYearBox;
     private javax.swing.JLabel hiloDays;
+    private javax.swing.JButton hiloExport;
     private javax.swing.JLabel hiloHours;
     private javax.swing.JLabel hiloMonths;
     private javax.swing.JLabel hiloPreset;
@@ -3197,6 +3268,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -3283,6 +3355,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
     List<HashMap<String, Object>> queryResults = new ArrayList<HashMap<String, Object>>();
     List<HashMap<String, Object>> avgResults = new ArrayList<HashMap<String, Object>>();
     ArrayList<HashMap<String, Object>> sdResults = new ArrayList<HashMap<String, Object>> (); 
+    ArrayList<HashMap<String, Object>> highResults = new ArrayList<HashMap<String, Object>> (); 
+    ArrayList<HashMap<String, Object>> lowResults = new ArrayList<HashMap<String, Object>> (); 
         
    //private ArrayList<Object> siteCheckBoxValues = new ArrayList<Object>();
 }

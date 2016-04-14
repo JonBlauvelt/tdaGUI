@@ -10,6 +10,7 @@ public class ExportCsv{
 
   private String path;
   private List<HashMap<String,Object>> data;
+  private List<HashMap<String,Object>> lowData;
   private String header;
   private String agg;
   private String datetimeHeader;
@@ -32,6 +33,14 @@ public class ExportCsv{
       this.header += " By " + this.agg + '\n'; 
     }
 
+  }
+
+  //high/low constructor
+  public ExportCsv(String path, List<HashMap<String,Object>> highData, 
+      List<HashMap<String,Object>> lowData, String type){
+    
+    this(path,highData,type); 
+    this.lowData = lowData;
   }
 
   //determine the aggregation level
@@ -101,14 +110,26 @@ public class ExportCsv{
         }
       }
 
+      //add extra line for high/low
+      String hiloLine = "";
+      
       //get column names.
       String cols = datetimeHeader;
-      for(int index : indices)
+      for(int index : indices){
         cols += "," + data.get(index).get(this.siteKey);
+
+        //need second column for Low
+        if(this.header.contains("High/Low")){
+          cols += ",";
+          hiloLine += ",High,Low";
+        }
+      }
 
       //write column headers to file 
       w.println(cols);
-      
+      if(hiloLine.length>0)
+        w.println(hiloLine);
+
       //keep going until the current index for the last loc
       //is the last index in the data array
       while(indices.get(indices.size() - 1) < data.size()){ 
@@ -120,14 +141,17 @@ public class ExportCsv{
         //loop through locations
         for (int i = 0; i<indices.size(); i++){
           
-          //get temp
           String temp = data.get(indices.get(i)).get("Temp").toString();
+
+          //get low if applicable
+          if(this.header.contains("High/Low"))
+            temp += "," + lowData.get(indices.get(i)).get("Temp").toString();
 
           //increment index
           indices.set(i,indices.get(i) + 1);
 
           //check for null
-          if(temp == null)
+          if(temp == null || temp.equals("N/A"))
             temp = "";
 
           //add to output line
