@@ -2769,11 +2769,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                xLabel=xLabel.concat("/" + xComponent);
                             }
                         }
-                        
                         avgTable[i][j] =  val;
                     }
-                    //String xLabel=valMap.get(tableColNames[j]).toString();
-                    //int yLabel=valMap.get(tableColNames[2].parseInt);
                     averageSet.addValue(yLabel, lineName, xLabel);
                 }
                 
@@ -2790,6 +2787,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 sdResults = SA.calculate("standard");
                 String[][] sdTable = new String[sdResults.size()][tableColNames.length];
                 for(int i=0; i < sdResults.size(); i++){
+                    xLabel="";
                     HashMap<String, Object> valMap = sdResults.get(i);
                     for(int j=0; j < tableColNames.length; j++){
                         String val;
