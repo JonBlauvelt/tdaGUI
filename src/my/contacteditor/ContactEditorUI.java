@@ -43,6 +43,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     String toDay;
     String fromHour;
     String toHour;
+    int visitAverage = 0;
+    int visitSD = 0;
+    int visitHiLo = 0;
+    int queryFlag = 0;
 
     /**
      * Creates new form ContactEditorUI
@@ -163,6 +167,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         avgHours = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         avgExport = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         tabHighsLows = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         hiloScrollPane = new javax.swing.JScrollPane();
@@ -183,6 +188,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         hiloHours = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         hiloExport = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         tabSD = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -203,6 +209,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         sdHours = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         sdExport = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         tabRegression = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -1140,6 +1147,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton5.setText("Graph");
+        jButton5.setMaximumSize(new java.awt.Dimension(77, 23));
+        jButton5.setMinimumSize(new java.awt.Dimension(77, 23));
+        jButton5.setPreferredSize(new java.awt.Dimension(77, 23));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1153,13 +1170,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(193, 193, 193)
-                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(93, 93, 93)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1170,8 +1189,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
 
@@ -1368,6 +1392,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton3.setText("Graph");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1381,13 +1407,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(194, 194, 194)
-                                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)))
                         .addGap(93, 93, 93)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(283, 283, 283)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1399,8 +1427,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(hiloScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton3)))))
                 .addContainerGap())
         );
 
@@ -1595,6 +1628,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton6.setText("Graph");
+        jButton6.setPreferredSize(new java.awt.Dimension(77, 23));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1608,7 +1649,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(194, 194, 194)
-                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(93, 93, 93)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1625,8 +1668,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(330, 330, 330))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2189,6 +2237,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
+        jLayeredPane1.setLayer(tabImport, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(importConfirmPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -2203,8 +2254,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(importConfirmPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jLayeredPane1.setLayer(tabImport, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(importConfirmPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         frameTDA.addTab("Import", jLayeredPane1);
 
@@ -2501,6 +2550,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_presetValueActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        queryFlag=1;
+        visitAverage=0;
+        visitSD=0;
+        visitHiLo=0;
         //JOptionPane autoClose  = new JOptionPane("Calculating. Please Wait.");
         //JDialog jd = autoClose.createDialog("Calc");
         //jd.setAlwaysOnTop(true);
@@ -2683,26 +2736,56 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     aggregate = "Default";
                 }
                 StatisticalAnalysis SA = new StatisticalAnalysis(QRD.getViewName(), aggregate, QRD.getConn());
+                DefaultCategoryDataset averageSet = new DefaultCategoryDataset();
+                DefaultCategoryDataset SDSet = new DefaultCategoryDataset();
+                DefaultCategoryDataset hiLoSet = new DefaultCategoryDataset();
                 String[] tableColNames = SA.getTableCols(aggregate);
                 String[] tableHiloNames = SA.getTableCols(aggregate, "hilo");
-                                
+                String xLabel = "";
+                double yLabel = 0;
+                String xComponent;
+                String lineName = "";
+                int width = 1000; 
+                int height = 500;
                 //CALCULATE AVERAGES
                 avgResults = SA.calculate("average");
                 String[][] avgTable = new String[avgResults.size()][tableColNames.length];
                 for(int i=0; i < avgResults.size(); i++){
                     HashMap<String, Object> valMap = avgResults.get(i);
+                    xLabel="";
                     for(int j=0; j < tableColNames.length; j++){
                         String val;
                         if(valMap.get(tableColNames[j]).toString().equals("0.0")){
                             val = "N/A";
                         }else{
                             val = valMap.get(tableColNames[j]).toString();
+                            xComponent=valMap.get(tableColNames[j]).toString(); 
+                            yLabel=Double.parseDouble(valMap.get(tableColNames[1]).toString());
+                            lineName=valMap.get(tableColNames[0]).toString();
+                            if(j==2){
+                               xLabel=xLabel.concat(xComponent);
+                            }
+                            if(j>=3){
+                               xLabel=xLabel.concat("/" + xComponent);
+                            }
                         }
+                        
                         avgTable[i][j] =  val;
                     }
+                    //String xLabel=valMap.get(tableColNames[j]).toString();
+                    //int yLabel=valMap.get(tableColNames[2].parseInt);
+                    averageSet.addValue(yLabel, lineName, xLabel);
                 }
+                
+                
                 avgResultTable.setModel(new javax.swing.table.DefaultTableModel(avgTable, tableColNames));
-
+                JFreeChart lineChart = ChartFactory.createLineChart("Average", "Time", "Temperature", averageSet, PlotOrientation.VERTICAL, true, true, false);
+                File lineChartPic = new File("LineChartAvg.jpeg");
+                try {
+                    ChartUtilities.saveChartAsJPEG(lineChartPic, lineChart, width, height);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 //CALCULATE STANDARD DEVIATION
                 sdResults = SA.calculate("standard");
                 String[][] sdTable = new String[sdResults.size()][tableColNames.length];
@@ -2714,11 +2797,28 @@ public class ContactEditorUI extends javax.swing.JFrame {
                             val = "N/A";
                         }else{
                             val = valMap.get(tableColNames[j]).toString();
+                            xComponent=valMap.get(tableColNames[j]).toString(); 
+                            yLabel=Double.parseDouble(valMap.get(tableColNames[1]).toString());
+                            lineName=valMap.get(tableColNames[0]).toString();
+                            if(j==2){
+                               xLabel=xLabel.concat(xComponent);
+                            }
+                            if(j>=3){
+                               xLabel=xLabel.concat("/" + xComponent);
+                            }
                         }
                         sdTable[i][j] =  val;
                     }
+                    SDSet.addValue(yLabel, lineName, xLabel);
                 }
                 sdResultTable.setModel(new javax.swing.table.DefaultTableModel(sdTable, tableColNames));
+                lineChart = ChartFactory.createLineChart("Standard Deviation", "Time", "Temperature", SDSet, PlotOrientation.VERTICAL, true, true, false);
+                lineChartPic = new File("LineChartSD.jpeg");
+                try {
+                    ChartUtilities.saveChartAsJPEG(lineChartPic, lineChart, width, height);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 
                 //CALCULATE HIGHS/LOWS
                 highResults = SA.calculate("high");
@@ -2900,7 +3000,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_latFieldKeyTyped
 
     private void tabQueryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabQueryMouseClicked
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_tabQueryMouseClicked
 
     private void aggregateBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggregateBoxActionPerformed
@@ -3051,6 +3151,30 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }       
     }//GEN-LAST:event_hiloExportActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+              try {
+                    File PICCY = new File("LineChartAvg.jpeg");
+                    Desktop dt = Desktop.getDesktop();
+                    dt.open(PICCY);
+                    System.out.println("Done.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            try {
+                    File PICCY = new File("LineChartSD.jpeg");
+                    Desktop dt = Desktop.getDesktop();
+                    dt.open(PICCY);
+                    System.out.println("Done.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
@@ -3143,7 +3267,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ContactEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -3190,7 +3313,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JComboBox importLoc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
