@@ -1393,6 +1393,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
         );
 
         jButton3.setText("Graph");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2821,6 +2826,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 //CALCULATE HIGHS/LOWS
                 highResults = SA.calculate("high");
                 lowResults = SA.calculate("low");
+                double yLabel2 = 0;
+                String lineNameHi;
+                String lineNameLo;
                 String[][] hiloTable = new String[avgResults.size()][tableHiloNames.length];
                 //SANITY CHECK
                 //if(highResults.size() == lowResults.size()){
@@ -2845,13 +2853,34 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         if(map.get(colName).toString().equals("0.0")){
                             val = "N/A";
                         }else{
-                            val = map.get(colName).toString();
+                            val = map.get(colName).toString(); 
+                            yLabel=Double.parseDouble(valMap.get(tableColNames[1]).toString());
+                            yLabel2=Double.parseDouble(valMap2.get(tableColNames[1]).toString());
+                            lineName=valMap.get(tableColNames[0]).toString();
+                            if(j==2){
+                            xComponent=valMap.get(tableColNames[j]).toString(); 
+                               xLabel=xLabel.concat(xComponent);
+                            }
+                            if(j>=3 && j < 5){
+                            xComponent=valMap.get(tableColNames[j]).toString(); 
+                               xLabel=xLabel.concat("/" + xComponent);
+                            }
                         }
                         hiloTable[i][j] =  val;
                     }
+                    lineNameHi=lineName.concat("High");
+                    lineNameLo=lineName.concat("Low");
+                    hiLoSet.addValue(yLabel, lineNameHi, xLabel);
+                    hiLoSet.addValue(yLabel2, lineNameLo, xLabel);
                 }
                 hiloResultTable.setModel(new javax.swing.table.DefaultTableModel(hiloTable, tableHiloNames));        
-                
+                lineChart = ChartFactory.createLineChart("High and Lows", "Time", "Temperature", hiLoSet, PlotOrientation.VERTICAL, true, true, false);
+                lineChartPic = new File("LineChartHiLo.jpeg");
+                try {
+                    ChartUtilities.saveChartAsJPEG(lineChartPic, lineChart, width, height);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 
                 //CALCULATE REGRESSION
                 
@@ -3172,6 +3201,17 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 }
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+                    File PICCY = new File("LineChartHiLo.jpeg");
+                    Desktop dt = Desktop.getDesktop();
+                    dt.open(PICCY);
+                    System.out.println("Done.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
