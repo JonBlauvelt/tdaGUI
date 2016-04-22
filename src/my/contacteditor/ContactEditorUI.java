@@ -2663,6 +2663,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 for(int i=0; i < highResults.size(); i++){
                     HashMap<String, Object> valMap = highResults.get(i);
                     HashMap<String, Object> valMap2 = lowResults.get(i);
+                    xLabel="";
                     for(int j=0; j < tableHiloNames.length; j++){
                         String val;
                         HashMap<String, Object> map = valMap;
