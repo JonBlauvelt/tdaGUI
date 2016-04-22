@@ -88,6 +88,11 @@ public class DataParser {
     //make outfile name
     this.outFilename = 
       inFilename.substring(0,filename.lastIndexOf(".")) + "Out.csv";
+    
+    if(this.outFilename.contains("\\"))
+      this.outFilename = this.outFilename.replaceAll("\\","\\\\");
+
+    System.out.println(this.outFilename);
 
     //set loc id
     ArrayList<String> locIdAL = 
