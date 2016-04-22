@@ -7,12 +7,15 @@ package my.contacteditor;
 
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,11 +73,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         frameTDA = new javax.swing.JTabbedPane();
         tabHome = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         tabQuery = new javax.swing.JTabbedPane();
         tabParameterScroll = new javax.swing.JScrollPane();
         tabParameter = new javax.swing.JPanel();
@@ -274,64 +273,43 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         frameTDA.setAutoscrolls(true);
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel20.setOpaque(true);
-        jLabel20.setBackground(Color.decode("#78d3ed"));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Welcome to the Temperature Data Analyzer!");
+        final String PATH = System.getProperty("user.dir") + "/lasallargetext.jpg";
+        System.out.println(PATH);
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel28.setOpaque(true);
-        jLabel28.setBackground(Color.decode("#78d3ed"));
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("March 23, 2016");
+        try{
+            BufferedImage img = ImageIO.read(new File(PATH));
+            ImageIcon icon = new ImageIcon(img);
+            JLabel label = new JLabel(icon);
+            label.setBounds(0, 0, 2048, 1424);
+            jPanel2.add(label);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel29.setOpaque(true);
-        jLabel29.setBackground(Color.decode("#78d3ed"));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Created by: Jon Blauvelt, James Crisp, and Terena Chao");
-
-        jLabel30.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel30.setOpaque(true);
-        jLabel30.setBackground(Color.decode("#78d3ed"));
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText("Java Swing Prototype #1");
-
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel31.setOpaque(true);
-        jLabel31.setBackground(Color.decode("#78d3ed"));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText(" ");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1399, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 612, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout tabHomeLayout = new javax.swing.GroupLayout(tabHome);
         tabHome.setLayout(tabHomeLayout);
         tabHomeLayout.setHorizontalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabHomeLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         tabHomeLayout.setVerticalGroup(
             tabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabHomeLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2498, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         frameTDA.addTab("Home", tabHome);
@@ -3202,18 +3180,13 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel36;
@@ -3261,6 +3234,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
