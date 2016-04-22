@@ -2676,6 +2676,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
                         }
                         //System.out.println("NEW: " + colName);
                         //System.out.println(map.toString());
+                        //System.out.println(colName);
+                        //System.out.println("Table Col Length: " + tableColNames.length);
+                        //System.out.println("Table Hilo Length: " + tableHiloNames.length);
                         if(map.get(colName).toString().equals("0.0")){
                             val = "N/A";
                         }else{
@@ -2683,14 +2686,19 @@ public class ContactEditorUI extends javax.swing.JFrame {
                             yLabel=Double.parseDouble(valMap.get(tableColNames[1]).toString());
                             yLabel2=Double.parseDouble(valMap2.get(tableColNames[1]).toString());
                             lineName=valMap.get(tableColNames[0]).toString();
-                            /*if(j==2){
-                            xComponent=valMap.get(tableColNames[j]).toString(); 
-                               xLabel=xLabel.concat(xComponent);
+                            
+                            if(j==2){
+                                if(!(j > tableColNames.length-1)){
+                                    xComponent=valMap.get(tableColNames[j]).toString(); 
+                                    xLabel=xLabel.concat(xComponent);
+                                }
                             }
                             if(j>=3 && j < 5){
-                            xComponent=valMap.get(tableColNames[j]).toString(); 
-                               xLabel=xLabel.concat("/" + xComponent);
-                            }*/
+                                if(!(j > tableColNames.length-1)){
+                                    xComponent=valMap.get(tableColNames[j]).toString(); 
+                                    xLabel=xLabel.concat("/" + xComponent);
+                                }
+                            }
                         }
                         hiloTable[i][j] =  val;
                     }
@@ -2738,7 +2746,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
                     e.printStackTrace();
                 }*/
             }else{
-                JOptionPane.showMessageDialog(null, "No data found.");
+                JOptionPane.showMessageDialog(null, "Data logger was not use in this timeframe.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a site location.");
