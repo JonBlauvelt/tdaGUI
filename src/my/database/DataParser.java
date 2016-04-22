@@ -89,8 +89,7 @@ public class DataParser {
     this.outFilename = 
       inFilename.substring(0,filename.lastIndexOf(".")) + "Out.csv";
     
-    if(this.outFilename.contains("\\"))
-      this.outFilename = this.outFilename.replaceAll("\\","\\\\");
+    this.outFilename = this.outFilename.replace('\\','/');
 
     System.out.println(this.outFilename);
 
