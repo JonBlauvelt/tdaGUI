@@ -3004,7 +3004,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void aggregateBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aggregateBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aggregateBoxActionPerformed
-
+// This is a comment
     private void rawDataExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rawDataExportActionPerformed
         FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
         JFileChooser efc = new JFileChooser(){
