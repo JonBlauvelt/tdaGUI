@@ -70,18 +70,36 @@ public class RegressionSet{
 
       //add regression data as row of return al
       ArrayList<String> calcRow = new ArrayList<String>();
-      calcRow.add((String)firstRowInSet.get("Site"));
+      calcRow.add((String)firstRowInSet.get("SiteName"));
       for(String datePart : this.getDateParts())
         calcRow.add(firstRowInSet.get(datePart).toString());
-      calcRow.add(new Double(singleReg.getSlope()).toString());
-      calcRow.add(new Double(singleReg.getIntercept()).toString());
-      calcRow.add(new Double(singleReg.getRSquare()).toString());
+      calcRow.add(formatCalc(singleReg.getSlope()));
+      calcRow.add(formatCalc(singleReg.getIntercept()));
+      calcRow.add(formatCalc(singleReg.getRSquare()));
       calcTable.add(calcRow.toArray(new String [calcRow.size()]));
 
 
     }//end while
 
   }//end calc
+
+  //convert double into string with max 6 digits after decimal
+  private static String formatCalc(double calc){
+
+    //Convert to String
+    String strCalc = new Double(calc).toString();
+    
+    //If there are more than 6 digits after decimal...
+    if(strCalc.substring(strCalc.indexOf(".")+1).length() > 6){
+
+      //shorten it
+      strCalc = 
+        strCalc.substring(0,strCalc.indexOf(".") + 7);
+    }
+
+    return strCalc;
+  
+  }
 
 
   //are these datetimes in the same set?
@@ -130,7 +148,7 @@ public class RegressionSet{
     ArrayList<String> cols = new ArrayList<String> ();
 
     //add loc col
-    cols.add("Site");
+    cols.add("Site Name");
 
     //add any applicable date cols 
     for (String datePart : this.getDateParts())
