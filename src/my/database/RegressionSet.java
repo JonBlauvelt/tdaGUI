@@ -49,14 +49,22 @@ public class RegressionSet{
       while(index < data.size() 
           && this.sameSet(firstRowInSet, currRow)){
 
+        //get current row
         currRow = this.data.get(index);
 
-        //get time
-        double hours = (double)getSetHours(firstRowInSet, currRow);
+        //get current temp
+        double temp = 
+          new Double((float)currRow.get("Temp")).doubleValue();
 
-        //add row to regression object
-        singleReg.addData(hours, 
-            new Double((float)currRow.get("Temp")).doubleValue());
+        //Make sure its a real temp
+        if(temp != 0){
+
+          //get hours since first temp in this set
+          double hours = getSetHours(firstRowInSet, currRow);
+
+          //add row to regression object
+          singleReg.addData(hours, temp);
+        }
 
         //increment
         index++;
@@ -84,22 +92,34 @@ public class RegressionSet{
   
 
     //get the Number of hours since epoch for the firstRow
-    long startHours = 
-          new TempTime(
-              (int)firstRow.get("Year"),
-              (int)firstRow.get("Month"),
-              (int)firstRow.get("Day"), 
-              (String)firstRow.get("Hour")).getHours();
+    int firstYear = (int)firstRow.get("Year");
+    int firstMonth = (int)firstRow.get("Month");
+    int firstDay = (int)firstRow.get("Day"); 
+    int firstHour = getIntHours((String)firstRow.get("Hour"));
 
+     long startHours = new TempTime(firstYear, firstMonth, 
+         firstDay, firstHour).getHours();
+          
     //get the Number of hours since epoch for the currRow
+    int currYear = (int)currRow.get("Year");
+    int currMonth = (int)currRow.get("Month");
+    int currDay = (int)currRow.get("Day"); 
+    int currHour = getIntHours((String)currRow.get("Hour"));
     long currHours = 
-          new TempTime(
-              (int)currRow.get("Year"),
-              (int)currRow.get("Month"),
-              (int)currRow.get("Day"), 
-              (String)currRow.get("Hour")).getHours();
+      new TempTime(currYear, currMonth, currDay, currHour).getHours();
+    
+    //return hours since first time in this set 
+    return (double)(currHours - startHours);
+  }
 
-    return currHours - startHours;
+  //converts string hh:00 to int
+  private static int getIntHours(String time){
+
+    String hours = time.substring(0,time.indexOf(":")); 
+
+    return new Integer(hours).intValue();
+  
+  
   }
 
 
@@ -121,40 +141,41 @@ public class RegressionSet{
   
   }
 
-
-  //are these datetimes in the same set?
-  private boolean sameSet(HashMap<String,Object> row, 
-      HashMap<String,Object> otherRow) {
-
-    boolean same = true;
-
-    if(this.agg_lev == "Year")
-      same = (same && (row.get("Year") == otherRow.get("Year")));
-    if(this.agg_lev == "Month")
-      same = (same && (row.get("Month") == otherRow.get("Month")));
-    if(this.agg_lev == "Day")
-      same = (same && (row.get("Day") == otherRow.get("Day")));
-
-    return same;
-  }
-
   //returns an AL of the applicable date part
   private ArrayList<String> getDateParts(){
     
     ArrayList<String> dateParts = new ArrayList<String> (); 
 
     //add date cols (if applicable)
-    if(this.agg_lev != "Default (ALL)")
+    if(!this.agg_lev.equals("Default (ALL)"))
       dateParts.add("Year");
-    if(this.agg_lev == "Month" || this.agg_lev == "Day")
+    if(this.agg_lev.equals("Month") 
+        || this.agg_lev.equals("Day"))
       dateParts.add("Month");
-    if(this.agg_lev == "Day")
+    if(this.agg_lev.equals("Day"))
       dateParts.add("Day");
 
     return dateParts;
   
   } 
 
+  //are these datetimes in the same set?
+  private boolean sameSet(HashMap<String,Object> row, 
+      HashMap<String,Object> otherRow) {
+
+    boolean same = true;
+    
+    //check time
+    for (String part : this.getDateParts())
+      same = same && (row.get(part).equals(otherRow.get(part)));
+
+    //check loc
+    same = 
+      same && row.get("SiteName").equals(otherRow.get("SiteName"));
+    
+    return same;
+  }
+  
   //returns a 2d array to populate jtable using default model
   public String[][] getModel(){
 
@@ -185,7 +206,3 @@ public class RegressionSet{
 
 
 }//end class
-
-
-
-
