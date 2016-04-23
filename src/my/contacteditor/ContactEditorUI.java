@@ -5,7 +5,6 @@
  */
 package my.contacteditor;
 
-import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -30,6 +29,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.ChartUtilities;
+import org.jfree.data.statistics.Regression;
 
 /**
  *
@@ -2046,9 +2046,6 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jLayeredPane1.setLayer(tabImport, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(importConfirmPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -2063,6 +2060,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(importConfirmPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        jLayeredPane1.setLayer(tabImport, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(importConfirmPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         frameTDA.addTab("Import", jLayeredPane1);
 
@@ -2696,6 +2695,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 }
                 
                 //CALCULATE REGRESSION
+                RegressionSet reg = new RegressionSet(queryResults, (String)aggregateBox.getSelectedItem());
+                regResultTable.setModel(
+                        new javax.swing.table.DefaultTableModel(reg.getModel(),reg.getCols())
+                );
                 
                 //END CALCULATIONS
                 
