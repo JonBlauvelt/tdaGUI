@@ -30,7 +30,7 @@ public class RegressionSet{
 
     //initialize row index
     int index = 0;
-    
+
     //initialize 
     HashMap<String,Object> firstRowInSet;
     HashMap<String,Object> currRow;
@@ -52,12 +52,7 @@ public class RegressionSet{
         currRow = this.data.get(index);
 
         //get time
-        double hours = 
-          (double) new TempTime(
-              (int)currRow.get("Year"),
-              (int)currRow.get("Month"),
-              (int)currRow.get("Day"), 
-              (String)currRow.get("Hour")).getHours();
+        double hours = (double)getSetHours(firstRowInSet, currRow);
 
         //add row to regression object
         singleReg.addData(hours, 
@@ -82,6 +77,31 @@ public class RegressionSet{
     }//end while
 
   }//end calc
+
+  //takes row and returns hours since temp epoch
+  private static double getSetHours(HashMap<String,Object> firstRow, 
+      HashMap<String,Object> currRow){
+  
+
+    //get the Number of hours since epoch for the firstRow
+    long startHours = 
+          new TempTime(
+              (int)firstRow.get("Year"),
+              (int)firstRow.get("Month"),
+              (int)firstRow.get("Day"), 
+              (String)firstRow.get("Hour")).getHours();
+
+    //get the Number of hours since epoch for the currRow
+    long currHours = 
+          new TempTime(
+              (int)currRow.get("Year"),
+              (int)currRow.get("Month"),
+              (int)currRow.get("Day"), 
+              (String)currRow.get("Hour")).getHours();
+
+    return currHours - startHours;
+  }
+
 
   //convert double into string with max 6 digits after decimal
   private static String formatCalc(double calc){
