@@ -2794,6 +2794,29 @@ public class ContactEditorUI extends javax.swing.JFrame {
         locList.add(0, " ");
         String[] opArry = new String[locList.size()];
         importLoc.setModel(new javax.swing.DefaultComboBoxModel(locList.toArray(opArry)));
+        checkBox.clear();
+        jPanel16.removeAll();
+        jPanel16.validate();
+        ArrayList<String> siteCodes = new MenuPopulator("sites").populate();
+        siteCodes.add("ALL");
+        String[] siteStrs = {};
+        siteStrs = siteCodes.toArray(siteStrs);
+        for(int i=0; i < siteStrs.length; i++){
+            JCheckBox siteBox = new JCheckBox();
+            siteBox.setText(siteStrs[i]);
+            // System.out.println(siteStrs[i]);
+            checkBox.add(siteBox);
+            siteBox.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    checkBoxesSelected(evt);
+                }
+            });
+            jPanel16.add(checkBox.get(i));
+        }
+        //jPanel16.repaint();
+        jPanel16.validate();
+        jScrollPane7.setViewportView(jPanel16);
+        //JOptionPane.showMessageDialog(null, "CHECKBOXES UPDATED");
     }
     private void fromYearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromYearBoxActionPerformed
         // TODO add your handling code here:
@@ -3108,6 +3131,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
+        //JOptionPane.showMessageDialog(null, "You selected a checkbox woo!");
         int indexAll = checkBox.size() - 1;
         if (checkBox.get(indexAll).isSelected()) {
             //System.out.println("THIS IS ALL");
@@ -3131,6 +3155,14 @@ public class ContactEditorUI extends javax.swing.JFrame {
          System.out.println("Checkbox Size: " + checkBox.size());
          System.out.println("Checkboxes Selected: " + checkBoxVals.size());*/
     }
+        /*for(int i=0; i < checkBox.size(); i++){
+         if(checkBox.get(i).isSelected()){
+         siteObjs = checkBox.get(i).getSelectedObjects();
+         checkBoxVals.add("'"+ siteObjs[0] + "'");
+         }
+         }
+         System.out.println("Checkbox Size: " + checkBox.size());
+         System.out.println("Checkboxes Selected: " + checkBoxVals.size());*/
     }
     private void resetHeadDates(){
 //DATE HEADER SETUP
