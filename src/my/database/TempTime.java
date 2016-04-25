@@ -15,15 +15,32 @@ public class TempTime{
   private long hours;
 
 
-  public TempTime(int year, int month, int day, int hours){
+  public TempTime(int year, int month, int day, int hour){
 
     GregorianCalendar cal = 
       new GregorianCalendar(month-1, day, 
-          year, hours, 0, 0);
+          year, hour, 0, 0);
     this.hours = (cal.getTimeInMillis() 
         - MILLIS_SINCE_EPOCH)/MILLIS_PER_HOUR;
   }
-  
+
+  public TempTime(String year, String month, String day, String hour){
+
+    this(new Integer(year).intValue(),new Integer(month).intValue(),new Integer(day).intValue(),new Integer(hour).intValue());
+  }
+
+//public TempTime(String year, String month, String day){
+//  this(year,month,day, "0");
+//}
+//
+//public TempTime(String year, String month){
+//  this(year,month,"0", "0");
+//}
+//
+//public TempTime(String year){
+//  this(year,"0","0", "0");
+//}
+//
     //hours accessor
   public long getHours(){return this.hours;}
 

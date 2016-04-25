@@ -219,6 +219,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
         regMonths = new javax.swing.JLabel();
         regDays = new javax.swing.JLabel();
         regHours = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        regExport = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         tabImport = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -1679,16 +1681,50 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        rawDataExport.setVisible(false);
+        regExport.setText("Export...");
+        regExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regExportActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(regExport)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 39, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(regExport)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6))
-                .addContainerGap(749, Short.MAX_VALUE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(608, 608, 608)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(762, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1696,8 +1732,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2390, 2390, 2390))
         );
 
         tabRegression.setViewportView(jPanel11);
@@ -2696,8 +2734,10 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 
                 //CALCULATE REGRESSION
                 RegressionSet reg = new RegressionSet(queryResults, (String)aggregateBox.getSelectedItem());
+                regressionResults = reg.getModel();
+                regressionCols = reg.getCols();
                 regResultTable.setModel(
-                        new javax.swing.table.DefaultTableModel(reg.getModel(),reg.getCols())
+                        new javax.swing.table.DefaultTableModel(regressionResults,regressionCols)
                 );
                 
                 //END CALCULATIONS
@@ -3029,6 +3069,42 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void regExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regExportActionPerformed
+        FileNameExtensionFilter csvFilter = new FileNameExtensionFilter(".csv", "csv");
+        JFileChooser efc = new JFileChooser(){
+
+            @Override
+            public void approveSelection(){
+                File f = getSelectedFile();
+                if(f.exists() && getDialogType() == SAVE_DIALOG){
+                    int result = JOptionPane.showConfirmDialog(this,"The file already exists, do you want to overwrite it?","Existing file",JOptionPane.YES_NO_CANCEL_OPTION);
+                    switch(result){
+                        case JOptionPane.YES_OPTION:
+                            super.approveSelection();
+                            return;
+                        case JOptionPane.NO_OPTION:
+                            return;
+                        case JOptionPane.CLOSED_OPTION:
+                            return;
+                        case JOptionPane.CANCEL_OPTION:
+                            cancelSelection();
+                            return;
+                    }
+                }
+                super.approveSelection();
+            }        
+        };
+              
+        efc.setFileFilter(csvFilter);
+        efc.setSelectedFile(new File("regression.csv"));
+        efc.showSaveDialog(null);
+        File file = efc.getSelectedFile();
+        if (file != null) {
+            String filename = file.getAbsolutePath();
+            new ExportRegression(regressionResults, regressionCols,filename).write();
+        }
+    }//GEN-LAST:event_regExportActionPerformed
+
     private void checkBoxesSelected(java.awt.event.MouseEvent evt) {
         //checkBoxVals.clear();
         //Object[] siteObjs = {};
@@ -3242,6 +3318,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JProgressBar jProgressBar1;
@@ -3282,6 +3359,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JPanel rawPanel1;
     private javax.swing.JTable rawTable;
     private javax.swing.JLabel regDays;
+    private javax.swing.JButton regExport;
     private javax.swing.JLabel regHours;
     private javax.swing.JLabel regMonths;
     private javax.swing.JLabel regPreset;
@@ -3325,6 +3403,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
     ArrayList<HashMap<String, Object>> sdResults = new ArrayList<HashMap<String, Object>> (); 
     ArrayList<HashMap<String, Object>> highResults = new ArrayList<HashMap<String, Object>> (); 
     ArrayList<HashMap<String, Object>> lowResults = new ArrayList<HashMap<String, Object>> (); 
-        
+    String [] [] regressionResults;
+    String [] regressionCols;
    //private ArrayList<Object> siteCheckBoxValues = new ArrayList<Object>();
 }
