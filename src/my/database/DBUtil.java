@@ -12,7 +12,7 @@ public class DBUtil{
   private static String PASSWORD = "La$a1mtns!!";
   private static String DRIVER = "com.mysql.jdbc.Driver";
   private static String DATABASE = "tda";
-  private static String URL = "jdbc:mysql://mysql443-1814605848.us-west-2.elb.amazonaws.com:443/" + DATABASE;
+  private static String URL = "jdbc:mysql://ec2-52-37-36-222.us-west-2.compute.amazonaws.com:3306/" + DATABASE;
 
 
   //member vars

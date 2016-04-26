@@ -36,7 +36,8 @@ public class QueryRawData {
     this.strQuery = this.selectStatementPt1 + this.selectStatementPt2;
   }
   public void connectToDB(){
-    String url = "jdbc:mysql://mysql443-1814605848.us-west-2.elb.amazonaws.com:443/" + DATABASE;
+    String url = "jdbc:mysql://ec2-52-37-36-222.us-west-2.compute.amazonaws.com:3306/" + DATABASE;
+
     String user = "tda_usr";
     String password = "La$a1mtns!!";
     // Load the Connector/J driver
