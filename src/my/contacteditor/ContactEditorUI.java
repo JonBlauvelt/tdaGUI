@@ -275,16 +275,16 @@ public class ContactEditorUI extends javax.swing.JFrame {
 
         frameTDA.setAutoscrolls(true);
 
-        final String PATH = System.getProperty("user.dir") + "/lasallargetext.jpg";
-        System.out.println(PATH);
+        //final String PATH = System.getProperty("user.dir") + "/lasallargetext.jpg";
+        //System.out.println(PATH);
 
         try{
-            BufferedImage img = ImageIO.read(new File(PATH));
-            ImageIcon icon = new ImageIcon(img);
+            //BufferedImage img = ImageIO.read(new File(PATH));
+            ImageIcon icon = new ImageIcon(ContactEditorUI.class.getResource("lasallargetext.jpg"));
             JLabel label = new JLabel(icon);
             label.setBounds(0, 0, 2048, 1424);
             jPanel2.add(label);
-        }catch(IOException e){
+        }catch(Exception e){
             e.printStackTrace();
         }
 
