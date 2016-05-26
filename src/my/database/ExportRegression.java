@@ -158,6 +158,9 @@ public class ExportRegression{
         row[row.length-3] + "," + row[row.length-2] 
         + "," + row[row.length-1] + ",";
 
+      //replace any NaNs
+      outLine.replace("N/A", "");
+
       //increment the current indices
       this.indices.set(i, this.indices.get(i) +1);
 

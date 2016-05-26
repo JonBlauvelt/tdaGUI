@@ -44,7 +44,7 @@ public class RegressionSet{
       //remember the first row and get curr row
       firstRowInSet = this.data.get(index);
       currRow = this.data.get(index);
-        
+
       //loop until end of set
       while(index < data.size() 
           && this.sameSet(firstRowInSet, currRow)){
@@ -69,7 +69,7 @@ public class RegressionSet{
         //increment
         index++;
 
-      }
+          }
 
       //add regression data as row of return al
       ArrayList<String> calcRow = new ArrayList<String>();
@@ -89,7 +89,7 @@ public class RegressionSet{
   //takes row and returns hours since temp epoch
   private static double getSetHours(HashMap<String,Object> firstRow, 
       HashMap<String,Object> currRow){
-  
+
 
     //get the Number of hours since epoch for the firstRow
     int firstYear = (int)firstRow.get("Year");
@@ -97,9 +97,9 @@ public class RegressionSet{
     int firstDay = (int)firstRow.get("Day"); 
     int firstHour = getIntHours((String)firstRow.get("Hour"));
 
-     long startHours = new TempTime(firstYear, firstMonth, 
-         firstDay, firstHour).getHours();
-          
+    long startHours = new TempTime(firstYear, firstMonth, 
+        firstDay, firstHour).getHours();
+
     //get the Number of hours since epoch for the currRow
     int currYear = (int)currRow.get("Year");
     int currMonth = (int)currRow.get("Month");
@@ -107,7 +107,7 @@ public class RegressionSet{
     int currHour = getIntHours((String)currRow.get("Hour"));
     long currHours = 
       new TempTime(currYear, currMonth, currDay, currHour).getHours();
-    
+
     //return hours since first time in this set 
     return (double)(currHours - startHours);
   }
@@ -118,32 +118,37 @@ public class RegressionSet{
     String hours = time.substring(0,time.indexOf(":")); 
 
     return new Integer(hours).intValue();
-  
-  
+
+
   }
 
 
   //convert double into string with max 6 digits after decimal
   private static String formatCalc(double calc){
 
-    //Convert to String
-    String strCalc = new Double(calc).toString();
-    
-    //If there are more than 6 digits after decimal...
-    if(strCalc.substring(strCalc.indexOf(".")+1).length() > 6){
+    String strCalc = "N/A";
 
-      //shorten it
-      strCalc = 
-        strCalc.substring(0,strCalc.indexOf(".") + 7);
+    //check for nan
+    if (!Double.isNaN(calc)){
+
+      //Convert to String
+      strCalc = new Double(calc).toString();
+
+      //If there are more than 6 digits after decimal...
+      if(strCalc.substring(strCalc.indexOf(".")+1).length() > 6){
+
+        //shorten it
+        strCalc = 
+          strCalc.substring(0,strCalc.indexOf(".") + 7);
+      }
     }
-
     return strCalc;
-  
+
   }
 
   //returns an AL of the applicable date part
   private ArrayList<String> getDateParts(){
-    
+
     ArrayList<String> dateParts = new ArrayList<String> (); 
 
     //add date cols (if applicable)
@@ -156,7 +161,7 @@ public class RegressionSet{
       dateParts.add("Day");
 
     return dateParts;
-  
+
   } 
 
   //are these datetimes in the same set?
@@ -164,7 +169,7 @@ public class RegressionSet{
       HashMap<String,Object> otherRow) {
 
     boolean same = true;
-    
+
     //check time
     for (String part : this.getDateParts())
       same = same && (row.get(part).equals(otherRow.get(part)));
@@ -172,10 +177,10 @@ public class RegressionSet{
     //check loc
     same = 
       same && row.get("SiteName").equals(otherRow.get("SiteName"));
-    
+
     return same;
   }
-  
+
   //returns a 2d array to populate jtable using default model
   public String[][] getModel(){
 
@@ -185,7 +190,7 @@ public class RegressionSet{
 
   //returns array of column names (to pass to jTable.setModel)
   public String [] getCols(){
-    
+
     ArrayList<String> cols = new ArrayList<String> ();
 
     //add loc col

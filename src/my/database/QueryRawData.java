@@ -13,7 +13,7 @@ import java.util.Date;
  * @author chao
  */
 public class QueryRawData {
-  final static String DATABASE = "tda_production"; 
+  final static String DATABASE = "tda"; 
   private Connection conn;
   String selectStatementPt1;
   String selectStatementPt2;
@@ -38,8 +38,8 @@ public class QueryRawData {
   public void connectToDB(){
     String url = "jdbc:mysql://ec2-52-37-36-222.us-west-2.compute.amazonaws.com:3306/" + DATABASE;
 
-    String user = "nicholas";
-    String password = "@20deGs3Ls.Eus!!";
+    String user = "tda_usr";
+    String password = "La$a1mtns!!";
     // Load the Connector/J driver
     try {
       Class.forName("com.mysql.jdbc.Driver").newInstance();

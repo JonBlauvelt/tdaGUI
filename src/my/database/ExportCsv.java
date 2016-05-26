@@ -143,16 +143,23 @@ public class ExportCsv{
           
           String temp = data.get(indices.get(i)).get("Temp").toString();
 
-          //get low if applicable
-          if(this.header.contains("High/Low"))
-            temp += "," + lowData.get(indices.get(i)).get("Temp").toString();
+          //check for null
+          if (temp.equals("0.0") || temp.equals("0"))
+            temp = "N/A";
 
+          //get low if applicable
+          if (this.header.contains("High/Low")){
+            String low = "," + lowData.get(indices.get(i)).get("Temp").toString();
+
+            //check for null low
+            if (low.equals(",0.0"))
+                low = ",N/A";
+
+            temp += low;
+          }
+         
           //increment index
           indices.set(i,indices.get(i) + 1);
-
-          //check for null
-          if(temp == null || temp.equals("N/A"))
-            temp = "";
 
           //add to output line
           outLine = outLine + "," +  temp;

@@ -8,10 +8,10 @@ public class DBUtil{
 
   //static vars for class.
   //should be moved to .config later
-  private static String USER = "nicholas";
-  private static String PASSWORD = "@20deGs3Ls.Eus!!";
+  private static String USER = "tda_usr";
+  private static String PASSWORD = "La$a1mtns!!";
   private static String DRIVER = "com.mysql.jdbc.Driver";
-  private static String DATABASE = "tda_production";
+  private static String DATABASE = "tda";
   private static String URL = "jdbc:mysql://ec2-52-37-36-222.us-west-2.compute.amazonaws.com:3306/" + DATABASE;
 
 
